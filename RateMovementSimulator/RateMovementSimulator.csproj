@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationArgs.cs" />
+    <Compile Include="ApplicationArgsParser.cs" />
     <Compile Include="ApplicationCloser.cs" />
     <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Program.cs" />

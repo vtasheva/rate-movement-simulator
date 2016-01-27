@@ -9,29 +9,19 @@ namespace RateMovementSimulator
 {
     class Program
     {
-        private static int _stepInMilliseconds;
-        private static RateGenerator _rateGenerator;
-
         static void Main(string[] args)
         {
-            var arguments = args.Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);
-
-            var waveType = arguments[ParameterName.WaveType];
-            var initialRate = decimal.Parse(arguments[ParameterName.InitialRate]);
-            var amplitude = decimal.Parse(arguments[ParameterName.Amplitude]);
-            var periodInMilliseconds = int.Parse(arguments[ParameterName.Period]);
+            var applicationArgsParser = new ApplicationArgsParser();
+            var arguments = applicationArgsParser.GetApplicationArgs(args);
 
             var waveFuncFactory = new WaveFuncFactory();
-            var waveFunc = waveFuncFactory.GetWaveFunc(waveType, initialRate, amplitude, periodInMilliseconds);
+            var waveFunc = waveFuncFactory.GetWaveFunc(arguments.WaveType, arguments.InitialRate, arguments.Amplitude, arguments.PeriodInMilliseconds);
 
-            _stepInMilliseconds = int.Parse(arguments[ParameterName.Step]);
-            var timeToRunInMinutes = int.Parse(arguments[ParameterName.Time]);
+            var rateGenerator = new RateGenerator(waveFunc, arguments.StepInMilliseconds);
+            rateGenerator.OnTick += ShowRate;
+            rateGenerator.Start();
 
-            _rateGenerator = new RateGenerator(waveFunc, _stepInMilliseconds);
-            _rateGenerator.OnTick += ShowRate;
-            _rateGenerator.Start();
-
-            var applicationCloser = new ApplicationCloser(timeToRunInMinutes);
+            var applicationCloser = new ApplicationCloser(arguments.TimeToRunInMinutes);
             applicationCloser.Activate();
 
             Console.ReadLine();
