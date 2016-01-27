@@ -1,13 +1,13 @@
-﻿using Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Interfaces;
+﻿using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Waves
+namespace Internovus.Wpf.Training.RateFeed.Waves
 {
-    class RandomWave : IWave
+    public class RandomWave : IWave
     {
         private static Random random = new Random();
 
@@ -18,13 +18,11 @@ namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Wa
 
         public decimal InitialRate { get; set; }
 
-        public int Step { get; set; }
-
-        public int Period { get; set; }
+        public int PeriodInMilliseconds { get; set; }
 
         public decimal Amplitude { get; set; }
-      
-        public decimal GetValue(int x)
+
+        public decimal GetValue(double x)
         {
             return _MinValue + (Convert.ToDecimal(random.NextDouble()) * (_MaxValue - _MinValue));
         }

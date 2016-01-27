@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5ACF464C-DD21-4200-B6DC-1A62E86A9D0B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{EA54E35E-C699-448A-82B6-2EE19B002446}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Internovus.Wpf.Training.RateMovementSimulator</RootNamespace>
-    <AssemblyName>RateMovementSimulator</AssemblyName>
+    <RootNamespace>Internovus.Wpf.Training.RateFeed</RootNamespace>
+    <AssemblyName>RateFeed</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,19 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\ParameterName.cs" />
-    <Compile Include="Constants\WaveName.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Interfaces\IWave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RateFeed\RateFeed.csproj">
-      <Project>{ea54e35e-c699-448a-82b6-2ee19b002446}</Project>
-      <Name>RateFeed</Name>
-    </ProjectReference>
+    <Compile Include="RateGenerator.cs" />
+    <Compile Include="Waves\BlockWave.cs" />
+    <Compile Include="Waves\DoubleTriangleWave.cs" />
+    <Compile Include="Waves\RandomWave.cs" />
+    <Compile Include="Waves\SineWave.cs" />
+    <Compile Include="Waves\TriangleWave.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

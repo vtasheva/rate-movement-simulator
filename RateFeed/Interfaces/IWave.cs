@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Interfaces
+namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
     public interface IWave
     {
         decimal InitialRate { get; set; }
 
-        int Step { get; set; }
-
-        int Period { get; set; }
+        int PeriodInMilliseconds { get; set; }
 
         decimal Amplitude { get; set; }
         
-        decimal GetValue(int x);
+        decimal GetValue(double x);
     }
 }

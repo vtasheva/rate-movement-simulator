@@ -1,6 +1,6 @@
-﻿using Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Constants;
-using Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Interfaces;
-using Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Waves;
+﻿using Internovus.Wpf.Training.RateMovementSimulator.Constants;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
+using Internovus.Wpf.Training.RateFeed.Waves;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +8,18 @@ using Timers = System.Timers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using Internovus.Wpf.Training.RateFeed;
 
 namespace RateMovementSimulator
 {
     class Program
     {
-        private static int _Step = 0;
+        private static int _stepInMilliseconds;
+        private static RateGenerator _rateGenerator;
 
         static void Main(string[] args)
         {
-            var arguments = args.Select(s => s.Split(new[] { '=' })).ToDictionary(s => s[0], s => s[1]);
+            var arguments = args.Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);
 
             IWave wave = null;
 
@@ -41,32 +43,32 @@ namespace RateMovementSimulator
             }
 
             wave.InitialRate = decimal.Parse(arguments[ParameterName.InitialRate]);
-            wave.Step = Int32.Parse(arguments[ParameterName.Step]);
-            wave.Period = Int32.Parse(arguments[ParameterName.Period]);
+            wave.PeriodInMilliseconds = Int32.Parse(arguments[ParameterName.Period]);
             wave.Amplitude = decimal.Parse(arguments[ParameterName.Amplitude]);
 
 
-            _Step = Int32.Parse(arguments[ParameterName.Step]);
-            var time = Int32.Parse(arguments[ParameterName.Time]);
+            _stepInMilliseconds = Int32.Parse(arguments[ParameterName.Step]);
+            var timeToRunInMinutes = Int32.Parse(arguments[ParameterName.Time]);
 
-            var timer = new Timers.Timer(time * 60000);
+            var timer = new Timers.Timer(timeToRunInMinutes * 60000);
             timer.Elapsed += CloseApplication;
             timer.Start();
 
-            var tickTimer = new Timer(ShowRate, wave, 0, _Step);
+            _rateGenerator = new RateGenerator(wave, _stepInMilliseconds);
+            _rateGenerator.OnTick += ShowRate;
+            _rateGenerator.Start();
+
+            Console.ReadLine();
         }
 
-        private static void ShowRate(object state)
+        private static void ShowRate(object sender, decimal rate)
         {
-            IWave wave = (IWave)state;
-
-            wave.Step += _Step;
-            Console.WriteLine(wave.GetValue(wave.Step));
-
+            Console.WriteLine(rate);
         }
 
         private static void CloseApplication(object sender, System.Timers.ElapsedEventArgs e)
         {
+            _rateGenerator.Stop();
             Environment.Exit(0);
         }
     }
