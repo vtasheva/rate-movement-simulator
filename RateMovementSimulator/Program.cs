@@ -1,14 +1,9 @@
-﻿using Internovus.Wpf.Training.RateMovementSimulator.Constants;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.RateFeed.Waves;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using Timers = System.Timers;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 using Internovus.Wpf.Training.RateFeed;
+using Internovus.Wpf.Training.RateFeed.Waves;
+using Internovus.Wpf.Training.RateMovementSimulator;
+using Internovus.Wpf.Training.RateMovementSimulator.Constants;
 
 namespace RateMovementSimulator
 {
@@ -21,42 +16,23 @@ namespace RateMovementSimulator
         {
             var arguments = args.Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);
 
-            IWave wave = null;
+            var waveType = arguments[ParameterName.WaveType];
+            var initialRate = decimal.Parse(arguments[ParameterName.InitialRate]);
+            var amplitude = decimal.Parse(arguments[ParameterName.Amplitude]);
+            var periodInMilliseconds = int.Parse(arguments[ParameterName.Period]);
 
-            switch (arguments[ParameterName.WaveType].ToLower())
-            { 
-                case WaveName.Sine:
-                    wave = new SineWave();
-                    break;
-                case WaveName.Triangle:
-                    wave = new TriangleWave();
-                    break;
-                case WaveName.Block:
-                    wave = new BlockWave();
-                    break;
-                case WaveName.DoubleTriangle:
-                    wave = new DoubleTriangleWave();
-                    break;
-                default:
-                    wave = new RandomWave();
-                    break;
-            }
+            var waveFuncFactory = new WaveFuncFactory();
+            var waveFunc = waveFuncFactory.GetWaveFunc(waveType, initialRate, amplitude, periodInMilliseconds);
 
-            wave.InitialRate = decimal.Parse(arguments[ParameterName.InitialRate]);
-            wave.PeriodInMilliseconds = Int32.Parse(arguments[ParameterName.Period]);
-            wave.Amplitude = decimal.Parse(arguments[ParameterName.Amplitude]);
+            _stepInMilliseconds = int.Parse(arguments[ParameterName.Step]);
+            var timeToRunInMinutes = int.Parse(arguments[ParameterName.Time]);
 
-
-            _stepInMilliseconds = Int32.Parse(arguments[ParameterName.Step]);
-            var timeToRunInMinutes = Int32.Parse(arguments[ParameterName.Time]);
-
-            var timer = new Timers.Timer(timeToRunInMinutes * 60000);
-            timer.Elapsed += CloseApplication;
-            timer.Start();
-
-            _rateGenerator = new RateGenerator(wave, _stepInMilliseconds);
+            _rateGenerator = new RateGenerator(waveFunc, _stepInMilliseconds);
             _rateGenerator.OnTick += ShowRate;
             _rateGenerator.Start();
+
+            var applicationCloser = new ApplicationCloser(timeToRunInMinutes);
+            applicationCloser.Activate();
 
             Console.ReadLine();
         }
@@ -64,12 +40,6 @@ namespace RateMovementSimulator
         private static void ShowRate(object sender, decimal rate)
         {
             Console.WriteLine(rate);
-        }
-
-        private static void CloseApplication(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            _rateGenerator.Stop();
-            Environment.Exit(0);
         }
     }
 }

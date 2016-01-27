@@ -39,15 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IWave.cs" />
+    <Compile Include="Constants\WaveName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RateGenerator.cs" />
-    <Compile Include="Waves\BlockWave.cs" />
-    <Compile Include="Waves\DoubleTriangleWave.cs" />
-    <Compile Include="Waves\RandomWave.cs" />
-    <Compile Include="Waves\SineWave.cs" />
-    <Compile Include="Waves\TriangleWave.cs" />
+    <Compile Include="WaveFuncFactory.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

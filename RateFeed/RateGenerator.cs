@@ -1,9 +1,4 @@
-﻿using Internovus.Wpf.Training.RateFeed.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed
@@ -12,11 +7,11 @@ namespace Internovus.Wpf.Training.RateFeed
     
     public class RateGenerator
     {
-        private readonly IWave _waveFunction;
+        private readonly Func<double, decimal> _waveFunction;
         private readonly Timer _tickTimer;
         private double _elapsedTimeInMilliseconds;
 
-        public RateGenerator(IWave waveFunction, double tickIntervalInMilliseconds)
+        public RateGenerator(Func<double, decimal> waveFunction, double tickIntervalInMilliseconds)
         {
             _waveFunction = waveFunction;
             _tickTimer = new Timer(tickIntervalInMilliseconds);
@@ -39,7 +34,7 @@ namespace Internovus.Wpf.Training.RateFeed
 
             if (OnTick != null)
             {
-                OnTick(this, _waveFunction.GetValue(_elapsedTimeInMilliseconds));
+                OnTick(this, _waveFunction(_elapsedTimeInMilliseconds));
             }
         }
 

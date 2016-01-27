@@ -16,3 +16,4 @@ Release
 /RateMovementSimulator/*.user
 /*.suo
 *.suo
+/RateFeed/*.user
