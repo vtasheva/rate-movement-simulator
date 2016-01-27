@@ -8,10 +8,10 @@ namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Co
 {
     static class WaveName
     {
-        public const string Sine = "Sine";
-        public const string Triangle = "Triangle";
-        public const string Block = "Block";
-        public const string DoubleTriangle = "DoubleTriangle";
-        public const string Random = "Random";
+        public const string Sine = "sine";
+        public const string Triangle = "triangle";
+        public const string Block = "block";
+        public const string DoubleTriangle = "doubleTriangle";
+        public const string Random = "random";
     }
 }

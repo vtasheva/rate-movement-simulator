@@ -15,7 +15,7 @@ namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.In
         int Period { get; set; }
 
         decimal Amplitude { get; set; }
-
-        int Time { get; set; }
+        
+        decimal GetValue(int x);
     }
 }

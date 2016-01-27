@@ -9,64 +9,17 @@ namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Wa
 {
     class TriangleWave : IWave
     {
-        public decimal InitialRate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public decimal InitialRate { get; set; }
 
-        public int Step
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Step { get; set; }
 
-        public int Period
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Period { get; set; }
 
-        public decimal Amplitude
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public decimal Amplitude { get; set; }
 
-        public int Time
+        public decimal GetValue(int x)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            return InitialRate + 2 * Amplitude / Convert.ToDecimal(Math.PI * Math.Asin(Math.Sin(2 * Math.PI * x / Period)));
         }
     }
 }

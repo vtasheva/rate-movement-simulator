@@ -9,64 +9,24 @@ namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator.Wa
 {
     class RandomWave : IWave
     {
-        public decimal InitialRate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        private static Random random = new Random();
 
-        public int Step
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        private decimal _MinValue { get { return InitialRate - Amplitude; } }
 
-        public int Period
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        private decimal _MaxValue { get { return InitialRate + Amplitude; } }
 
-        public decimal Amplitude
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
 
-        public int Time
+        public decimal InitialRate { get; set; }
+
+        public int Step { get; set; }
+
+        public int Period { get; set; }
+
+        public decimal Amplitude { get; set; }
+      
+        public decimal GetValue(int x)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            return _MinValue + (Convert.ToDecimal(random.NextDouble()) * (_MaxValue - _MinValue));
         }
     }
 }
