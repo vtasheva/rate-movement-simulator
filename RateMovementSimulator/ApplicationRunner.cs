@@ -10,7 +10,7 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
     /// </summary>
     public class ApplicationRunner
     {
-        private IEnumerable<string> _args;
+        private readonly IEnumerable<string> _args;
 
         public ApplicationRunner(IEnumerable<string> args)
         {
