@@ -3,13 +3,14 @@ using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed
 {
-    public delegate void OnTickEventHandler(object sender, decimal rate);
     
     public class RateGenerator
     {
         private readonly Func<double, decimal> _waveFunction;
         private readonly Timer _tickTimer;
         private double _elapsedTimeInMilliseconds;
+
+        public delegate void OnTickEventHandler(object sender, decimal rate);
 
         public RateGenerator(Func<double, decimal> waveFunction, double tickIntervalInMilliseconds)
         {
@@ -28,7 +29,7 @@ namespace Internovus.Wpf.Training.RateFeed
             _tickTimer.Stop();
         }
 
-        void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
+        private void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             _elapsedTimeInMilliseconds += _tickTimer.Interval;
 

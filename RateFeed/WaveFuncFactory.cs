@@ -19,7 +19,7 @@ namespace Internovus.Wpf.Training.RateFeed.Waves
                 case WaveName.Block:
                     return (double x) => initialRate + amplitude * Convert.ToDecimal(Abs(Sin(2 * PI * x / periodInMilliseconds)) / Sin(2 * PI * x / periodInMilliseconds));
                 case WaveName.DoubleTriangle:
-                    return (double x) => initialRate + (2 * amplitude / Convert.ToDecimal(PI)) / Convert.ToDecimal(Asin(Sin(4 * PI * x / periodInMilliseconds)) * Sign(Cos(2 * PI * x / periodInMilliseconds)));
+                    return (double x) => initialRate + (2 * amplitude / Convert.ToDecimal(PI)) * Convert.ToDecimal(Asin(Sin(4 * PI * x / periodInMilliseconds)) * Sign(Cos(2 * PI * x / periodInMilliseconds)));
                 case WaveName.Random:
                     return (double x) => initialRate - amplitude + (Convert.ToDecimal(_random.NextDouble()) * 2 * amplitude);
                 default:

@@ -5,7 +5,7 @@
         public const string Sine = "sine";
         public const string Triangle = "triangle";
         public const string Block = "block";
-        public const string DoubleTriangle = "doubleTriangle";
+        public const string DoubleTriangle = "doubletriangle";
         public const string Random = "random";
     }
 }
