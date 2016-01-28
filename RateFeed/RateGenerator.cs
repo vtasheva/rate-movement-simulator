@@ -3,15 +3,28 @@ using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed
 {
-    
+
+    /// <summary>
+    /// Class RateGenerator.
+    /// </summary>
     public class RateGenerator
     {
         private readonly Func<double, decimal> _waveFunction;
         private readonly Timer _tickTimer;
         private double _elapsedTimeInMilliseconds;
 
+        /// <summary>
+        /// Delegate OnTickEventHandler
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="rate">The rate.</param>
         public delegate void OnTickEventHandler(object sender, decimal rate);
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RateGenerator"/> class.
+        /// </summary>
+        /// <param name="waveFunction">The wave function.</param>
+        /// <param name="tickIntervalInMilliseconds">The tick interval in milliseconds.</param>
         public RateGenerator(Func<double, decimal> waveFunction, double tickIntervalInMilliseconds)
         {
             _waveFunction = waveFunction;
@@ -19,15 +32,26 @@ namespace Internovus.Wpf.Training.RateFeed
             _tickTimer.Elapsed += TickTimer_Elapsed;
         }
 
+        /// <summary>
+        /// Starts the wave generator.
+        /// </summary>
         public void Start()
         {
             _tickTimer.Start();
         }
 
+        /// <summary>
+        /// Stops the wave generator.
+        /// </summary>
         public void Stop()
         {
             _tickTimer.Stop();
         }
+
+        /// <summary>
+        /// Occurs when the time specified elapses.
+        /// </summary>
+        public event OnTickEventHandler OnTick;
 
         private void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -38,7 +62,5 @@ namespace Internovus.Wpf.Training.RateFeed
                 OnTick(this, _waveFunction(_elapsedTimeInMilliseconds));
             }
         }
-
-        public event OnTickEventHandler OnTick;
     }
 }

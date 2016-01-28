@@ -4,10 +4,22 @@ using static System.Math;
 
 namespace Internovus.Wpf.Training.RateFeed.Waves
 {
+    /// <summary>
+    /// Class WaveFuncFactory.
+    /// </summary>
     public class WaveFuncFactory
     {
         private readonly Random _random = new Random();
 
+        /// <summary>
+        /// Gets the wave function.
+        /// </summary>
+        /// <param name="waveType">Type of the wave.</param>
+        /// <param name="initialRate">The initial rate.</param>
+        /// <param name="amplitude">The amplitude.</param>
+        /// <param name="periodInMilliseconds">The period in milliseconds.</param>
+        /// <returns>Func<System.Double, System.Decimal> - the wave function.</returns>
+        /// <exception cref="ArgumentException">Unknown wave name</exception>
         public Func<double, decimal> GetWaveFunc(string waveType, decimal initialRate, decimal amplitude, int periodInMilliseconds)
         {
             switch (waveType.ToLower())

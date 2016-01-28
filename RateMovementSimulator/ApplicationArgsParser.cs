@@ -2,13 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator
 {
+    /// <summary>
+    /// Class ApplicationArgsParser.
+    /// </summary>
     public class ApplicationArgsParser
     {
+        /// <summary>
+        /// Gets the application arguments.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <returns>Instance of the <see cref="ApplicationArgs"/> class containing all arguments.</returns>
+        /// <exception cref="ArgumentException">All arguments are required.</exception>
         public ApplicationArgs GetApplicationArgs(IEnumerable<string> args)
         {
             var arguments = args.Select(s => s.Split('=')).ToDictionary(s => s[0], s => s[1]);

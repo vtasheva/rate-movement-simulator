@@ -2,12 +2,12 @@
 using Internovus.Wpf.Training.RateFeed.Waves;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator
 {
+    /// <summary>
+    /// Class ApplicationRunner.
+    /// </summary>
     public class ApplicationRunner
     {
         private IEnumerable<string> _args;
@@ -17,6 +17,9 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
             _args = args;
         }
 
+        /// <summary>
+        /// Runs the main application flow.
+        /// </summary>
         public void Run()
         {
             var applicationArgsParser = new ApplicationArgsParser();
