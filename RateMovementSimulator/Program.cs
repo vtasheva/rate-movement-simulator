@@ -3,7 +3,7 @@ using Internovus.Wpf.Training.RateFeed.Waves;
 using Internovus.Wpf.Training.RateMovementSimulator;
 using System;
 
-namespace RateMovementSimulator
+namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator
 {
     class Program
     {

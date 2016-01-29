@@ -4,16 +4,9 @@ using System.Timers;
 namespace Internovus.Wpf.Training.RateFeed
 {
     /// <summary>
-    /// Delegate OnTickEventHandler
-    /// </summary>
-    /// <param name="sender">The sender.</param>
-    /// <param name="rate">The rate.</param>
-    public delegate void OnTickEventHandler(object sender, decimal rate);
-
-    /// <summary>
     /// Class RateGenerator.
     /// </summary>
-    public class RateGenerator
+    public class RateGenerator : IRateGenerator
     {
         private readonly Func<double, decimal> _waveFunction;
         private readonly Timer _tickTimer;

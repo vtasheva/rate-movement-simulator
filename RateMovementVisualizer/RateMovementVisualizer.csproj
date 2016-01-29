@@ -7,7 +7,7 @@
     <ProjectGuid>{73A45D96-7D77-4C3D-A590-1FAE31BC0B92}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RateMovementVisualizer</RootNamespace>
+    <RootNamespace>Internovus.Wpf.Training.RateMovementVisualizer</RootNamespace>
     <AssemblyName>RateMovementVisualizer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

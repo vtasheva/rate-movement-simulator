@@ -1,7 +1,7 @@
-﻿<Application x:Class="RateMovementVisualizer.App"
+﻿<Application x:Class="Internovus.Wpf.Training.RateMovementVisualizer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RateMovementVisualizer"
+             xmlns:local="clr-namespace:Internovus.Wpf.Training.RateMovementVisualizer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

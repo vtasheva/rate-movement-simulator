@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
+using Microsoft.Practices.Unity;
 
-namespace RateMovementVisualizer
+namespace Internovus.Wpf.Training.RateMovementVisualizer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,6 +26,8 @@ namespace RateMovementVisualizer
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = App.Container.Resolve<RateMovementViewModel>();
         }
     }
 }
