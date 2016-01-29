@@ -1,0 +1,22 @@
+﻿<Window x:Class="RateMovementVisualizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RateMovementVisualizer"
+        xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Charting"
+        xmlns:telerikCharting="Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <telerik:RadChart x:Name="Chart">
+            <telerik:RadChart.DefaultView>
+                <telerikCharting:ChartDefaultView>
+                    <telerik:ChartDefaultView.ChartTitle>
+                        <telerik:ChartTitle Content="Trade Data" />
+                    </telerik:ChartDefaultView.ChartTitle>
+                </telerikCharting:ChartDefaultView>
+            </telerik:RadChart.DefaultView>
+        </telerik:RadChart>
+    </Grid>
+</Window>
