@@ -1,9 +1,9 @@
-﻿using Internovus.Wpf.Training.RateMovementSimulator.Constants;
+﻿using Internovus.Wpf.Training.OfflineTrading.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Internovus.Wpf.Training.RateMovementSimulator
+namespace Internovus.Wpf.Training.OfflineTrading.Common
 {
     /// <summary>
     /// Class ApplicationArgsParser.

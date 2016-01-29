@@ -1,4 +1,4 @@
-﻿namespace Internovus.Wpf.Training.RateMovementSimulator
+﻿namespace Internovus.Wpf.Training.OfflineTrading.Common
 {
     /// <summary>
     /// Class ApplicationArgs.

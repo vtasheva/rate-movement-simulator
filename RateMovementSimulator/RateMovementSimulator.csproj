@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Internovus.Wpf.Training.RateMovementSimulator</RootNamespace>
     <AssemblyName>RateMovementSimulator</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,11 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationArgs.cs" />
-    <Compile Include="ApplicationArgsParser.cs" />
     <Compile Include="ApplicationCloser.cs" />
     <Compile Include="ApplicationRunner.cs" />
-    <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">
+      <Project>{305452e6-5db6-4d77-8860-a62d2e0da830}</Project>
+      <Name>OfflineTrading.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RateFeed\RateFeed.csproj">
       <Project>{ea54e35e-c699-448a-82b6-2ee19b002446}</Project>
       <Name>RateFeed</Name>

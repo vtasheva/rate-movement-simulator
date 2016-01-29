@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Internovus.Wpf.Training.RateMovementSimulator.Constants
+namespace Internovus.Wpf.Training.OfflineTrading.Constants
 {
     static class ParameterName
     {

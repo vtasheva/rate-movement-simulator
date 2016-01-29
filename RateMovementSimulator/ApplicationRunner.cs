@@ -1,4 +1,5 @@
-﻿using Internovus.Wpf.Training.RateFeed;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.RateFeed;
 using Internovus.Wpf.Training.RateFeed.Waves;
 using System;
 using System.Collections.Generic;

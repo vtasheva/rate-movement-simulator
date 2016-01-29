@@ -7,10 +7,11 @@
     <ProjectGuid>{305452E6-5DB6-4D77-8860-A62D2E0DA830}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OfflineTrading.Common</RootNamespace>
+    <RootNamespace>Internovus.Wpf.Training.OfflineTrading.Common</RootNamespace>
     <AssemblyName>OfflineTrading.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationArgs.cs" />
+    <Compile Include="ApplicationArgsParser.cs" />
+    <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
