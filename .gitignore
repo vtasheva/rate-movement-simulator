@@ -18,3 +18,12 @@ Release
 *.suo
 /RateFeed/*.user
 /*.xml
+/packages/CommonServiceLocator.1.3/*.nupkg
+/packages/Unity.4.0.1/lib/wp80/*.dll
+/packages/Unity.4.0.1/lib/wp80/*.xml
+/packages/Unity.4.0.1/lib/net45
+/packages/Unity.4.0.1/lib/win8
+/packages/Unity.4.0.1/lib/portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10
+/packages/CommonServiceLocator.1.3/lib/portable-net4+sl5+netcore45+wpa81+wp8
+/packages/Unity.4.0.1/*.nupkg
+/packages/Unity.4.0.1/*.xsd

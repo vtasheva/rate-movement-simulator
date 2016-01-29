@@ -3,6 +3,12 @@ using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed
 {
+    /// <summary>
+    /// Delegate OnTickEventHandler
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="rate">The rate.</param>
+    public delegate void OnTickEventHandler(object sender, decimal rate);
 
     /// <summary>
     /// Class RateGenerator.
@@ -12,14 +18,7 @@ namespace Internovus.Wpf.Training.RateFeed
         private readonly Func<double, decimal> _waveFunction;
         private readonly Timer _tickTimer;
         private double _elapsedTimeInMilliseconds;
-
-        /// <summary>
-        /// Delegate OnTickEventHandler
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="rate">The rate.</param>
-        public delegate void OnTickEventHandler(object sender, decimal rate);
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="RateGenerator"/> class.
         /// </summary>

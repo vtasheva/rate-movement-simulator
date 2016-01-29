@@ -6,17 +6,14 @@
         xmlns:local="clr-namespace:RateMovementVisualizer"
         xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Charting"
         xmlns:telerikCharting="Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
+        xmlns:vm="clr-namespace:RateMovementVisualizer.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <telerik:RadChart x:Name="Chart">
-            <telerik:RadChart.DefaultView>
-                <telerikCharting:ChartDefaultView>
-                    <telerik:ChartDefaultView.ChartTitle>
-                        <telerik:ChartTitle Content="Trade Data" />
-                    </telerik:ChartDefaultView.ChartTitle>
-                </telerikCharting:ChartDefaultView>
-            </telerik:RadChart.DefaultView>
+        <Grid.DataContext>
+            <vm:RateMovementViewModel></vm:RateMovementViewModel>
+        </Grid.DataContext>
+        <telerik:RadChart x:Name="Chart" ItemsSource="{Binding Rates}">
         </telerik:RadChart>
     </Grid>
 </Window>

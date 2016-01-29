@@ -24,7 +24,6 @@ namespace RateMovementVisualizer
         public MainWindow()
         {
             InitializeComponent();
-            RadChart chart = new RadChart();
         }
     }
 }
