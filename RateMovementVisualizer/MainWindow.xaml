@@ -8,7 +8,7 @@
         xmlns:telerikCharting="clr-namespace:Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
         xmlns:vm="clr-namespace:Internovus.Wpf.Training.RateMovementVisualizer.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="1000">
     <Grid>
         <telerik:RadChart x:Name="Chart" ItemsSource="{Binding RatePoints}">
             <telerik:RadChart.DefaultView>
@@ -17,11 +17,15 @@
                         <telerikCharting:ChartLegend Visibility="Collapsed" />
                     </telerikCharting:ChartDefaultView.ChartLegend>
                     <telerikCharting:ChartDefaultView.ChartArea>
-                        <telerikCharting:ChartArea>
+                        <telerikCharting:ChartArea EnableAnimations="False">
                             <telerikCharting:ChartArea.AxisY>
                                 <telerikCharting:AxisY AutoRange="False" MinValue="{Binding AxisYMinValue}" MaxValue="{Binding AxisYMaxValue}">
                                 </telerikCharting:AxisY>
                             </telerikCharting:ChartArea.AxisY>
+                            <telerikCharting:ChartArea.AxisX>
+                                <telerikCharting:AxisX AutoRange="False" MinValue="0" MaxValue="{Binding AxisXMaxValue}" Step="{Binding AxisXStep}">
+                                </telerikCharting:AxisX>
+                            </telerikCharting:ChartArea.AxisX>
                         </telerikCharting:ChartArea>
                     </telerikCharting:ChartDefaultView.ChartArea>
                 </telerikCharting:ChartDefaultView>
@@ -33,7 +37,7 @@
                         </telerikCharting:SplineSeriesDefinition>
                     </telerikCharting:SeriesMapping.SeriesDefinition>
                     <telerikCharting:SeriesMapping.ItemMappings>
-                        <telerikCharting:ItemMapping DataPointMember="XValue" FieldName="Time"></telerikCharting:ItemMapping>
+                        <telerikCharting:ItemMapping DataPointMember="XValue" FieldName="TimeInMilliseconds"></telerikCharting:ItemMapping>
                         <telerikCharting:ItemMapping DataPointMember="YValue" FieldName="Rate"></telerikCharting:ItemMapping>
                     </telerikCharting:SeriesMapping.ItemMappings>
                 </telerikCharting:SeriesMapping>

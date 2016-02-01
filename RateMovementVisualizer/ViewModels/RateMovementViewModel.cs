@@ -19,6 +19,10 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
 
         public ObservableCollection<RatePoint> RatePoints { get; private set; }
 
+        public double AxisXMaxValue => 2 * 1000 * (_applicationArgs.PeriodInMilliseconds / _applicationArgs.StepInMilliseconds);
+
+        public double AxisXStep => _applicationArgs.StepInMilliseconds;
+
         public decimal AxisYMinValue => _applicationArgs.InitialRate - _applicationArgs.Amplitude;
 
         public decimal AxisYMaxValue => _applicationArgs.InitialRate + _applicationArgs.Amplitude;

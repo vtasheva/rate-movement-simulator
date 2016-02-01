@@ -8,12 +8,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common
 {
     public class RatePoint
     {
-        public double Time { get; private set; }
+        public double TimeInMilliseconds { get; private set; }
         public decimal Rate { get; private set; }
 
-        public RatePoint(double time, decimal rate)
+        public RatePoint(double timeInMilliseconds, decimal rate)
         {
-            Time = time;
+            TimeInMilliseconds = timeInMilliseconds;
             Rate = rate;
         }
     }

@@ -51,9 +51,10 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
 
         private void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            _elapsedTimeInMilliseconds += _rateFeedTimer.Interval;
             var currentRate = _waveFunction(_elapsedTimeInMilliseconds);
             OnTick?.Invoke(this, new RatePoint(_elapsedTimeInMilliseconds, currentRate));
+
+            _elapsedTimeInMilliseconds += _rateFeedTimer.Interval;
         }
     }
 }
