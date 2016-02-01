@@ -11,8 +11,23 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <telerik:RadChart x:Name="Chart" ItemsSource="{Binding RatePoints}">
+            <telerik:RadChart.DefaultView>
+                <telerikCharting:ChartDefaultView>
+                    <telerikCharting:ChartDefaultView.ChartLegend>
+                        <telerikCharting:ChartLegend Visibility="Collapsed" />
+                    </telerikCharting:ChartDefaultView.ChartLegend>
+                    <telerikCharting:ChartDefaultView.ChartArea>
+                        <telerikCharting:ChartArea>
+                            <telerikCharting:ChartArea.AxisY>
+                                <telerikCharting:AxisY AutoRange="False" MinValue="{Binding AxisYMinValue}" MaxValue="{Binding AxisYMaxValue}">
+                                </telerikCharting:AxisY>
+                            </telerikCharting:ChartArea.AxisY>
+                        </telerikCharting:ChartArea>
+                    </telerikCharting:ChartDefaultView.ChartArea>
+                </telerikCharting:ChartDefaultView>
+            </telerik:RadChart.DefaultView>
             <telerik:RadChart.SeriesMappings>
-                <telerikCharting:SeriesMapping LegendLabel="Rates">
+                <telerikCharting:SeriesMapping>
                     <telerikCharting:SeriesMapping.SeriesDefinition>
                         <telerikCharting:SplineSeriesDefinition>
                         </telerikCharting:SplineSeriesDefinition>

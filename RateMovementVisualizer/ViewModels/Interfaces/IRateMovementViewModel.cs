@@ -11,5 +11,9 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces
     public interface IRateMovementViewModel
     {
         ObservableCollection<RatePoint> RatePoints { get; }
+
+        decimal AxisYMinValue { get; }
+        
+        decimal AxisYMaxValue { get; }
     }
 }

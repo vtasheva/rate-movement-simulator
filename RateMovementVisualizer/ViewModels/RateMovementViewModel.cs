@@ -15,10 +15,18 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
 {
     public class RateMovementViewModel : IRateMovementViewModel
     {
+        private ApplicationArgs _applicationArgs;
+
         public ObservableCollection<RatePoint> RatePoints { get; private set; }
 
-        public RateMovementViewModel(IRateGenerator rateGenerator)
+        public decimal AxisYMinValue => _applicationArgs.InitialRate - _applicationArgs.Amplitude;
+
+        public decimal AxisYMaxValue => _applicationArgs.InitialRate + _applicationArgs.Amplitude;
+
+        public RateMovementViewModel(IRateGenerator rateGenerator, ApplicationArgs applicationArgs)
         {
+            _applicationArgs = applicationArgs;
+
             RatePoints = new ObservableCollection<RatePoint>();
 
             rateGenerator.OnTick += RateGenerator_OnTick;
