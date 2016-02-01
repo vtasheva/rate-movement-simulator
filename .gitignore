@@ -28,3 +28,4 @@ Release
 /packages/Unity.4.0.1/*.nupkg
 /packages/Unity.4.0.1/*.xsd
 /*.dic
+/RateMovementVisualizer/*.user

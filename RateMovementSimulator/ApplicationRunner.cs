@@ -3,6 +3,7 @@ using Internovus.Wpf.Training.RateFeed;
 using Internovus.Wpf.Training.RateFeed.Waves;
 using System;
 using System.Collections.Generic;
+using System.Timers;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator
 {
@@ -29,7 +30,8 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
             var waveFuncFactory = new WaveFuncFactory();
             var waveFunc = waveFuncFactory.GetWaveFunc(arguments.WaveType, arguments.InitialRate, arguments.Amplitude, arguments.PeriodInMilliseconds);
 
-            var rateGenerator = new RateGenerator(waveFunc, arguments.StepInMilliseconds);
+            var timer = new Timer(arguments.StepInMilliseconds);
+            var rateGenerator = new RateGenerator(waveFunc, timer);
             rateGenerator.OnTick += ShowRate;
             rateGenerator.Start();
 
@@ -39,9 +41,9 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
             Console.ReadLine();
         }
 
-        private static void ShowRate(object sender, decimal rate)
+        private static void ShowRate(object sender, RatePoint ratePoint)
         {
-            Console.WriteLine(rate);
+            Console.WriteLine(ratePoint.Rate);
         }
     }
 }

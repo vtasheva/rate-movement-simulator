@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using System;
 using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed
@@ -9,19 +10,19 @@ namespace Internovus.Wpf.Training.RateFeed
     public class RateGenerator : IRateGenerator
     {
         private readonly Func<double, decimal> _waveFunction;
-        private readonly Timer _tickTimer;
+        private readonly Timer _rateFeedTimer;
         private double _elapsedTimeInMilliseconds;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RateGenerator"/> class.
         /// </summary>
         /// <param name="waveFunction">The wave function.</param>
         /// <param name="tickIntervalInMilliseconds">The tick interval in milliseconds.</param>
-        public RateGenerator(Func<double, decimal> waveFunction, double tickIntervalInMilliseconds)
+        public RateGenerator(Func<double, decimal> waveFunction, Timer rateFeedTimer)
         {
+
             _waveFunction = waveFunction;
-            _tickTimer = new Timer(tickIntervalInMilliseconds);
-            _tickTimer.Elapsed += TickTimer_Elapsed;
+            _rateFeedTimer = rateFeedTimer;
         }
 
         /// <summary>
@@ -29,7 +30,8 @@ namespace Internovus.Wpf.Training.RateFeed
         /// </summary>
         public void Start()
         {
-            _tickTimer.Start();
+            _rateFeedTimer.Elapsed += TickTimer_Elapsed;
+            _rateFeedTimer.Start();
         }
 
         /// <summary>
@@ -37,7 +39,8 @@ namespace Internovus.Wpf.Training.RateFeed
         /// </summary>
         public void Stop()
         {
-            _tickTimer.Stop();
+            _rateFeedTimer.Stop();
+            _rateFeedTimer.Elapsed -= TickTimer_Elapsed;
         }
 
         /// <summary>
@@ -47,12 +50,9 @@ namespace Internovus.Wpf.Training.RateFeed
 
         private void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            _elapsedTimeInMilliseconds += _tickTimer.Interval;
-
-            if (OnTick != null)
-            {
-                OnTick(this, _waveFunction(_elapsedTimeInMilliseconds));
-            }
+            _elapsedTimeInMilliseconds += _rateFeedTimer.Interval;
+            var currentRate = _waveFunction(_elapsedTimeInMilliseconds);
+            OnTick?.Invoke(this, new RatePoint(_elapsedTimeInMilliseconds, currentRate));
         }
     }
 }
