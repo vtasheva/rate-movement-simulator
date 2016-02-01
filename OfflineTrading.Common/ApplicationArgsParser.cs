@@ -8,7 +8,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common
     /// <summary>
     /// Class ApplicationArgsParser.
     /// </summary>
-    public class ApplicationArgsParser
+    public class ApplicationArgsParser : IApplicationArgsParser
     {
         /// <summary>
         /// Gets the application arguments.

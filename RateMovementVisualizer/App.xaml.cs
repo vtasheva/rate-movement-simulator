@@ -43,9 +43,11 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
         {
             Container.RegisterType<Timer>(new InjectionConstructor());
             Container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
-            Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<RateGeneratorProvider>().GetRateGenerator()));
             Container.RegisterType<IWaveFuncFactory, WaveFuncFactory>();
-            Container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<ApplicationArgsParser>().GetApplicationArgs(args)));
+            Container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
+            Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
+            Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
+            Container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
         }
     }
 }
