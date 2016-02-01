@@ -1,5 +1,4 @@
 ﻿using Internovus.Wpf.Training.RateFeed;
-using Internovus.Wpf.Training.RateFeed.Waves;
 using Internovus.Wpf.Training.RateMovementSimulator;
 using System;
 

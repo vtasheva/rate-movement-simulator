@@ -1,8 +1,9 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
 using System.Timers;
 
-namespace Internovus.Wpf.Training.RateFeed
+namespace Internovus.Wpf.Training.RateFeed.Implementations
 {
     /// <summary>
     /// Class RateGenerator.

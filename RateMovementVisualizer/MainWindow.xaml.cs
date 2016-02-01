@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using Microsoft.Practices.Unity;
+using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer
 {
@@ -27,7 +28,7 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
         {
             InitializeComponent();
 
-            DataContext = App.Container.Resolve<RateMovementViewModel>();
+            DataContext = App.Container.Resolve<IRateMovementViewModel>();
         }
     }
 }

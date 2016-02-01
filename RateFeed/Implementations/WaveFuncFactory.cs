@@ -1,13 +1,14 @@
 ﻿using Internovus.Wpf.Training.RateFeed.Constants;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
 using static System.Math;
 
-namespace Internovus.Wpf.Training.RateFeed.Waves
+namespace Internovus.Wpf.Training.RateFeed.Implementations
 {
     /// <summary>
     /// Class WaveFuncFactory.
     /// </summary>
-    public class WaveFuncFactory
+    public class WaveFuncFactory : IWaveFuncFactory
     {
         private readonly Random _random = new Random();
 

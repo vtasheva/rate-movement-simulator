@@ -1,5 +1,7 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.RateFeed;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
+using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +13,7 @@ using static System.Math;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
 {
-    public class RateMovementViewModel
+    public class RateMovementViewModel : IRateMovementViewModel
     {
         public ObservableCollection<RatePoint> RatePoints { get; private set; }
 

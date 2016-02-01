@@ -1,5 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using Internovus.Wpf.Training.RateFeed.Waves;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace Internovus.Wpf.Training.RateFeed
+namespace Internovus.Wpf.Training.RateFeed.Implementations
 {
     public class RateGeneratorProvider : IRateGeneratorProvider
     {
-        private readonly WaveFuncFactory _waveFuncFactory;
+        private readonly IWaveFuncFactory _waveFuncFactory;
         private readonly ApplicationArgs _applicationArgs;
         private readonly Timer _timer;
 
-        public RateGeneratorProvider(WaveFuncFactory waveFuncFactory, ApplicationArgs applicationArgs, Timer timer)
+        public RateGeneratorProvider(IWaveFuncFactory waveFuncFactory, ApplicationArgs applicationArgs, Timer timer)
         {
             _waveFuncFactory = waveFuncFactory;
             _applicationArgs = applicationArgs;

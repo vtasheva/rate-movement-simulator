@@ -41,12 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\WaveName.cs" />
-    <Compile Include="IRateGenerator.cs" />
-    <Compile Include="IRateGeneratorProvider.cs" />
+    <Compile Include="Interfaces\IRateGenerator.cs" />
+    <Compile Include="Interfaces\IRateGeneratorProvider.cs" />
+    <Compile Include="Interfaces\IWaveFuncFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RateGenerator.cs" />
-    <Compile Include="RateGeneratorProvider.cs" />
-    <Compile Include="WaveFuncFactory.cs" />
+    <Compile Include="Implementations\RateGenerator.cs" />
+    <Compile Include="Implementations\RateGeneratorProvider.cs" />
+    <Compile Include="Implementations\WaveFuncFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">

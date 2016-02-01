@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.RateFeed
+namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
     /// <summary>
     /// Delegate OnTickEventHandler

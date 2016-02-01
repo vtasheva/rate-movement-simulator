@@ -8,10 +8,12 @@ using System.Windows;
 using Microsoft.Practices.Unity;
 using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels;
 using Internovus.Wpf.Training.RateFeed;
-using Internovus.Wpf.Training.RateFeed.Waves;
 using Internovus.Wpf.Training.OfflineTrading.Common;
 using System.Timers;
 using System.Windows.Threading;
+using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
+using Internovus.Wpf.Training.RateFeed.Implementations;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer
 {
@@ -39,10 +41,10 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
 
         private void RegisterTypes(IEnumerable<string> args)
         {
-            Container.RegisterType<RateMovementViewModel>();
             Container.RegisterType<Timer>(new InjectionConstructor());
+            Container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
             Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<RateGeneratorProvider>().GetRateGenerator()));
-            Container.RegisterType<WaveFuncFactory>();
+            Container.RegisterType<IWaveFuncFactory, WaveFuncFactory>();
             Container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<ApplicationArgsParser>().GetApplicationArgs(args)));
         }
     }
