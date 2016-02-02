@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Prism.Regions;
+using Internovus.Wpf.Training.OfflineTrading.SelectionModule;
+using Microsoft.Practices.Prism.Modularity;
 
 namespace OfflineTrading.App
 {
@@ -21,8 +24,18 @@ namespace OfflineTrading.App
         {
             base.InitializeShell();
 
+            Container.RegisterType<IRegionManager, RegionManager>();
+
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
+        }
+
+        protected override void ConfigureModuleCatalog()
+        {
+            base.ConfigureModuleCatalog();
+
+            var selectionModuleType = typeof(SelectionModule);
+            ModuleCatalog.AddModule(new ModuleInfo() { ModuleName = selectionModuleType.Name, ModuleType = selectionModuleType.AssemblyQualifiedName });
         }
     }
 }

@@ -143,6 +143,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfflineTrading.SelectionModule\OfflineTrading.SelectionModule.csproj">
+      <Project>{f995f98a-f071-41f7-849a-13dd2d4fe292}</Project>
+      <Name>OfflineTrading.SelectionModule</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
