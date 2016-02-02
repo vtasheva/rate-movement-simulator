@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.Common", "Of
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.App", "OfflineTrading.App\OfflineTrading.App.csproj", "{3131C7C0-79FB-4741-9DCD-860870B3DA99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.SelectionModule", "OfflineTrading.SelectionModule\OfflineTrading.SelectionModule.csproj", "{F995F98A-F071-41F7-849A-13DD2D4FE292}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3131C7C0-79FB-4741-9DCD-860870B3DA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3131C7C0-79FB-4741-9DCD-860870B3DA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3131C7C0-79FB-4741-9DCD-860870B3DA99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F995F98A-F071-41F7-849A-13DD2D4FE292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F995F98A-F071-41F7-849A-13DD2D4FE292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F995F98A-F071-41F7-849A-13DD2D4FE292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F995F98A-F071-41F7-849A-13DD2D4FE292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
