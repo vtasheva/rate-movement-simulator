@@ -32,3 +32,5 @@ Release
 *.dll
 *.xml
 *.nupkg
+*.xsd
+*.pri

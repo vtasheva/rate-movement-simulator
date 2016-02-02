@@ -1,18 +1,28 @@
-﻿using Microsoft.Practices.Prism.UnityExtensions;
+﻿using Internovus.Wpf.Training.OfflineTrading.App;
+using Microsoft.Practices.Prism.UnityExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Practices.Unity;
 
 namespace OfflineTrading.App
 {
-    class Bootstrapper : UnityBootstrapper
+    public class Bootstrapper : UnityBootstrapper
     {
         protected override DependencyObject CreateShell()
         {
-            throw new NotImplementedException();
+            return Container.Resolve<Shell>();
+        }
+
+        protected override void InitializeShell()
+        {
+            base.InitializeShell();
+
+            App.Current.MainWindow = (Window)Shell;
+            App.Current.MainWindow.Show();
         }
     }
 }
