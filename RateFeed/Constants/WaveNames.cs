@@ -3,7 +3,7 @@
     /// <summary>
     /// Class WaveName.
     /// </summary>
-    public static class WaveName
+    public static class WaveNames
     {
         /// <summary>
         /// The sine wave name

@@ -11,20 +11,20 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
 {
     public class RateGeneratorProvider : IRateGeneratorProvider
     {
-        private readonly IWaveFuncFactory _waveFuncFactory;
+        private readonly IWaveFuncProvider _waveFuncProvider;
         private readonly ApplicationArgs _applicationArgs;
         private readonly Timer _timer;
 
-        public RateGeneratorProvider(IWaveFuncFactory waveFuncFactory, ApplicationArgs applicationArgs, Timer timer)
+        public RateGeneratorProvider(IWaveFuncProvider waveFuncProvider, ApplicationArgs applicationArgs, Timer timer)
         {
-            _waveFuncFactory = waveFuncFactory;
+            _waveFuncProvider = waveFuncProvider;
             _applicationArgs = applicationArgs;
             _timer = timer;
         }
 
         public IRateGenerator GetRateGenerator()
         {
-            var waveFunc = _waveFuncFactory.GetWaveFunc(_applicationArgs.WaveType, _applicationArgs.InitialRate, _applicationArgs.Amplitude, _applicationArgs.PeriodInMilliseconds);
+            var waveFunc = _waveFuncProvider.GetWaveFunc(_applicationArgs.WaveType);
 
             _timer.Interval = _applicationArgs.StepInMilliseconds;
 

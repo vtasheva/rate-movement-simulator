@@ -10,7 +10,7 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
     /// </summary>
     public class RateGenerator : IRateGenerator
     {
-        private readonly Func<double, decimal> _waveFunction;
+        private readonly IWaveFunc _waveFunction;
         private readonly Timer _rateFeedTimer;
         private double _elapsedTimeInMilliseconds;
 
@@ -19,7 +19,7 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         /// </summary>
         /// <param name="waveFunction">The wave function.</param>
         /// <param name="tickIntervalInMilliseconds">The tick interval in milliseconds.</param>
-        public RateGenerator(Func<double, decimal> waveFunction, Timer rateFeedTimer)
+        public RateGenerator(IWaveFunc waveFunction, Timer rateFeedTimer)
         {
 
             _waveFunction = waveFunction;
@@ -51,7 +51,7 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
 
         private void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            var currentRate = _waveFunction(_elapsedTimeInMilliseconds);
+            var currentRate = _waveFunction.GetValue(_elapsedTimeInMilliseconds);
             OnTick?.Invoke(this, new RatePoint(_elapsedTimeInMilliseconds, currentRate));
 
             _elapsedTimeInMilliseconds += _rateFeedTimer.Interval;

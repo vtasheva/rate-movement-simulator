@@ -14,6 +14,9 @@ using System.Windows.Threading;
 using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using Internovus.Wpf.Training.RateFeed.Implementations;
+using Internovus.Wpf.Training.RateFeed.Implementations.Waves;
+using Internovus.Wpf.Training.RateFeed.Factories;
+using Internovus.Wpf.Training.RateFeed.Constants;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer
 {
@@ -43,9 +46,16 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
         {
             Container.RegisterType<Timer>(new InjectionConstructor());
             Container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
-            Container.RegisterType<IWaveFuncFactory, WaveFuncFactory>();
+            Container.RegisterType<IWaveFuncProvider, WaveFuncProvider>();
             Container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
+
+            Container.RegisterType<IWaveFunc>(WaveNames.Sine, new InjectionFactory(c => c.Resolve<SineWaveFuncFactory>().Create()));
+            Container.RegisterType<IWaveFunc>(WaveNames.Triangle, new InjectionFactory(c => c.Resolve<TriangleWaveFuncFactory>().Create()));
+            Container.RegisterType<IWaveFunc>(WaveNames.Block, new InjectionFactory(c => c.Resolve<BlockWaveFuncFactory>().Create()));
+            Container.RegisterType<IWaveFunc>(WaveNames.DoubleTriangle, new InjectionFactory(c => c.Resolve<DoubleTriangleWaveFuncFactory>().Create()));
+            Container.RegisterType<IWaveFunc>(WaveNames.Random, new InjectionFactory(c => c.Resolve<RandomWaveFuncFactory>().Create()));
+
             Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
             Container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
         }

@@ -40,14 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\WaveName.cs" />
+    <Compile Include="Constants\WaveNames.cs" />
+    <Compile Include="Factories\BlockWaveFuncFactory.cs" />
+    <Compile Include="Factories\DoubleTriangleWaveFuncFactory.cs" />
+    <Compile Include="Factories\RandomWaveFuncFactory.cs" />
+    <Compile Include="Factories\SineWaveFuncFactory.cs" />
+    <Compile Include="Factories\TriangleWaveFuncFactory.cs" />
+    <Compile Include="Implementations\WaveFuncProvider.cs" />
+    <Compile Include="Implementations\Waves\BlockWaveFunc.cs" />
+    <Compile Include="Implementations\Waves\DoubleTriangleWaveFunc.cs" />
+    <Compile Include="Implementations\Waves\RandomWaveFunc.cs" />
+    <Compile Include="Implementations\Waves\SineWaveFunc.cs" />
+    <Compile Include="Implementations\Waves\TriangleWaveFunc.cs" />
     <Compile Include="Interfaces\IRateGenerator.cs" />
     <Compile Include="Interfaces\IRateGeneratorProvider.cs" />
-    <Compile Include="Interfaces\IWaveFuncFactory.cs" />
+    <Compile Include="Interfaces\IWaveFunc.cs" />
+    <Compile Include="Interfaces\IWaveFuncProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Implementations\RateGenerator.cs" />
     <Compile Include="Implementations\RateGeneratorProvider.cs" />
-    <Compile Include="Implementations\WaveFuncFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">
