@@ -29,3 +29,6 @@ Release
 /packages/Unity.4.0.1/*.xsd
 /*.dic
 /RateMovementVisualizer/*.user
+*.dll
+*.xml
+*.nupkg
