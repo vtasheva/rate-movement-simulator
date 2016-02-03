@@ -1,9 +1,6 @@
 ﻿using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateFeed.Implementations
 {
@@ -11,11 +8,21 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
     {
         private readonly IWaveFunc[] _waveFunctions;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WaveFuncProvider"/> class.
+        /// </summary>
+        /// <param name="waveFunctions">The wave functions.</param>
         public WaveFuncProvider(IWaveFunc[] waveFunctions)
         {
             _waveFunctions = waveFunctions;
         }
 
+        /// <summary>
+        /// Gets the wave function.
+        /// </summary>
+        /// <param name="waveType">Type of the wave.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException"></exception>
         public IWaveFunc GetWaveFunc(string waveType)
         {
             var waveFunc = _waveFunctions.FirstOrDefault(f => f.WaveName == waveType);

@@ -1,10 +1,4 @@
-﻿using Internovus.Wpf.Training.RateFeed;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.RateMovementSimulator;
-using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Timers;
+﻿using System;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator.RateMovementSimulator
 {

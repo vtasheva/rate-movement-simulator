@@ -1,9 +1,4 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
@@ -16,9 +11,19 @@ namespace Internovus.Wpf.Training.RateFeed.Interfaces
 
     public interface IRateGenerator
     {
+        /// <summary>
+        /// Occurs when [on tick].
+        /// </summary>
         event OnTickEventHandler OnTick;
 
+        /// <summary>
+        /// Starts this instance.
+        /// </summary>
         void Start();
+
+        /// <summary>
+        /// Stops this instance.
+        /// </summary>
         void Stop();
     }
 }

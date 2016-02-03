@@ -1,10 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed.Implementations
@@ -15,6 +10,12 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         private readonly ApplicationArgs _applicationArgs;
         private readonly Timer _timer;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RateGeneratorProvider"/> class.
+        /// </summary>
+        /// <param name="waveFuncProvider">The wave function provider.</param>
+        /// <param name="applicationArgs">The application arguments.</param>
+        /// <param name="timer">The timer.</param>
         public RateGeneratorProvider(IWaveFuncProvider waveFuncProvider, ApplicationArgs applicationArgs, Timer timer)
         {
             _waveFuncProvider = waveFuncProvider;
@@ -22,6 +23,10 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
             _timer = timer;
         }
 
+        /// <summary>
+        /// Gets the rate generator.
+        /// </summary>
+        /// <returns></returns>
         public IRateGenerator GetRateGenerator()
         {
             var waveFunc = _waveFuncProvider.GetWaveFunc(_applicationArgs.WaveType);

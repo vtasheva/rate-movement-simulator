@@ -11,7 +11,7 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
         private readonly Timer _timer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationCloser"/> class.
+        /// Initializes a new instance of the <see cref="ApplicationCloser" /> class.
         /// </summary>
         /// <param name="timeToRunInMinutes">The time to run in minutes.</param>
         public ApplicationCloser(int timeToRunInMinutes)

@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using Microsoft.Practices.Unity;
-using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels;
-using Internovus.Wpf.Training.RateFeed;
-using Internovus.Wpf.Training.OfflineTrading.Common;
-using System.Timers;
-using System.Windows.Threading;
-using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.RateFeed.Implementations;
-using Internovus.Wpf.Training.RateFeed.Implementations.Waves;
-using Internovus.Wpf.Training.RateFeed.Factories;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.RateFeed.Constants;
+using Internovus.Wpf.Training.RateFeed.Factories;
+using Internovus.Wpf.Training.RateFeed.Implementations;
+using Internovus.Wpf.Training.RateFeed.Interfaces;
+using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels;
+using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
+using Microsoft.Practices.Unity;
+using System;
+using System.Collections.Generic;
+using System.Timers;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer
 {

@@ -1,5 +1,4 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using Internovus.Wpf.Training.RateFeed;
 using Internovus.Wpf.Training.RateFeed.Constants;
 using Internovus.Wpf.Training.RateFeed.Factories;
 using Internovus.Wpf.Training.RateFeed.Implementations;
@@ -19,6 +18,10 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
         private readonly IEnumerable<string> _args;
         private static IUnityContainer _container = new UnityContainer();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationRunner"/> class.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         public ApplicationRunner(IEnumerable<string> args)
         {
             _args = args;

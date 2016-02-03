@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Internovus.Wpf.Training.RateFeed.Interfaces
+﻿namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
     public interface IRateGeneratorProvider
     {
+        /// <summary>
+        /// Gets the rate generator.
+        /// </summary>
+        /// <returns></returns>
         IRateGenerator GetRateGenerator();
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
-using System;
 using System.Timers;
 
 namespace Internovus.Wpf.Training.RateFeed.Implementations
@@ -15,10 +14,10 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         private double _elapsedTimeInMilliseconds;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RateGenerator"/> class.
+        /// Initializes a new instance of the <see cref="RateGenerator" /> class.
         /// </summary>
         /// <param name="waveFunction">The wave function.</param>
-        /// <param name="tickIntervalInMilliseconds">The tick interval in milliseconds.</param>
+        /// <param name="rateFeedTimer">The rate feed timer.</param>
         public RateGenerator(IWaveFunc waveFunction, Timer rateFeedTimer)
         {
 

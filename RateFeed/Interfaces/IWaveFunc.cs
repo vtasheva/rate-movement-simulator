@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Internovus.Wpf.Training.RateFeed.Interfaces
+﻿namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
     public interface IWaveFunc
     {
+        /// <summary>
+        /// Gets the name of the wave.
+        /// </summary>
+        /// <value>
+        /// The name of the wave.
+        /// </value>
         string WaveName { get; }
 
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
+        /// <param name="timeInMilliseconds">The time in milliseconds.</param>
+        /// <returns></returns>
         decimal GetValue(double timeInMilliseconds);
     }
 }

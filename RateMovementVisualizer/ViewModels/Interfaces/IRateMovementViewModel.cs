@@ -1,21 +1,40 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces
 {
     public interface IRateMovementViewModel
     {
+        /// <summary>
+        /// Gets the rate points.
+        /// </summary>
+        /// <value>
+        /// The rate points.
+        /// </value>
         ObservableCollection<RatePoint> RatePoints { get; }
 
+        /// <summary>
+        /// Gets the axis x step.
+        /// </summary>
+        /// <value>
+        /// The axis x step.
+        /// </value>
         double AxisXStep { get; }
 
+        /// <summary>
+        /// Gets the axis y minimum value.
+        /// </summary>
+        /// <value>
+        /// The axis y minimum value.
+        /// </value>
         decimal AxisYMinValue { get; }
-        
+
+        /// <summary>
+        /// Gets the axis y maximum value.
+        /// </summary>
+        /// <value>
+        /// The axis y maximum value.
+        /// </value>
         decimal AxisYMaxValue { get; }
     }
 }

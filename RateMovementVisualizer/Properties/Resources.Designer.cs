@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Internovus.Wpf.Training.RateMovementVisualizer.Properties {
-    using System;
-    
-    
+namespace Internovus.Wpf.Training.RateMovementVisualizer.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
