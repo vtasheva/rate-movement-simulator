@@ -39,7 +39,9 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
 
         private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show(e.Exception.Message);
+            var originalException = e.Exception.GetBaseException();
+            MessageBox.Show(originalException.Message);
+            Environment.Exit(1);
         }
 
         private void RegisterTypes(IEnumerable<string> args)
