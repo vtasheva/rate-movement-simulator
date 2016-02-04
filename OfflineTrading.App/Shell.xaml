@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.App"
         xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:rn="clr-namespace:Internovus.Wpf.Training.OfflineTrading.Common.Constants;assembly=OfflineTrading.Common"
         mc:Ignorable="d"
         Title="Shell">
 
@@ -28,16 +29,16 @@
         </Grid.RowDefinitions>
 
         <Border Style="{StaticResource GridBorder}" Grid.Column="0" Grid.RowSpan="3">
-            <ContentControl x:Name="SelectionRegion" prism:RegionManager.RegionName="SelectionRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.SelectionRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="0">
-            <ContentControl x:Name="ControlsRegion" prism:RegionManager.RegionName="ControlsRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="ControlsRegion"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="1">
-            <ContentControl x:Name="TabsRegion" prism:RegionManager.RegionName="TabsRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="TabsRegion"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="2">
-            <ContentControl x:Name="PortfolioRegion" prism:RegionManager.RegionName="PortfolioRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="PortfolioRegion"></ContentControl>
         </Border>
     </Grid>
 

@@ -10,6 +10,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Prism.Regions;
 using Internovus.Wpf.Training.OfflineTrading.SelectionModule;
 using Microsoft.Practices.Prism.Modularity;
+using System.Configuration;
 
 namespace OfflineTrading.App
 {
@@ -23,8 +24,6 @@ namespace OfflineTrading.App
         protected override void InitializeShell()
         {
             base.InitializeShell();
-
-            Container.RegisterType<IRegionManager, RegionManager>();
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
