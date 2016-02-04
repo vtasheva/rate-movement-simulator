@@ -11,6 +11,7 @@ using Microsoft.Practices.Prism.Regions;
 using Internovus.Wpf.Training.OfflineTrading.SelectionModule;
 using Microsoft.Practices.Prism.Modularity;
 using System.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.Common;
 
 namespace OfflineTrading.App
 {
@@ -24,6 +25,11 @@ namespace OfflineTrading.App
         protected override void InitializeShell()
         {
             base.InitializeShell();
+
+            //Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
+
+            var a = ConfigurationManager.GetSection("ScreenItemsConfiguration");
+            
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();

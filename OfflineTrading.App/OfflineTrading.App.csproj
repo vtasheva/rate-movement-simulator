@@ -107,6 +107,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Config\ConfigurationReader.cs" />
+    <Compile Include="Config\ScreenItem.cs" />
+    <Compile Include="Config\ScreenItemsCollection.cs" />
+    <Compile Include="Config\ScreenItemsConfigurationSection.cs" />
     <Compile Include="Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
