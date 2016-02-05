@@ -9,13 +9,14 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ListBoxItemTemplate">
-                <CheckBox Content="{Binding Name}">
+                <CheckBox Content="{Binding Symbol.Name}"
+                          IsChecked="{Binding IsSelected}">
                 </CheckBox>
             </DataTemplate>
         </Grid.Resources>
 
         <ListBox Grid.Column="0" 
-                 ItemsSource="{Binding Symbols}"
+                 ItemsSource="{Binding}"
                  ItemTemplate="{StaticResource ListBoxItemTemplate}">
 
         </ListBox>

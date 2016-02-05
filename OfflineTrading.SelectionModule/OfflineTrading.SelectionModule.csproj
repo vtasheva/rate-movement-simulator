@@ -112,7 +112,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SelectionModule.cs" />
-    <Compile Include="ViewModels\SelectionViewModel.cs" />
+    <Compile Include="ViewModels\SymbolViewModel.cs" />
     <Compile Include="Views\SelectionView.xaml.cs">
       <DependentUpon>SelectionView.xaml</DependentUpon>
     </Compile>
