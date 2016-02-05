@@ -81,7 +81,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
@@ -107,10 +106,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Config\ConfigurationReader.cs" />
-    <Compile Include="Config\ScreenItem.cs" />
-    <Compile Include="Config\ScreenItemsCollection.cs" />
-    <Compile Include="Config\ScreenItemsConfigurationSection.cs" />
     <Compile Include="Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
@@ -153,6 +148,10 @@
     <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">
       <Project>{305452e6-5db6-4d77-8860-a62d2e0da830}</Project>
       <Name>OfflineTrading.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfflineTrading.Configuration\OfflineTrading.Configuration.csproj">
+      <Project>{7713785b-b3c4-48ff-9bf7-bb4d1c7954d8}</Project>
+      <Name>OfflineTrading.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\OfflineTrading.SelectionModule\OfflineTrading.SelectionModule.csproj">
       <Project>{f995f98a-f071-41f7-849a-13dd2d4fe292}</Project>

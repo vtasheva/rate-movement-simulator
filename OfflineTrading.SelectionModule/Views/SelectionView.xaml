@@ -7,6 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="Selection Module"></TextBlock>   
+        <Grid.Resources>
+            <DataTemplate x:Key="ListBoxItemTemplate">
+                <CheckBox Content="{Binding Name}">
+                </CheckBox>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ListBox Grid.Column="0" 
+                 ItemsSource="{Binding Symbols}"
+                 ItemTemplate="{StaticResource ListBoxItemTemplate}">
+
+        </ListBox>
     </Grid>
 </UserControl>

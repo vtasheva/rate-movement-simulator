@@ -12,6 +12,7 @@ using Internovus.Wpf.Training.OfflineTrading.SelectionModule;
 using Microsoft.Practices.Prism.Modularity;
 using System.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Configuration;
 
 namespace OfflineTrading.App
 {
@@ -26,10 +27,8 @@ namespace OfflineTrading.App
         {
             base.InitializeShell();
 
-            //Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
-
-            var a = ConfigurationManager.GetSection("ScreenItemsConfiguration");
-            
+            Container.RegisterType<IConfigurationReader, ConfigurationReader>();
+            Container.RegisterType<IEnumerable<Symbol>>(new InjectionFactory(c => c.Resolve<IConfigurationReader>().Read()));
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();

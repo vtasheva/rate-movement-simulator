@@ -5,18 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.OfflineTrading.App.Config
+namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    public class ScreenItemsCollection : ConfigurationElementCollection
+    public class SymbolsCollection : ConfigurationElementCollection
     {
         protected override ConfigurationElement CreateNewElement()
         {
-            return new ScreenItem();
+            return new Symbol();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((ScreenItem)element).Name;
+            return ((Symbol)element).Name;
         }
     }
 }

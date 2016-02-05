@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Internovus.Wpf.Training.OfflineTrading.SelectionModule.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.Views
     /// </summary>
     public partial class SelectionView : UserControl
     {
-        public SelectionView()
+        public SelectionView(SelectionViewModel selectionViewModel)
         {
             InitializeComponent();
+
+            DataContext = selectionViewModel;
         }
     }
 }
