@@ -43,7 +43,7 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations.Waves
             {
                 return _initialRate + _amplitude * Convert.ToDecimal(Abs(Sin(2 * PI * timeInMilliseconds / _periodInMilliseconds)) / Sin(2 * PI * timeInMilliseconds / _periodInMilliseconds));
             }
-            catch(Exception ex)
+            catch
             {
                 return 1;
             }

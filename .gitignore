@@ -34,3 +34,4 @@ Release
 *.nupkg
 *.xsd
 *.pri
+*.pdb

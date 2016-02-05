@@ -16,7 +16,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Constants
         /// <summary>
         /// The controls region name
         /// </summary>
-        public static string ControlsRegion = "SelectionRegionControlsRegion";
+        public static string ControlsRegion = "ControlsRegion";
 
         /// <summary>
         /// The tabs region name

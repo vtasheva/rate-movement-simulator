@@ -32,13 +32,13 @@
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.SelectionRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="0">
-            <ContentControl prism:RegionManager.RegionName="ControlsRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.ControlsRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="1">
-            <ContentControl prism:RegionManager.RegionName="TabsRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.TabsRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="2">
-            <ContentControl prism:RegionManager.RegionName="PortfolioRegion"></ContentControl>
+            <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.PortfolioRegion}"></ContentControl>
         </Border>
     </Grid>
 
