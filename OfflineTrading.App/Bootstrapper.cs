@@ -13,6 +13,7 @@ using Microsoft.Practices.Prism.Modularity;
 using System.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.OfflineTrading.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.TabsModule;
 
 namespace OfflineTrading.App
 {
@@ -39,7 +40,10 @@ namespace OfflineTrading.App
             base.ConfigureModuleCatalog();
 
             var selectionModuleType = typeof(SelectionModule);
-            ModuleCatalog.AddModule(new ModuleInfo() { ModuleName = selectionModuleType.Name, ModuleType = selectionModuleType.AssemblyQualifiedName });
+            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = selectionModuleType.Name, ModuleType = selectionModuleType.AssemblyQualifiedName });
+
+            var tabsModuleType = typeof(TabsModule);
+            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = tabsModuleType.Name, ModuleType = tabsModuleType.AssemblyQualifiedName });
         }
     }
 }

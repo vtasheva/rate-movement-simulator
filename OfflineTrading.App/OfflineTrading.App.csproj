@@ -157,6 +157,10 @@
       <Project>{f995f98a-f071-41f7-849a-13dd2d4fe292}</Project>
       <Name>OfflineTrading.SelectionModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OfflineTrading.TabsModule\OfflineTrading.TabsModule.csproj">
+      <Project>{b5aef26f-544d-44d5-b1a2-5da3aaaa2c94}</Project>
+      <Name>OfflineTrading.TabsModule</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
