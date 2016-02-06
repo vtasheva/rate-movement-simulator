@@ -16,9 +16,16 @@
         </Grid.Resources>
 
         <ListBox Grid.Column="0" 
-                 ItemsSource="{Binding}"
-                 ItemTemplate="{StaticResource ListBoxItemTemplate}">
-
+                 ItemsSource="{Binding SymbolViewModels}"
+                 ItemTemplate="{StaticResource ListBoxItemTemplate}"
+                 SelectedItem="{Binding SlectedSymbolViewModel}"
+                 SelectionMode="Single">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=OneWay}"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
         </ListBox>
     </Grid>
 </UserControl>

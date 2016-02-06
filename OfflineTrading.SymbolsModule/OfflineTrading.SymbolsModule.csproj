@@ -128,7 +128,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SymbolsModule.cs" />
+    <Compile Include="ViewModels\ISymbolsViewModel.cs" />
     <Compile Include="ViewModels\ISymbolViewModel.cs" />
+    <Compile Include="ViewModels\SymbolsViewModel.cs" />
     <Compile Include="ViewModels\SymbolViewModel.cs" />
     <Compile Include="Views\SelectionView.xaml.cs">
       <DependentUpon>SelectionView.xaml</DependentUpon>

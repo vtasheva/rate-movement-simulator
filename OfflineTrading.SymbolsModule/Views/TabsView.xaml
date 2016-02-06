@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views"
              xmlns:converters="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -14,7 +15,7 @@
             </ResourceDictionary>
         </Grid.Resources>
 
-        <TabControl ItemsSource="{Binding}">
+        <TabControl ItemsSource="{Binding SymbolViewModels}" SelectedItem="{Binding SlectedSymbolViewModel}">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     <Setter Property="Visibility" Value="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -22,13 +23,18 @@
             </TabControl.ItemContainerStyle>
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding SymbolConfiguration.Name}" >
-                    </TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="{Binding SymbolConfiguration.Name}"></TextBlock>
+                        <Button Content="X" Margin="5, 0, 0, 0" Padding="2" Command="{Binding HideSymbolCommand}">
+                        </Button>
+                    </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <TextBlock Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding SymbolConfiguration.Name}"></TextBlock>
+                    <TextBlock Text="{Binding SymbolConfiguration.Name}"
+                               Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    </TextBlock>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>

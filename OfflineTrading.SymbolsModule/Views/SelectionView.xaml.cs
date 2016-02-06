@@ -22,11 +22,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
     /// </summary>
     public partial class SelectionView : UserControl
     {
-        public SelectionView(IEnumerable<ISymbolViewModel> symbolViewModels)
+        public SelectionView(ISymbolsViewModel symbolsViewModel)
         {
             InitializeComponent();
             
-            DataContext = symbolViewModels;
+            DataContext = symbolsViewModel;
         }
     }
 }

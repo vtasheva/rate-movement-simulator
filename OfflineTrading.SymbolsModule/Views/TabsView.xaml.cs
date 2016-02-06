@@ -22,11 +22,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
     /// </summary>
     public partial class TabsView : UserControl
     {
-        public TabsView(IEnumerable<ISymbolViewModel> symbolViewModels)
+        public TabsView(ISymbolsViewModel symbolsViewModel)
         {
             InitializeComponent();
 
-            DataContext = symbolViewModels;
+            DataContext = symbolsViewModel;
         }
     }
 }

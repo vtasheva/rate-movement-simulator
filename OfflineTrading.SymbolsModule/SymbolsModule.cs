@@ -28,6 +28,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
         public void Initialize()
         {
             _container.RegisterTypeSingleton<IEnumerable<ISymbolViewModel>>(new InjectionFactory(c => c.Resolve<ISymbolConfigurationsProvider>().GetConfigurations().Select(s => new SymbolViewModel(s))));
+            _container.RegisterTypeSingleton<ISymbolsViewModel, SymbolsViewModel>();
 
             _regionManager.RegisterViewWithRegion(RegionNames.SelectionRegion, typeof(SelectionView));
             _regionManager.RegisterViewWithRegion(RegionNames.TabsRegion, typeof(TabsView));
