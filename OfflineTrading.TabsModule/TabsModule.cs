@@ -21,7 +21,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TabsModule
 
         public void Initialize()
         {
-            _regionManager.RegisterViewWithRegion(RegionNames.TabsRegion, typeof(TabsView));
+            //_regionManager.RegisterViewWithRegion(RegionNames.TabsRegion, typeof(TabsView));
         }
     }
 }

@@ -18,14 +18,14 @@ using System.Windows.Shapes;
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
 {
     /// <summary>
-    /// Interaction logic for SelectionView.xaml
+    /// Interaction logic for TabsView.xaml
     /// </summary>
-    public partial class SelectionView : UserControl
+    public partial class TabsView : UserControl
     {
-        public SelectionView(IEnumerable<ISymbolViewModel> symbolViewModels)
+        public TabsView(IEnumerable<ISymbolViewModel> symbolViewModels)
         {
             InitializeComponent();
-            
+
             DataContext = symbolViewModels;
         }
     }

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views.TabsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views"
+             xmlns:converters="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></converters:BooleanToVisibilityConverter>
+            </ResourceDictionary>
+        </Grid.Resources>
+
+        <TabControl ItemsSource="{Binding}">
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="TabItem">
+                    <Setter Property="Visibility" Value="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </Style>
+            </TabControl.ItemContainerStyle>
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding SymbolConfiguration.Name}" >
+                    </TextBlock>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding SymbolConfiguration.Name}"></TextBlock>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</UserControl>

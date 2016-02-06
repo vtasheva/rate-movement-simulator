@@ -15,6 +15,7 @@ using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.OfflineTrading.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.TabsModule;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
 
 namespace OfflineTrading.App
 {
@@ -30,7 +31,6 @@ namespace OfflineTrading.App
             base.InitializeShell();
 
             Container.RegisterType<ISymbolConfigurationsProvider, SymbolConfigurationsProvider>();
-            Container.RegisterType<IEnumerable<ISymbolConfiguration>>(new InjectionFactory(c => c.Resolve<ISymbolConfigurationsProvider>().GetConfigurations()));
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
