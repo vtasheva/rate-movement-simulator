@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.ViewModels
+namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {
     public class SymbolViewModel : INotifyPropertyChanged
     {

@@ -1,5 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using Internovus.Wpf.Training.OfflineTrading.SelectionModule.ViewModels;
+using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.Views
+namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
 {
     /// <summary>
     /// Interaction logic for SelectionView.xaml

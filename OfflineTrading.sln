@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.Common", "Of
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.App", "OfflineTrading.App\OfflineTrading.App.csproj", "{3131C7C0-79FB-4741-9DCD-860870B3DA99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.SelectionModule", "OfflineTrading.SelectionModule\OfflineTrading.SelectionModule.csproj", "{F995F98A-F071-41F7-849A-13DD2D4FE292}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.SymbolsModule", "OfflineTrading.SymbolsModule\OfflineTrading.SymbolsModule.csproj", "{F995F98A-F071-41F7-849A-13DD2D4FE292}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfflineTrading.Configuration", "OfflineTrading.Configuration\OfflineTrading.Configuration.csproj", "{7713785B-B3C4-48FF-9BF7-BB4D1C7954D8}"
 EndProject

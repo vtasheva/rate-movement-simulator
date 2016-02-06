@@ -7,8 +7,8 @@
     <ProjectGuid>{F995F98A-F071-41F7-849A-13DD2D4FE292}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Internovus.Wpf.Training.OfflineTrading.SelectionModule</RootNamespace>
-    <AssemblyName>OfflineTrading.SelectionModule</AssemblyName>
+    <RootNamespace>Internovus.Wpf.Training.OfflineTrading.SymbolsModule</RootNamespace>
+    <AssemblyName>OfflineTrading.SymbolsModule</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -111,7 +111,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SelectionModule.cs" />
+    <Compile Include="SymbolsModule.cs" />
     <Compile Include="ViewModels\SymbolViewModel.cs" />
     <Compile Include="Views\SelectionView.xaml.cs">
       <DependentUpon>SelectionView.xaml</DependentUpon>

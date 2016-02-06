@@ -1,4 +1,4 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.SelectionModule.Views;
+﻿using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +8,13 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Internovus.Wpf.Training.OfflineTrading.Common.Constants;
 
-namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule
+namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {
-    public class SelectionModule : IModule
+    public class SymbolsModule : IModule
     {
         private readonly IRegionManager _regionManager;
 
-        public SelectionModule(IRegionManager regionManager)
+        public SymbolsModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Prism.Regions;
-using Internovus.Wpf.Training.OfflineTrading.SelectionModule;
+using Internovus.Wpf.Training.OfflineTrading.SymbolsModule;
 using Microsoft.Practices.Prism.Modularity;
 using System.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common;
@@ -40,8 +40,8 @@ namespace OfflineTrading.App
         {
             base.ConfigureModuleCatalog();
 
-            var selectionModuleType = typeof(SelectionModule);
-            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = selectionModuleType.Name, ModuleType = selectionModuleType.AssemblyQualifiedName });
+            var SymbolsModuleType = typeof(SymbolsModule);
+            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = SymbolsModuleType.Name, ModuleType = SymbolsModuleType.AssemblyQualifiedName });
 
             var tabsModuleType = typeof(TabsModule);
             ModuleCatalog.AddModule(new ModuleInfo { ModuleName = tabsModuleType.Name, ModuleType = tabsModuleType.AssemblyQualifiedName });

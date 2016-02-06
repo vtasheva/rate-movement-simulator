@@ -153,7 +153,7 @@
       <Project>{7713785b-b3c4-48ff-9bf7-bb4d1c7954d8}</Project>
       <Name>OfflineTrading.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OfflineTrading.SelectionModule\OfflineTrading.SelectionModule.csproj">
+    <ProjectReference Include="..\OfflineTrading.SymbolsModule\OfflineTrading.SymbolsModule.csproj">
       <Project>{f995f98a-f071-41f7-849a-13dd2d4fe292}</Project>
       <Name>OfflineTrading.SelectionModule</Name>
     </ProjectReference>

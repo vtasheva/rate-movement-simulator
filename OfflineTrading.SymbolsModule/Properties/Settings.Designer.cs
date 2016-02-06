@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.Properties {
+namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

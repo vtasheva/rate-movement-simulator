@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.Properties {
+namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Internovus.Wpf.Training.OfflineTrading.SelectionModule.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
