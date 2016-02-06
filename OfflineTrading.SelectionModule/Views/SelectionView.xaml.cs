@@ -1,4 +1,4 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Configuration;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.SelectionModule.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,10 +22,10 @@ namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.Views
     /// </summary>
     public partial class SelectionView : UserControl
     {
-        public SelectionView(IEnumerable<Symbol> symbols)
+        public SelectionView(IEnumerable<ISymbolConfiguration> symbols)
         {
             InitializeComponent();
-
+            
             DataContext = symbols.Select(s => new SymbolViewModel(s));
         }
     }

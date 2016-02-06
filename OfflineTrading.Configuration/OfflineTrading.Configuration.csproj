@@ -42,12 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationReader.cs" />
-    <Compile Include="IConfigurationReader.cs" />
+    <Compile Include="SymbolConfigurationsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Symbol.cs" />
+    <Compile Include="SymbolConfiguration.cs" />
     <Compile Include="SymbolsCollection.cs" />
     <Compile Include="SymbolsConfigurationSection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">
+      <Project>{305452e6-5db6-4d77-8860-a62d2e0da830}</Project>
+      <Name>OfflineTrading.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

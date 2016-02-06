@@ -5,16 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    public class ConfigurationReader : IConfigurationReader
+    public class SymbolConfigurationsProvider : ISymbolConfigurationsProvider
     {
-        public IEnumerable<Symbol> Read()
+        public IEnumerable<ISymbolConfiguration> GetConfigurations()
         {
             var configuration = (SymbolsConfigurationSection)ConfigurationManager.GetSection("SymbolsConfiguration");
 
-            return configuration.Symbols.Cast<Symbol>();
+            return configuration.Symbols.Cast<SymbolConfiguration>();
         }
     }
 }

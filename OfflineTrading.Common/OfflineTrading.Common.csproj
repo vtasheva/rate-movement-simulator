@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="ApplicationArgs.cs" />
     <Compile Include="ApplicationArgsParser.cs" />
+    <Compile Include="Configuration\ISymbolConfiguration.cs" />
+    <Compile Include="Configuration\ISymbolConfigurationsProvider.cs" />
     <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Constants\RegionNames.cs" />
     <Compile Include="IApplicationArgsParser.cs" />

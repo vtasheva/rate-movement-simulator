@@ -11,12 +11,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
     {
         protected override ConfigurationElement CreateNewElement()
         {
-            return new Symbol();
+            return new SymbolConfiguration();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((Symbol)element).Name;
+            return ((SymbolConfiguration)element).Name;
         }
     }
 }

@@ -139,10 +139,6 @@
       <Project>{305452e6-5db6-4d77-8860-a62d2e0da830}</Project>
       <Name>OfflineTrading.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OfflineTrading.Configuration\OfflineTrading.Configuration.csproj">
-      <Project>{7713785b-b3c4-48ff-9bf7-bb4d1c7954d8}</Project>
-      <Name>OfflineTrading.Configuration</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

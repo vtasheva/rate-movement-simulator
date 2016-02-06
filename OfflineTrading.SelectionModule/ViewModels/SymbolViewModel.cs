@@ -1,5 +1,4 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Configuration;
-using System;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.ViewModels
 {
     public class SymbolViewModel : INotifyPropertyChanged
     {
-        public Symbol Symbol { get; private set; }
+        public ISymbolConfiguration SymbolConfiguration { get; private set; }
 
         private bool _isSelected;
         public bool IsSelected
@@ -26,9 +25,9 @@ namespace Internovus.Wpf.Training.OfflineTrading.SelectionModule.ViewModels
             }
         }
 
-        public SymbolViewModel(Symbol symbol)
+        public SymbolViewModel(ISymbolConfiguration symbolConfiguration)
         {
-            Symbol = symbol;
+            SymbolConfiguration = symbolConfiguration;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
