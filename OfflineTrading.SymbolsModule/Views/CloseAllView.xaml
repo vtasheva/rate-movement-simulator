@@ -6,5 +6,5 @@
              xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Button Content="Close All" Command="{Binding CloseAllCommand}" />
+    <Button Content="Close All Tabs" Command="{Binding CloseAllCommand}" Padding="5,5,5,5" />
 </UserControl>

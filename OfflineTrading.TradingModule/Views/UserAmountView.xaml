@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Orientation="Horizontal">
-        <Label Content="Current Amount:"/>
-        <TextBlock Text="{Binding CurrentAmount}"/>
+        <Label Content="Current Amount:" />
+        <TextBlock Text="{Binding CurrentAmount}" Margin="0,5,0,0"/>
     </StackPanel>
 </UserControl>

@@ -32,7 +32,7 @@
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.SelectionRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="0">
-            <StackPanel Orientation="Horizontal" prism:RegionManager.RegionName="{x:Static rn:RegionNames.ControlsRegion}"></StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" prism:RegionManager.RegionName="{x:Static rn:RegionNames.ControlsRegion}"></StackPanel>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="1">
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.TabsRegion}"></ContentControl>
