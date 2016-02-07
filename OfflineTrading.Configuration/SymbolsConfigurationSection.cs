@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
     class SymbolsConfigurationSection : ConfigurationSection
     {
+        /// <summary>
+        /// Gets the symbols.
+        /// </summary>
+        /// <value>
+        /// The symbols.
+        /// </value>
         [ConfigurationProperty("Symbols")]
         [ConfigurationCollection(typeof(SymbolsCollection), AddItemName = "add")]
         public SymbolsCollection Symbols => (SymbolsCollection)base["Symbols"];

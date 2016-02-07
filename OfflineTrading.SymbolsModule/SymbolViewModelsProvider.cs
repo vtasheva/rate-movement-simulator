@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
-using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {
@@ -12,11 +9,19 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
     {
         private readonly IEnumerable<ISymbolConfiguration> _symbolConfigurations;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SymbolViewModelsProvider"/> class.
+        /// </summary>
+        /// <param name="symbolConfigurations">The symbol configurations.</param>
         public SymbolViewModelsProvider(IEnumerable<ISymbolConfiguration> symbolConfigurations)
         {
             _symbolConfigurations = symbolConfigurations;
         }
 
+        /// <summary>
+        /// Gets the symbol view models.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ISymbolViewModel> GetSymbolViewModels()
         {
             return _symbolConfigurations.Select(s => new SymbolViewModel(s)).ToList();

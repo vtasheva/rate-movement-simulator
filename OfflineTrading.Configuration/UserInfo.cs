@@ -1,15 +1,16 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
     class UserInfo : ConfigurationSection, IUserInfo
     {
+        /// <summary>
+        /// Gets the name of the user.
+        /// </summary>
+        /// <value>
+        /// The name of the user.
+        /// </value>
         [ConfigurationProperty("userName")]
         public string UserName
         {
@@ -23,6 +24,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the current amount.
+        /// </summary>
+        /// <value>
+        /// The current amount.
+        /// </value>
         [ConfigurationProperty("amount")]
         public decimal CurrentAmount
         {

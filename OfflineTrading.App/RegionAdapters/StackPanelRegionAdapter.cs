@@ -1,10 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Regions;
-using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,11 +7,20 @@ namespace Internovus.Wpf.Training.OfflineTrading.App.RegionAdapters
 {
     public class StackPanelRegionAdapter : RegionAdapterBase<StackPanel>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StackPanelRegionAdapter"/> class.
+        /// </summary>
+        /// <param name="factory">The factory.</param>
         public StackPanelRegionAdapter(IRegionBehaviorFactory factory)
             : base(factory)
         {
         }
 
+        /// <summary>
+        /// Template method to adapt the object to an <see cref="T:Microsoft.Practices.Prism.Regions.IRegion" />.
+        /// </summary>
+        /// <param name="region">The new region being used.</param>
+        /// <param name="regionTarget">The object to adapt.</param>
         protected override void Adapt(IRegion region, StackPanel regionTarget)
         {
             region.Views.CollectionChanged += (s, e) =>
@@ -39,6 +43,13 @@ namespace Internovus.Wpf.Training.OfflineTrading.App.RegionAdapters
             };
         }
 
+        /// <summary>
+        /// Template method to create a new instance of <see cref="T:Microsoft.Practices.Prism.Regions.IRegion" />
+        /// that will be used to adapt the object.
+        /// </summary>
+        /// <returns>
+        /// A new instance of <see cref="T:Microsoft.Practices.Prism.Regions.IRegion" />.
+        /// </returns>
         protected override IRegion CreateRegion()
         {
             return new AllActiveRegion();

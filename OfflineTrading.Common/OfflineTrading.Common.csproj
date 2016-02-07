@@ -65,6 +65,7 @@
     <Compile Include="Configuration\IUserInfoProvider.cs" />
     <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Constants\RegionNames.cs" />
+    <Compile Include="Extensions\UnityContainerExtensions.cs" />
     <Compile Include="IApplicationArgsParser.cs" />
     <Compile Include="IUnityContainerConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

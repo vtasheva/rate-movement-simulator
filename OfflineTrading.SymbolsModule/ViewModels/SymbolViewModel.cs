@@ -1,21 +1,27 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Microsoft.Practices.Prism.Commands;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
-using System;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {
     class SymbolViewModel : ISymbolViewModel, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Gets the symbol configuration.
+        /// </summary>
+        /// <value>
+        /// The symbol configuration.
+        /// </value>
         public ISymbolConfiguration SymbolConfiguration { get; private set; }
 
         private bool _isVisible;
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is visible.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is visible; otherwise, <c>false</c>.
+        /// </value>
         public bool IsVisible
         {
             get { return _isVisible; }
@@ -30,6 +36,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         }
 
         private ICommand _hideSymbolCommand;
+        /// <summary>
+        /// Gets the hide symbol command.
+        /// </summary>
+        /// <value>
+        /// The hide symbol command.
+        /// </value>
         public ICommand HideSymbolCommand
         {
             get
@@ -43,13 +55,24 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SymbolViewModel"/> class.
+        /// </summary>
+        /// <param name="symbolConfiguration">The symbol configuration.</param>
         public SymbolViewModel(ISymbolConfiguration symbolConfiguration)
         {
             SymbolConfiguration = symbolConfiguration;
         }
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Notifies the property changed.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
         private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

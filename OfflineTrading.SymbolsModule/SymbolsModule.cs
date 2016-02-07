@@ -1,15 +1,7 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Constants;
+using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
-using Internovus.Wpf.Training.OfflineTrading.Common.Constants;
-using Microsoft.Practices.Unity;
-using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
-using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {
@@ -17,11 +9,18 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
     {
         private readonly IRegionManager _regionManager;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SymbolsModule"/> class.
+        /// </summary>
+        /// <param name="regionManager">The region manager.</param>
         public SymbolsModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
         }
 
+        /// <summary>
+        /// Notifies the module that it has be initialized.
+        /// </summary>
         public void Initialize()
         {
             _regionManager.RegisterViewWithRegion(RegionNames.SelectionRegion, typeof(SelectionView));
