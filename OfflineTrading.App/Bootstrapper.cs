@@ -15,6 +15,7 @@ using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.OfflineTrading.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule;
 
 namespace OfflineTrading.App
 {
@@ -41,8 +42,11 @@ namespace OfflineTrading.App
         {
             base.ConfigureModuleCatalog();
 
-            var SymbolsModuleType = typeof(SymbolsModule);
-            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = SymbolsModuleType.Name, ModuleType = SymbolsModuleType.AssemblyQualifiedName });
+            var symbolsModuleType = typeof(SymbolsModule);
+            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = symbolsModuleType.Name, ModuleType = symbolsModuleType.AssemblyQualifiedName });
+
+            var tradingModuleType = typeof(TradingModule);
+            ModuleCatalog.AddModule(new ModuleInfo { ModuleName = tradingModuleType.Name, ModuleType = tradingModuleType.AssemblyQualifiedName });
         }
     }
 }
