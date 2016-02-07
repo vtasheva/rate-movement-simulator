@@ -18,6 +18,7 @@ using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule;
 using System.Windows.Controls;
 using Internovus.Wpf.Training.OfflineTrading.App.RegionAdapters;
+using Abmes.UnityExtensions;
 
 namespace OfflineTrading.App
 {
@@ -32,10 +33,14 @@ namespace OfflineTrading.App
         {
             base.InitializeShell();
 
+            Container.RegisterType<IUserInfoProvider, UserInfoProvider>();
+            Container.RegisterTypeByFactoryFunc<IUserInfo, IUserInfoProvider>(p => p.GetUserInfo());
+
             Container.RegisterType<ISymbolConfigurationsProvider, SymbolConfigurationsProvider>();
-            Container.RegisterType<IUserInfo>(new InjectionFactory(c => c.Resolve<UserInfoProvider>().GetUserInfo()));
-            Container.RegisterType<IEnumerable<ISymbolViewModel>>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => c.Resolve<ISymbolConfigurationsProvider>().GetConfigurations().Select(s => new SymbolViewModel(s)).ToList()));
-            Container.RegisterType<ISymbolsViewModel>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => c.Resolve<SymbolsViewModel>()));
+            Container.RegisterType<ISymbolViewModelsProvider, SymbolViewModelsProvider>();
+            Container.RegisterTypeByFactoryFunc<IEnumerable<ISymbolConfiguration>, ISymbolConfigurationsProvider>(p => p.GetConfigurations());
+            Container.RegisterTypeSingleton<IEnumerable<ISymbolViewModel>>(new InjectionFactory(c => c.Resolve<ISymbolViewModelsProvider>().GetSymbolViewModels()));
+            Container.RegisterTypeSingleton<ISymbolsViewModel>(new InjectionFactory(c => c.Resolve<SymbolsViewModel>()));
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();

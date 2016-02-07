@@ -46,6 +46,7 @@
     <Compile Include="Configuration\ISymbolConfiguration.cs" />
     <Compile Include="Configuration\ISymbolConfigurationsProvider.cs" />
     <Compile Include="Configuration\IUserInfo.cs" />
+    <Compile Include="Configuration\IUserInfoProvider.cs" />
     <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Constants\RegionNames.cs" />
     <Compile Include="IApplicationArgsParser.cs" />

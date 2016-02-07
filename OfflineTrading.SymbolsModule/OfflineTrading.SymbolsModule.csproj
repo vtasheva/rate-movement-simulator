@@ -110,6 +110,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISymbolViewModelsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -124,6 +125,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SymbolsModule.cs" />
+    <Compile Include="SymbolViewModelsProvider.cs" />
     <Compile Include="ViewModels\ISymbolsViewModel.cs" />
     <Compile Include="ViewModels\ISymbolViewModel.cs" />
     <Compile Include="ViewModels\SymbolsViewModel.cs" />
