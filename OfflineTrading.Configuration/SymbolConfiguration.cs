@@ -21,7 +21,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
-        [ConfigurationProperty("waveType", IsKey = true, IsRequired = true, DefaultValue = "sine")]
+        [ConfigurationProperty("waveType", IsRequired = true, DefaultValue = "sine")]
         public string WaveType
         {
             get
@@ -34,7 +34,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
-        [ConfigurationProperty("initialRate", IsKey = true, IsRequired = true, DefaultValue = "0")]
+        [ConfigurationProperty("initialRate", IsRequired = true, DefaultValue = "0")]
         public decimal InitialRate
         {
             get
@@ -47,7 +47,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
-        [ConfigurationProperty("amplitude", IsKey = true, IsRequired = true, DefaultValue = "1")]
+        [ConfigurationProperty("amplitude", IsRequired = true, DefaultValue = "1")]
         public decimal Amplitude
         {
             get
@@ -60,7 +60,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
-        [ConfigurationProperty("period", IsKey = true, DefaultValue = "60000")]
+        [ConfigurationProperty("period", DefaultValue = "60000")]
         public int Period
         {
             get
@@ -73,7 +73,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
-        [ConfigurationProperty("step", IsKey = true, DefaultValue = "1000")]
+        [ConfigurationProperty("step", DefaultValue = "1000")]
         public int Step
         {
             get
