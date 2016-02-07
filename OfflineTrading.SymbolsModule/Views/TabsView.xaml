@@ -18,7 +18,7 @@
         <TabControl ItemsSource="{Binding SymbolViewModels}" SelectedItem="{Binding SlectedSymbolViewModel}">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
-                    <Setter Property="Visibility" Value="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
                 </Style>
             </TabControl.ItemContainerStyle>
             <TabControl.ItemTemplate>
@@ -33,7 +33,7 @@
             <TabControl.ContentTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding SymbolConfiguration.Name}"
-                               Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+                               Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
                     </TextBlock>
                 </DataTemplate>
             </TabControl.ContentTemplate>

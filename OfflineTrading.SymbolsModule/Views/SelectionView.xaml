@@ -10,7 +10,7 @@
         <Grid.Resources>
             <DataTemplate x:Key="ListBoxItemTemplate">
                 <CheckBox Content="{Binding SymbolConfiguration.Name}"
-                          IsChecked="{Binding IsSelected}">
+                          IsChecked="{Binding IsVisible}">
                 </CheckBox>
             </DataTemplate>
         </Grid.Resources>
@@ -22,7 +22,7 @@
                  SelectionMode="Single">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=OneWay}"/>
+                    <Setter Property="IsSelected" Value="{Binding IsVisible, Mode=OneWay}"/>
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </ListBox.ItemContainerStyle>

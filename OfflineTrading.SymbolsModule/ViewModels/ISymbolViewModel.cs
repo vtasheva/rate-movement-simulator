@@ -11,6 +11,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
     public interface ISymbolViewModel
     {
         ISymbolConfiguration SymbolConfiguration { get; }
-        bool IsSelected { get; set; }
+        bool IsVisible { get; set; }
     }
 }
