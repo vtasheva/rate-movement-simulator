@@ -16,6 +16,8 @@ using Internovus.Wpf.Training.OfflineTrading.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule;
+using System.Windows.Controls;
+using Internovus.Wpf.Training.OfflineTrading.App.RegionAdapters;
 
 namespace OfflineTrading.App
 {
@@ -31,6 +33,7 @@ namespace OfflineTrading.App
             base.InitializeShell();
 
             Container.RegisterType<ISymbolConfigurationsProvider, SymbolConfigurationsProvider>();
+            Container.RegisterType<IUserInfo>(new InjectionFactory(c => c.Resolve<UserInfoProvider>().GetUserInfo()));
             Container.RegisterType<IEnumerable<ISymbolViewModel>>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => c.Resolve<ISymbolConfigurationsProvider>().GetConfigurations().Select(s => new SymbolViewModel(s)).ToList()));
             Container.RegisterType<ISymbolsViewModel>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => c.Resolve<SymbolsViewModel>()));
 
@@ -47,6 +50,14 @@ namespace OfflineTrading.App
 
             var tradingModuleType = typeof(TradingModule);
             ModuleCatalog.AddModule(new ModuleInfo { ModuleName = tradingModuleType.Name, ModuleType = tradingModuleType.AssemblyQualifiedName });
+        }
+
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        {
+            var mappings = base.ConfigureRegionAdapterMappings();
+            mappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
+
+            return mappings;
         }
     }
 }

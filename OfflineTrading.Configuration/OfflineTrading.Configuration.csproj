@@ -47,6 +47,8 @@
     <Compile Include="SymbolConfiguration.cs" />
     <Compile Include="SymbolsCollection.cs" />
     <Compile Include="SymbolsConfigurationSection.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="UserInfoProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">

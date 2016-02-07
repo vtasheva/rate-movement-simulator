@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Prism.Modularity;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Constants;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Views;
+using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 
         public void Initialize()
         {
-            
+            _regionManager.RegisterViewWithRegion(RegionNames.ControlsRegion, typeof(UserAmountView));
         }
     }
 }
