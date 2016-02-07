@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views"
              xmlns:converters="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
-             xmlns:vm="clr-namespace:Internovus.Wpf.Training.OfflineTrading.Common.Charting;assembly=OfflineTrading.Common.Charting"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:prism="http://www.codeplex.com/prism"
              mc:Ignorable="d" 
@@ -33,8 +32,7 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding SymbolConfiguration.Name}"
-                               Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"></TextBlock>
+                    <ContentControl Content="{Binding RateMovementView}"></ContentControl>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>

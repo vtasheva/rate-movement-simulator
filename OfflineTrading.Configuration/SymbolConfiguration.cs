@@ -6,7 +6,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
     /// <summary>
     /// Class ApplicationArgs.
     /// </summary>
-    class SymbolConfiguration : ConfigurationElement, ISymbolConfiguration
+    public class SymbolConfiguration : ConfigurationElement, ISymbolConfiguration
     {
         /// <summary>
         /// Gets the name.
@@ -33,7 +33,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// <value>
         /// The type of the wave.
         /// </value>
-        [ConfigurationProperty("waveType", IsRequired = true, DefaultValue = "sine")]
+        [ConfigurationProperty("waveType", IsKey = true, IsRequired = true, DefaultValue = "sine")]
         public string WaveType
         {
             get

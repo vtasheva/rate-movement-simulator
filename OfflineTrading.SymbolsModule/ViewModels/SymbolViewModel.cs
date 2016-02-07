@@ -62,13 +62,16 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
             }
         }
 
+        public RateMovementView RateMovementView { get; private set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolViewModel"/> class.
         /// </summary>
         /// <param name="symbolConfiguration">The symbol configuration.</param>
-        public SymbolViewModel(ISymbolConfiguration symbolConfiguration)
+        public SymbolViewModel(ISymbolConfiguration symbolConfiguration, IRateMovementViewModel rateMovementViewModel)
         {
             SymbolConfiguration = symbolConfiguration;
+            RateMovementView = new RateMovementView(rateMovementViewModel);
         }
 
         /// <summary>

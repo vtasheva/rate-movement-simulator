@@ -87,6 +87,7 @@ namespace OfflineTrading.App
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
+
             Container.RegisterAllContainerConfigurators();
         }
 

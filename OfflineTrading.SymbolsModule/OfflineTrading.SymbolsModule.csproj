@@ -94,6 +94,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
@@ -178,6 +179,10 @@
     <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">
       <Project>{305452e6-5db6-4d77-8860-a62d2e0da830}</Project>
       <Name>OfflineTrading.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfflineTrading.Configuration\OfflineTrading.Configuration.csproj">
+      <Project>{7713785b-b3c4-48ff-9bf7-bb4d1c7954d8}</Project>
+      <Name>OfflineTrading.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\RateFeed\RateFeed.csproj">
       <Project>{ea54e35e-c699-448a-82b6-2ee19b002446}</Project>

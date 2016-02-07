@@ -43,4 +43,5 @@
             </telerik:RadChart.SeriesMappings>
         </telerik:RadChart>
     </Grid>
+        
 </UserControl>
