@@ -12,5 +12,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
     {
         ISymbolConfiguration SymbolConfiguration { get; }
         bool IsVisible { get; set; }
+        ICommand HideSymbolCommand { get; }
     }
 }

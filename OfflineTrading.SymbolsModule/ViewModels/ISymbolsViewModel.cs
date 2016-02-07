@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {
@@ -10,5 +11,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
     {
         IEnumerable<ISymbolViewModel> SymbolViewModels { get; }
         ISymbolViewModel SlectedSymbolViewModel { get; }
+        ICommand CloseAllCommand { get; }
     }
 }

@@ -31,6 +31,8 @@ namespace OfflineTrading.App
             base.InitializeShell();
 
             Container.RegisterType<ISymbolConfigurationsProvider, SymbolConfigurationsProvider>();
+            Container.RegisterType<IEnumerable<ISymbolViewModel>>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => c.Resolve<ISymbolConfigurationsProvider>().GetConfigurations().Select(s => new SymbolViewModel(s)).ToList()));
+            Container.RegisterType<ISymbolsViewModel>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => c.Resolve<SymbolsViewModel>()));
 
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
