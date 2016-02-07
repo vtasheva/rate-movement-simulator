@@ -8,7 +8,7 @@ using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {
-    public class SymbolViewModelsProvider : ISymbolViewModelsProvider
+    class SymbolViewModelsProvider : ISymbolViewModelsProvider
     {
         private readonly IEnumerable<ISymbolConfiguration> _symbolConfigurations;
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    public class SymbolsCollection : ConfigurationElementCollection
+    class SymbolsCollection : ConfigurationElementCollection
     {
         protected override ConfigurationElement CreateNewElement()
         {

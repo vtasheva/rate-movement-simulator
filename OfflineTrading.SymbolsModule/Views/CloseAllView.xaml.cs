@@ -19,7 +19,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
     /// <summary>
     /// Interaction logic for CloseAllView.xaml
     /// </summary>
-    public partial class CloseAllView : UserControl
+    partial class CloseAllView : UserControl
     {
         public CloseAllView(ISymbolsViewModel symbolsViewModel)
         {

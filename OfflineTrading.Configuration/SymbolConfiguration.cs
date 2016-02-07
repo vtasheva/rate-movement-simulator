@@ -6,7 +6,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
     /// <summary>
     /// Class ApplicationArgs.
     /// </summary>
-    public class SymbolConfiguration : ConfigurationElement, ISymbolConfiguration
+    class SymbolConfiguration : ConfigurationElement, ISymbolConfiguration
     {
         [ConfigurationProperty("name", IsKey = true, IsRequired = true)]
         public string Name

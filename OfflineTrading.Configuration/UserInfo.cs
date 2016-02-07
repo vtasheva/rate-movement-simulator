@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    public class UserInfo : ConfigurationSection, IUserInfo
+    class UserInfo : ConfigurationSection, IUserInfo
     {
         [ConfigurationProperty("userName")]
         public string UserName

@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {
-    public class SymbolsViewModel : ISymbolsViewModel
+    class SymbolsViewModel : ISymbolsViewModel
     {
         public IEnumerable<ISymbolViewModel> SymbolViewModels { get; private set; }
 

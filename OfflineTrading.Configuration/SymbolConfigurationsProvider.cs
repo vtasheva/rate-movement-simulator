@@ -9,7 +9,7 @@ using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    public class SymbolConfigurationsProvider : ISymbolConfigurationsProvider
+    class SymbolConfigurationsProvider : ISymbolConfigurationsProvider
     {
         public IEnumerable<ISymbolConfiguration> GetConfigurations()
         {

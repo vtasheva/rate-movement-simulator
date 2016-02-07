@@ -2,6 +2,7 @@
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.Views;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         {
             _regionManager.RegisterViewWithRegion(RegionNames.ControlsRegion, typeof(UserAmountView));
         }
+
     }
 }

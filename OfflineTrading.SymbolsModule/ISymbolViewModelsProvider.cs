@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {
-    public interface ISymbolViewModelsProvider
+    interface ISymbolViewModelsProvider
     {
         IEnumerable<ISymbolViewModel> GetSymbolViewModels();
     }

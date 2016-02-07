@@ -20,7 +20,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
     /// <summary>
     /// Interaction logic for TabsView.xaml
     /// </summary>
-    public partial class TabsView : UserControl
+    partial class TabsView : UserControl
     {
         public TabsView(ISymbolsViewModel symbolsViewModel)
         {

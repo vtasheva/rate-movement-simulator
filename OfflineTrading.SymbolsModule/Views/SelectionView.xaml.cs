@@ -20,7 +20,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
     /// <summary>
     /// Interaction logic for SelectionView.xaml
     /// </summary>
-    public partial class SelectionView : UserControl
+    partial class SelectionView : UserControl
     {
         public SelectionView(ISymbolsViewModel symbolsViewModel)
         {

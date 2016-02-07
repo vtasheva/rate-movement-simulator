@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    public class SymbolsConfigurationSection : ConfigurationSection
+    class SymbolsConfigurationSection : ConfigurationSection
     {
         [ConfigurationProperty("Symbols")]
         [ConfigurationCollection(typeof(SymbolsCollection), AddItemName = "add")]

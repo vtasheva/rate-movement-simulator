@@ -11,7 +11,7 @@ using System;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {
-    public class SymbolViewModel : ISymbolViewModel, INotifyPropertyChanged
+    class SymbolViewModel : ISymbolViewModel, INotifyPropertyChanged
     {
         public ISymbolConfiguration SymbolConfiguration { get; private set; }
 
