@@ -91,7 +91,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// The period.
         /// </value>
         [ConfigurationProperty("period", DefaultValue = "60000")]
-        public int Period
+        public int PeriodInMilliseconds
         {
             get
             {
@@ -110,7 +110,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// The step.
         /// </value>
         [ConfigurationProperty("step", DefaultValue = "1000")]
-        public int Step
+        public int StepInMilliseconds
         {
             get
             {

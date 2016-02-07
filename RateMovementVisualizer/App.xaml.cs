@@ -1,10 +1,11 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
+using Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels;
 using Internovus.Wpf.Training.RateFeed.Constants;
 using Internovus.Wpf.Training.RateFeed.Factories;
 using Internovus.Wpf.Training.RateFeed.Implementations;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels;
-using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,10 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
 
             RegisterTypes(e.Args);
+
+            var mainWindow = Container.Resolve<MainWindow>();
+            mainWindow.ShowDialog();
+            Shutdown();
         }
 
         private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -53,7 +58,7 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
             Container.RegisterType<IWaveFunc>(WaveNames.Random, new InjectionFactory(c => c.Resolve<RandomWaveFuncFactory>().Create()));
 
             Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
-            Container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
+            Container.RegisterType<ISymbolConfiguration>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
         }
     }
 }

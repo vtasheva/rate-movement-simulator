@@ -1,10 +1,21 @@
-﻿namespace Internovus.Wpf.Training.OfflineTrading.Common
+﻿using System;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+
+namespace Internovus.Wpf.Training.OfflineTrading.Common
 {
     /// <summary>
     /// Class ApplicationArgs.
     /// </summary>
-    public class ApplicationArgs
+    public class ApplicationArgs : ISymbolConfiguration
     {
+        public string Name
+        {
+            get
+            {
+                return string.Empty;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the type of the wave.
         /// </summary>

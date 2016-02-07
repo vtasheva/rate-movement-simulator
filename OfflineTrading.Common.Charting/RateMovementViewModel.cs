@@ -1,13 +1,13 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces;
 using System.Collections.ObjectModel;
 
-namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
+namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
 {
     public class RateMovementViewModel : IRateMovementViewModel
     {
-        private ApplicationArgs _applicationArgs;
+        private ISymbolConfiguration _symbolConfiguration;
 
         /// <summary>
         /// Gets the rate points.
@@ -23,7 +23,7 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
         /// <value>
         /// The axis x step.
         /// </value>
-        public double AxisXStep => _applicationArgs.StepInMilliseconds;
+        public double AxisXStep => _symbolConfiguration.StepInMilliseconds;
 
         /// <summary>
         /// Gets the axis y minimum value.
@@ -31,7 +31,7 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
         /// <value>
         /// The axis y minimum value.
         /// </value>
-        public decimal AxisYMinValue => _applicationArgs.InitialRate - _applicationArgs.Amplitude;
+        public decimal AxisYMinValue => _symbolConfiguration.InitialRate - _symbolConfiguration.Amplitude;
 
         /// <summary>
         /// Gets the axis y maximum value.
@@ -39,16 +39,16 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
         /// <value>
         /// The axis y maximum value.
         /// </value>
-        public decimal AxisYMaxValue => _applicationArgs.InitialRate + _applicationArgs.Amplitude;
+        public decimal AxisYMaxValue => _symbolConfiguration.InitialRate + _symbolConfiguration.Amplitude;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RateMovementViewModel"/> class.
         /// </summary>
         /// <param name="rateGenerator">The rate generator.</param>
         /// <param name="applicationArgs">The application arguments.</param>
-        public RateMovementViewModel(IRateGenerator rateGenerator, ApplicationArgs applicationArgs)
+        public RateMovementViewModel(IRateGenerator rateGenerator, ISymbolConfiguration symbolConfiguration)
         {
-            _applicationArgs = applicationArgs;
+            _symbolConfiguration = symbolConfiguration;
 
             RatePoints = new ObservableCollection<RatePoint>();
 
@@ -58,7 +58,7 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels
 
         private void RateGenerator_OnTick(object sender, RatePoint ratePoint)
         {
-            App.Current.Dispatcher.Invoke(() => RatePoints.Add(ratePoint));
+            System.Windows.Application.Current.Dispatcher.Invoke(() => RatePoints.Add(ratePoint));
         }
     }
 }

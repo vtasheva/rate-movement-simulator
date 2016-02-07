@@ -1,4 +1,7 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting;
+using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
+using Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels

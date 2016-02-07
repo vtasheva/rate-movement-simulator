@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.RateFeed.Implementations.Waves;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 
@@ -6,15 +7,15 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
 {
     public class SineWaveFuncFactory
     {
-        private readonly ApplicationArgs _applicationArgs;
+        private readonly ISymbolConfiguration _symbolConfiguration;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SineWaveFuncFactory"/> class.
         /// </summary>
-        /// <param name="applicationArgs">The application arguments.</param>
-        public SineWaveFuncFactory(ApplicationArgs applicationArgs)
+        /// <param name="symbolConfiguration">The application arguments.</param>
+        public SineWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
         {
-            _applicationArgs = applicationArgs;
+            _symbolConfiguration = symbolConfiguration;
         }
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// <returns></returns>
         public IWaveFunc Create()
         {
-            return new SineWaveFunc(_applicationArgs.InitialRate, _applicationArgs.Amplitude, _applicationArgs.PeriodInMilliseconds);
+            return new SineWaveFunc(_symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
         }
     }
 }

@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Internovus.Wpf.Training.RateMovementVisualizer.Views"
+        xmlns:local="clr-namespace:Internovus.Wpf.Training.RateMovementVisualizer"
         mc:Ignorable="d"
-        Title="Rate Movement Visualizer" Height="600" Width="1000">
-    <Grid>
-        <local:RateMovementView></local:RateMovementView>
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid x:Name="MainGrid">
+        
     </Grid>
 </Window>

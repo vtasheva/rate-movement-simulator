@@ -1,7 +1,6 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
-namespace Internovus.Wpf.Training.RateMovementVisualizer.ViewModels.Interfaces
+namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces
 {
     public interface IRateMovementViewModel
     {

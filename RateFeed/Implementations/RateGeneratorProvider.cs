@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System.Timers;
 
@@ -7,19 +8,19 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
     public class RateGeneratorProvider : IRateGeneratorProvider
     {
         private readonly IWaveFuncProvider _waveFuncProvider;
-        private readonly ApplicationArgs _applicationArgs;
+        private readonly ISymbolConfiguration _symbolConfiguration;
         private readonly Timer _timer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RateGeneratorProvider"/> class.
         /// </summary>
         /// <param name="waveFuncProvider">The wave function provider.</param>
-        /// <param name="applicationArgs">The application arguments.</param>
+        /// <param name="symbolConfiguration">The application arguments.</param>
         /// <param name="timer">The timer.</param>
-        public RateGeneratorProvider(IWaveFuncProvider waveFuncProvider, ApplicationArgs applicationArgs, Timer timer)
+        public RateGeneratorProvider(IWaveFuncProvider waveFuncProvider, ISymbolConfiguration symbolConfiguration, Timer timer)
         {
             _waveFuncProvider = waveFuncProvider;
-            _applicationArgs = applicationArgs;
+            _symbolConfiguration = symbolConfiguration;
             _timer = timer;
         }
 
@@ -29,9 +30,9 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         /// <returns></returns>
         public IRateGenerator GetRateGenerator()
         {
-            var waveFunc = _waveFuncProvider.GetWaveFunc(_applicationArgs.WaveType);
+            var waveFunc = _waveFuncProvider.GetWaveFunc(_symbolConfiguration.WaveType);
 
-            _timer.Interval = _applicationArgs.StepInMilliseconds;
+            _timer.Interval = _symbolConfiguration.StepInMilliseconds;
 
             return new RateGenerator(waveFunc, _timer);
         }

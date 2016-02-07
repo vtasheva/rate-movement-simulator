@@ -40,7 +40,7 @@
         /// <value>
         /// The period.
         /// </value>
-        int Period { get; }
+        int PeriodInMilliseconds { get; }
 
         /// <summary>
         /// Gets the step.
@@ -48,6 +48,6 @@
         /// <value>
         /// The step.
         /// </value>
-        int Step { get; }
+        int StepInMilliseconds { get; }
     }
 }
