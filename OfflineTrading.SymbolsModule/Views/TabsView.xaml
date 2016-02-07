@@ -23,18 +23,16 @@
             </TabControl.ItemContainerStyle>
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{Binding SymbolConfiguration.Name}"></TextBlock>
-                        <Button Content="X" Margin="5, 0, 0, 0" Padding="2" Command="{Binding HideSymbolCommand}">
-                        </Button>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding SymbolConfiguration.Name}"/>
+                        <Button Content="x" Command="{Binding HideSymbolCommand}" Margin="5,0,0,0" Padding="3,0,3,2"/>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding SymbolConfiguration.Name}"
-                               Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-                    </TextBlock>
+                               Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
