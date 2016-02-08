@@ -22,6 +22,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// </value>
         public ISymbolConfiguration SymbolConfiguration { get; private set; }
 
+        public IRateMovementViewModel RateMovementViewModel { get; private set; }
+
         private bool _isVisible;
         /// <summary>
         /// Gets or sets a value indicating whether this instance is visible.
@@ -62,8 +64,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
             }
         }
 
-        public RateMovementView RateMovementView { get; private set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolViewModel"/> class.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         public SymbolViewModel(ISymbolConfiguration symbolConfiguration, IRateMovementViewModel rateMovementViewModel)
         {
             SymbolConfiguration = symbolConfiguration;
-            RateMovementView = new RateMovementView(rateMovementViewModel);
+            RateMovementViewModel = rateMovementViewModel;
         }
 
         /// <summary>

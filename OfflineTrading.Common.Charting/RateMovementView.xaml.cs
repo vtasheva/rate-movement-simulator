@@ -8,10 +8,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting
     /// </summary>
     public partial class RateMovementView : UserControl
     {
-        public RateMovementView(IRateMovementViewModel rateMovementViewModel)
+        public RateMovementView()
         {
             InitializeComponent();
+        }
 
+        public RateMovementView(IRateMovementViewModel rateMovementViewModel)
+            : this()
+        {
             DataContext = rateMovementViewModel;
         }
     }

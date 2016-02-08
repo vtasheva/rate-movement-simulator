@@ -29,7 +29,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
         /// <returns></returns>
         public IEnumerable<ISymbolViewModel> GetSymbolViewModels()
         { 
-            return _symbolConfigurations.Select(s => new SymbolViewModel(s, _container.Resolve<IRateMovementViewModel>(new ParameterOverride("symbolConfiguration", s)))).ToList();
+            var result = _symbolConfigurations.Select(s => new SymbolViewModel(s, _container.Resolve<IRateMovementViewModel>(new ParameterOverride("symbolConfiguration", s)))).ToList();
+            return result;
         }
     }
 }

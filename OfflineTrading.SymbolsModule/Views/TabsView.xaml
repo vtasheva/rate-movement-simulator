@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views"
              xmlns:converters="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:uc="clr-namespace:Internovus.Wpf.Training.OfflineTrading.Common.Charting;assembly=OfflineTrading.Common.Charting"
              xmlns:prism="http://www.codeplex.com/prism"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -16,25 +17,30 @@
             </ResourceDictionary>
         </Grid.Resources>
 
-        <TabControl ItemsSource="{Binding SymbolViewModels}" SelectedItem="{Binding SelectedSymbolViewModel}">
-            <TabControl.ItemContainerStyle>
+        <TabControl ItemsSource="{Binding SymbolViewModels}" SelectedItem="{Binding SelectedSymbolViewModel}" IsSynchronizedWithCurrentItem="True">
+            <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding SymbolConfiguration.Name}"/>
+                                    <Button Content="x" Command="{Binding HideSymbolCommand}" Margin="5,0,0,0" Padding="3,0,3,2"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <uc:RateMovementView DataContext="{Binding RateMovementViewModel}" Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
-            </TabControl.ItemContainerStyle>
-            <TabControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding SymbolConfiguration.Name}"/>
-                        <Button Content="x" Command="{Binding HideSymbolCommand}" Margin="5,0,0,0" Padding="3,0,3,2"/>
-                    </StackPanel>
-                </DataTemplate>
-            </TabControl.ItemTemplate>
-            <TabControl.ContentTemplate>
-                <DataTemplate>
-                    <ContentControl Content="{Binding RateMovementView}"></ContentControl>
-                </DataTemplate>
-            </TabControl.ContentTemplate>
+            </TabControl.Resources>
         </TabControl>
     </Grid>
+
 </UserControl>

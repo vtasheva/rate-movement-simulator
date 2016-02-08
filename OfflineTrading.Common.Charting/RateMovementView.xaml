@@ -18,7 +18,7 @@
                     <telerikCharting:ChartDefaultView.ChartArea>
                         <telerikCharting:ChartArea EnableAnimations="False" NoDataString="Loading...">
                             <telerikCharting:ChartArea.AxisX>
-                                <telerikCharting:AxisX MinValue="0" Step="{Binding AxisXStep}" Visibility="Hidden">
+                                <telerikCharting:AxisX MinValue="0" Step="{Binding AxisXStep}" Visibility="Visible">
                                 </telerikCharting:AxisX>
                             </telerikCharting:ChartArea.AxisX>
                             <telerikCharting:ChartArea.AxisY>

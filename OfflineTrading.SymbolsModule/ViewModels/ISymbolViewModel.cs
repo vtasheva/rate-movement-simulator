@@ -16,7 +16,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// </value>
         ISymbolConfiguration SymbolConfiguration { get; }
 
-        RateMovementView RateMovementView { get; }
+        IRateMovementViewModel RateMovementViewModel { get; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is visible.
