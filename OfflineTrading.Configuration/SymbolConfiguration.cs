@@ -33,7 +33,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// <value>
         /// The type of the wave.
         /// </value>
-        [ConfigurationProperty("waveType", IsRequired = true, DefaultValue = "sine")]
+        [ConfigurationProperty("waveType", IsRequired = true)]
         public string WaveType
         {
             get
@@ -52,7 +52,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// <value>
         /// The initial rate.
         /// </value>
-        [ConfigurationProperty("initialRate", IsRequired = true, DefaultValue = "0")]
+        [ConfigurationProperty("initialRate", IsRequired = true)]
         public decimal InitialRate
         {
             get
@@ -71,7 +71,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// <value>
         /// The amplitude.
         /// </value>
-        [ConfigurationProperty("amplitude", IsRequired = true, DefaultValue = "1")]
+        [ConfigurationProperty("amplitude", IsRequired = true)]
         public decimal Amplitude
         {
             get
@@ -90,7 +90,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// <value>
         /// The period.
         /// </value>
-        [ConfigurationProperty("period", DefaultValue = "60000")]
+        [ConfigurationProperty("period")]
         public int PeriodInMilliseconds
         {
             get
@@ -109,7 +109,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// <value>
         /// The step.
         /// </value>
-        [ConfigurationProperty("step", DefaultValue = "1000")]
+        [ConfigurationProperty("step")]
         public int StepInMilliseconds
         {
             get

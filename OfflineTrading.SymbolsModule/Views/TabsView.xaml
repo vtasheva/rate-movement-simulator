@@ -17,7 +17,7 @@
             </ResourceDictionary>
         </Grid.Resources>
 
-        <TabControl ItemsSource="{Binding SymbolViewModels}" SelectedItem="{Binding SelectedSymbolViewModel}" IsSynchronizedWithCurrentItem="True">
+        <TabControl ItemsSource="{Binding SymbolViewModels}" SelectedItem="{Binding SelectedSymbolViewModel}">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
@@ -34,7 +34,9 @@
                     <Setter Property="ContentTemplate">
                         <Setter.Value>
                             <DataTemplate>
-                                <uc:RateMovementView DataContext="{Binding RateMovementViewModel}" Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                <ContentControl Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <uc:RateMovementView DataContext="{Binding RateMovementViewModel}"/>
+                                </ContentControl>
                             </DataTemplate>
                         </Setter.Value>
                     </Setter>

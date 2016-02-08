@@ -8,6 +8,7 @@
              xmlns:telerikCharting="clr-namespace:Telerik.Windows.Controls.Charting;assembly=Telerik.Windows.Controls.Charting"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
     <Grid>
         <telerik:RadChart x:Name="Chart" ItemsSource="{Binding RatePoints}">
             <telerik:RadChart.DefaultView>
