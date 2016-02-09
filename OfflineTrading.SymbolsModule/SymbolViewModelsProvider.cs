@@ -11,16 +11,16 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
     class SymbolViewModelsProvider : ISymbolViewModelsProvider
     {
         private readonly IEnumerable<ISymbolConfiguration> _symbolConfigurations;
-        private readonly IUnityContainer _container;
+        private readonly IRateMovementViewModelFactory _rateMovementViewModelFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolViewModelsProvider"/> class.
         /// </summary>
         /// <param name="symbolConfigurations">The symbol configurations.</param>
-        public SymbolViewModelsProvider(IEnumerable<ISymbolConfiguration> symbolConfigurations, IUnityContainer container)
+        public SymbolViewModelsProvider(IEnumerable<ISymbolConfiguration> symbolConfigurations, IRateMovementViewModelFactory rateMovementViewModelFactory)
         {
             _symbolConfigurations = symbolConfigurations;
-            _container = container;
+            _rateMovementViewModelFactory = rateMovementViewModelFactory;
         }
 
         /// <summary>
@@ -29,13 +29,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
         /// <returns></returns>
         public IEnumerable<ISymbolViewModel> GetSymbolViewModels()
         {
-            var result = _symbolConfigurations.Select(s =>
-            {
-                var childContainer = _container.CreateChildContainer();
-                childContainer.RegisterInstance(s);
-                return new SymbolViewModel(s.Name, childContainer.Resolve<IRateMovementViewModel>());
-            });
-            return result.ToList();
+            return _symbolConfigurations.Select(s => new SymbolViewModel(s.Name, _rateMovementViewModelFactory.Create(s))).ToList();
         }
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.Practices.Unity;
 using System.Collections.Generic;
 using System.Timers;
 using Internovus.Wpf.Training.OfflineTrading.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.Common.Charting;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {
@@ -33,8 +34,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
             container.RegisterType<Timer>(new InjectionConstructor());
             container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
             container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
-
-            container.RegisterTypeByFactoryFunc<IRateGenerator, IRateGeneratorProvider>(p => p.GetRateGenerator());
+            container.RegisterType<IRateMovementViewModelFactory, RateMovementViewModelFactory>();
 
             container.RegisterType<IWaveFuncFactory, SineWaveFuncFactory>(WaveNames.Sine);
             container.RegisterType<IWaveFuncFactory, TriangleWaveFuncFactory>(WaveNames.Triangle);

@@ -51,7 +51,7 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
             Container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
 
-            Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
+            //Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
             Container.RegisterType<ISymbolConfiguration>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
 
             //var configuration = Container.Resolve<ISymbolConfiguration>();

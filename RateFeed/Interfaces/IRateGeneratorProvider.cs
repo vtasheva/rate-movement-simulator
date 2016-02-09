@@ -1,4 +1,6 @@
-﻿namespace Internovus.Wpf.Training.RateFeed.Interfaces
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+
+namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
     public interface IRateGeneratorProvider
     {
@@ -6,6 +8,6 @@
         /// Gets the rate generator.
         /// </summary>
         /// <returns></returns>
-        IRateGenerator GetRateGenerator();
+        IRateGenerator GetRateGenerator(ISymbolConfiguration symbolConfiguration);
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Timers;
+using Abmes.UnityExtensions;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator
 {
@@ -36,10 +37,10 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
 
             var arguments = _container.Resolve<ApplicationArgs>();
 
-            var waveFuncProvider = _container.Resolve<IWaveFuncProvider>();
-            var waveFunc = waveFuncProvider.GetWaveFunc(arguments.WaveType);
+            var waveFuncFactory = _container.Resolve<IWaveFuncFactoryProvider>().GetWaveFuncFactory(arguments.WaveType);
+            var waveFunc = waveFuncFactory.Create(arguments);
 
-            var rateGenerator = _container.Resolve<IRateGenerator>();
+            var rateGenerator = _container.Resolve<IRateGeneratorProvider>().GetRateGenerator(arguments);
             rateGenerator.OnTick += ShowRate;
             rateGenerator.Start();
 
@@ -56,18 +57,19 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
 
         private void RegisterTypes(IEnumerable<string> args)
         {
+            _container.RegisterIEnumerable();
+
             _container.RegisterType<Timer>(new InjectionConstructor());
-            _container.RegisterType<IWaveFuncProvider, WaveFuncProvider>();
             _container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             _container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
-            
-            //_container.RegisterType<IWaveFunc>(WaveNames.Sine, new InjectionFactory(c => c.Resolve<SineWaveFuncFactory>().Create()));
-            //_container.RegisterType<IWaveFunc>(WaveNames.Triangle, new InjectionFactory(c => c.Resolve<TriangleWaveFuncFactory>().Create()));
-            //_container.RegisterType<IWaveFunc>(WaveNames.Block, new InjectionFactory(c => c.Resolve<BlockWaveFuncFactory>().Create()));
-            //_container.RegisterType<IWaveFunc>(WaveNames.DoubleTriangle, new InjectionFactory(c => c.Resolve<DoubleTriangleWaveFuncFactory>().Create()));
-            //_container.RegisterType<IWaveFunc>(WaveNames.Random, new InjectionFactory(c => c.Resolve<RandomWaveFuncFactory>().Create()));
-            
-            _container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
+
+            _container.RegisterType<IWaveFuncFactory, SineWaveFuncFactory>(WaveNames.Sine);
+            _container.RegisterType<IWaveFuncFactory, TriangleWaveFuncFactory>(WaveNames.Triangle);
+            _container.RegisterType<IWaveFuncFactory, DoubleTriangleWaveFuncFactory>(WaveNames.DoubleTriangle);
+            _container.RegisterType<IWaveFuncFactory, BlockWaveFuncFactory>(WaveNames.Block);
+            _container.RegisterType<IWaveFuncFactory, RandomWaveFuncFactory>(WaveNames.Random);
+            _container.RegisterType<IWaveFuncFactoryProvider, WaveFuncFactoryProvider>();
+
             _container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
         }
     }
