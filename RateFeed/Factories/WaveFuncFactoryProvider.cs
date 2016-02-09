@@ -13,7 +13,7 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
     {
         private IEnumerable<IWaveFuncFactory> _waveFuncFactories;
 
-        public WaveFuncFactoryProvider(IWaveFuncFactory[] waveFuncFactories)
+        public WaveFuncFactoryProvider(IEnumerable<IWaveFuncFactory> waveFuncFactories)
         {
             _waveFuncFactories = waveFuncFactories;
         }

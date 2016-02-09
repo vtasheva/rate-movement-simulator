@@ -23,6 +23,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
         /// <param name="container">The container.</param>
         public void RegisterTypes(IUnityContainer container)
         {
+            container.RegisterIEnumerable();
+
             container.RegisterType<ISymbolViewModelsProvider, SymbolViewModelsProvider>();
             container.RegisterTypeByFactoryFunc<IEnumerable<ISymbolConfiguration>, ISymbolConfigurationsProvider>(p => p.GetConfigurations());
             container.RegisterTypeSingleton<IEnumerable<ISymbolViewModel>>(new InjectionFactory(c => c.Resolve<ISymbolViewModelsProvider>().GetSymbolViewModels()));
