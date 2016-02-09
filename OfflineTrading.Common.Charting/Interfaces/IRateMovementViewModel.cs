@@ -12,6 +12,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces
         /// </value>
         ObservableCollection<RatePoint> RatePoints { get; }
 
+        decimal CurrentRate { get; }
+
         /// <summary>
         /// Gets the axis x step.
         /// </summary>

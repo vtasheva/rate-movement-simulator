@@ -105,6 +105,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpenPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,6 +121,10 @@
     </Compile>
     <Compile Include="TradingModule.cs" />
     <Compile Include="UnityContainerConfigurator.cs" />
+    <Compile Include="ViewModels\OpenedPositionsViewModel.cs" />
+    <Compile Include="Views\OpenedPositionsView.xaml.cs">
+      <DependentUpon>OpenedPositionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserAmountView.xaml.cs">
       <DependentUpon>UserAmountView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +141,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\OpenedPositionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserAmountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

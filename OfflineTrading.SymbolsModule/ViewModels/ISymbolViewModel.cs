@@ -18,6 +18,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 
         IRateMovementViewModel RateMovementViewModel { get; }
 
+        decimal CurrentRate { get; }
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is visible.
         /// </summary>
@@ -33,5 +35,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// The hide symbol command.
         /// </value>
         ICommand HideSymbolCommand { get; }
+
+        ICommand OpenPosition { get; }
     }
 }

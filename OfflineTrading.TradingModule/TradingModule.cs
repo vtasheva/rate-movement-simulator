@@ -24,6 +24,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         public void Initialize()
         {
             _regionManager.RegisterViewWithRegion(RegionNames.ControlsRegion, typeof(UserAmountView));
+            _regionManager.RegisterViewWithRegion(RegionNames.PortfolioRegion, typeof(OpenedPositionsView));
         }
 
     }

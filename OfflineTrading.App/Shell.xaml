@@ -38,7 +38,7 @@
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.TabsRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="2">
-            <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.PortfolioRegion}"></ContentControl>
+            <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.PortfolioRegion}"></StackPanel>
         </Border>
     </Grid>
 
