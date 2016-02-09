@@ -23,13 +23,13 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         /// <param name="waveType">Type of the wave.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentException"></exception>
-        public IWaveFunc GetWaveFunc(string waveType)
+        public IWaveFunc GetWaveFunc(string symbolName)
         {
-            var waveFunc = _waveFunctions.FirstOrDefault(f => f.WaveName == waveType);
+            var waveFunc = _waveFunctions.FirstOrDefault(f => f.SymbolName == symbolName);
 
             if (waveFunc == null)
             {
-                throw new ArgumentException($"No function with name { waveType } found.");
+                throw new ArgumentException($"No function for the symbol { symbolName } found.");
             }
 
             return waveFunc;

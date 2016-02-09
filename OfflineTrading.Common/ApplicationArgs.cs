@@ -12,7 +12,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common
         {
             get
             {
-                return string.Empty;
+                return "Gold";
             }
         }
 

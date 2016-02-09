@@ -33,14 +33,17 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
             container.RegisterType<IWaveFuncProvider, WaveFuncProvider>();
             container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             container.RegisterType<ISymbolConfiguration, SymbolConfiguration>();
-            
-            container.RegisterType<IWaveFunc>(WaveNames.Sine, new InjectionFactory(c => c.Resolve<SineWaveFuncFactory>().Create()));
-            container.RegisterType<IWaveFunc>(WaveNames.Triangle, new InjectionFactory(c => c.Resolve<TriangleWaveFuncFactory>().Create()));
-            container.RegisterType<IWaveFunc>(WaveNames.Block, new InjectionFactory(c => c.Resolve<BlockWaveFuncFactory>().Create()));
-            container.RegisterType<IWaveFunc>(WaveNames.DoubleTriangle, new InjectionFactory(c => c.Resolve<DoubleTriangleWaveFuncFactory>().Create()));
-            container.RegisterType<IWaveFunc>(WaveNames.Random, new InjectionFactory(c => c.Resolve<RandomWaveFuncFactory>().Create()));
-            
+
             container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
+
+
+            var configurations = container.Resolve<IEnumerable<ISymbolConfiguration>>();
+
+            foreach (var configuration in configurations)
+            {
+                container.RegisterType<IWaveFunc>(configuration.Name, new InjectionFactory(c => c.Resolve<WaveFuncFactoryProvider>().GetWaveFuncFactory(configuration).Create()));
+            }
+          
         }
     }
 }

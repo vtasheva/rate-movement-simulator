@@ -30,7 +30,7 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         /// <returns></returns>
         public IRateGenerator GetRateGenerator()
         {
-            var waveFunc = _waveFuncProvider.GetWaveFunc(_symbolConfiguration.WaveType);
+            var waveFunc = _waveFuncProvider.GetWaveFunc(_symbolConfiguration.Name);
 
             _timer.Interval = _symbolConfiguration.StepInMilliseconds;
 

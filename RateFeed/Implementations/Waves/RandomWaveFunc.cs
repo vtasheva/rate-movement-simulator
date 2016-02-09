@@ -19,15 +19,17 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations.Waves
         /// <value>
         /// The name of the wave.
         /// </value>
-        public string WaveName => WaveNames.Random;
+        public string SymbolName { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RandomWaveFunc"/> class.
         /// </summary>
         /// <param name="initialRate">The initial rate.</param>
         /// <param name="amplitude">The amplitude.</param>
-        public RandomWaveFunc(decimal initialRate, decimal amplitude)
+        public RandomWaveFunc(string symbolName, decimal initialRate, decimal amplitude)
         {
+            SymbolName = symbolName;
+
             _initialRate = initialRate;
             _amplitude = amplitude;
         }

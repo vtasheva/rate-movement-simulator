@@ -8,7 +8,7 @@
         /// <value>
         /// The name of the wave.
         /// </value>
-        string WaveName { get; }
+        string SymbolName { get; }
 
         /// <summary>
         /// Gets the value.

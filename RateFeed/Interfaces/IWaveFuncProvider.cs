@@ -7,6 +7,6 @@
         /// </summary>
         /// <param name="waveType">Type of the wave.</param>
         /// <returns></returns>
-        IWaveFunc GetWaveFunc(string waveType);
+        IWaveFunc GetWaveFunc(string symbolName);
     }
 }

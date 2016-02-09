@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Internovus.Wpf.Training.RateFeed.Factories
 {
-    public class TriangleWaveFuncFactory
+    public class TriangleWaveFuncFactory : IWaveFuncFactory
     {
         private readonly ISymbolConfiguration _symbolConfiguration;
 
@@ -17,13 +17,10 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// Initializes a new instance of the <see cref="TriangleWaveFuncFactory"/> class.
         /// </summary>
         /// <param name="symbolConfiguration">The application arguments.</param>
-        public TriangleWaveFuncFactory(IEnumerable<ISymbolConfiguration> symbolConfigurations, ISymbolConfiguration defaultConfiguration)
+        public TriangleWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
         {
-            _symbolConfiguration = symbolConfigurations.FirstOrDefault(c => c.WaveType == WaveNames.Triangle);
-            if (_symbolConfiguration == null)
-            {
-                _symbolConfiguration = defaultConfiguration;
-            }
+
+            _symbolConfiguration = symbolConfiguration;
         }
 
         /// <summary>
@@ -32,7 +29,7 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// <returns></returns>
         public IWaveFunc Create()
         {
-            return new TriangleWaveFunc(_symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
+            return new TriangleWaveFunc(_symbolConfiguration.Name, _symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
         }
     }
 }

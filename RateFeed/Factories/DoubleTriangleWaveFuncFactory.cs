@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Internovus.Wpf.Training.RateFeed.Factories
 {
-    public class DoubleTriangleWaveFuncFactory
+    public class DoubleTriangleWaveFuncFactory : IWaveFuncFactory
     {
         private readonly ISymbolConfiguration _symbolConfiguration;
 
@@ -16,14 +16,9 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// Initializes a new instance of the <see cref="DoubleTriangleWaveFuncFactory"/> class.
         /// </summary>
         /// <param name="symbolConfiguration">The application arguments.</param>
-        public DoubleTriangleWaveFuncFactory(IEnumerable<ISymbolConfiguration> symbolConfigurations, ISymbolConfiguration defaultConfiguration)
+        public DoubleTriangleWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
         {
-            _symbolConfiguration = symbolConfigurations.FirstOrDefault(c => c.WaveType == WaveNames.DoubleTriangle);
-
-            if (_symbolConfiguration == null)
-            {
-                _symbolConfiguration = defaultConfiguration;
-            }
+             _symbolConfiguration = symbolConfiguration;
         }
 
         /// <summary>
@@ -32,7 +27,7 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// <returns></returns>
         public IWaveFunc Create()
         {
-            return new DoubleTriangleWaveFunc(_symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
+            return new DoubleTriangleWaveFunc(_symbolConfiguration.Name, _symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Internovus.Wpf.Training.RateFeed.Factories
 {
-    public class RandomWaveFuncFactory
+    public class RandomWaveFuncFactory : IWaveFuncFactory
     {
         private readonly ISymbolConfiguration _symbolConfiguration;
 
@@ -16,14 +16,9 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// Initializes a new instance of the <see cref="RandomWaveFuncFactory"/> class.
         /// </summary>
         /// <param name="symbolConfiguration">The application arguments.</param>
-        public RandomWaveFuncFactory(IEnumerable<ISymbolConfiguration> symbolConfigurations, ISymbolConfiguration defaultConfiguration)
+        public RandomWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
         {
-            _symbolConfiguration = symbolConfigurations.FirstOrDefault(c => c.WaveType == WaveNames.Random);
-
-            if (_symbolConfiguration == null)
-            {
-                _symbolConfiguration = defaultConfiguration;
-            }
+            _symbolConfiguration = symbolConfiguration;
         }
 
         /// <summary>
@@ -32,7 +27,7 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
         /// <returns></returns>
         public IWaveFunc Create()
         {
-            return new RandomWaveFunc(_symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude);
+            return new RandomWaveFunc(_symbolConfiguration.Name, _symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude);
         }
     }
 }
