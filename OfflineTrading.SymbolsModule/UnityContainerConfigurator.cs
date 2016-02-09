@@ -32,10 +32,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
             container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
             container.RegisterType<IWaveFuncProvider, WaveFuncProvider>();
             container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
-            container.RegisterType<ISymbolConfiguration, SymbolConfiguration>();
 
-            container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
-
+            container.RegisterTypeByFactoryFunc<IRateGenerator, IRateGeneratorProvider>(p => p.GetRateGenerator());
 
             var configurations = container.Resolve<IEnumerable<ISymbolConfiguration>>();
 
