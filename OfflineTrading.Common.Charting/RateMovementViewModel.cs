@@ -18,9 +18,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
         /// </value>
         public ObservableCollection<RatePoint> RatePoints { get; private set; }
 
-
-        public decimal CurrentRate { get; private set; }
-
         /// <summary>
         /// Gets the axis x step.
         /// </summary>
@@ -63,7 +60,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
 
         private void RateGenerator_OnTick(object sender, RatePoint ratePoint)
         {
-            System.Windows.Application.Current.Dispatcher.Invoke(() => { RatePoints.Add(ratePoint); CurrentRate = ratePoint.Rate; });
+            System.Windows.Application.Current.Dispatcher.Invoke(() => { RatePoints.Add(ratePoint); });
         }
     }
 }

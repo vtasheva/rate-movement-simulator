@@ -24,13 +24,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         public string SymbolName { get; private set; }
 
         public IRateMovementViewModel RateMovementViewModel { get; private set; }
-        public decimal CurrentRate
-        {
-            get
-            {
-                return RateMovementViewModel.CurrentRate;
-            }
-        }
 
         private bool _isVisible;
         /// <summary>
@@ -71,21 +64,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
                 return _hideSymbolCommand;
             }
         }
-
-        private ICommand _openPosition;
-        public ICommand OpenPosition
-        {
-            get
-            {
-                if (_openPosition == null)
-                {
-                    _openPosition = new DelegateCommand(() => MessageBox.Show(CurrentRate.ToString()));
-                }
-
-                return _openPosition;
-            }
-        }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SymbolViewModel"/> class.

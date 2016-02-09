@@ -26,7 +26,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
             _regionManager.RegisterViewWithRegion(RegionNames.SelectionRegion, typeof(SelectionView));
             _regionManager.RegisterViewWithRegion(RegionNames.TabsRegion, typeof(TabsView));
             _regionManager.RegisterViewWithRegion(RegionNames.ControlsRegion, typeof(CloseAllView));
-            _regionManager.RegisterViewWithRegion(RegionNames.PortfolioRegion, typeof(OpenClosePositionView));
         }
     }
 }

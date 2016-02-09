@@ -139,9 +139,6 @@
     <Compile Include="Views\CloseAllView.xaml.cs">
       <DependentUpon>CloseAllView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpenClosePositionView.xaml.cs">
-      <DependentUpon>OpenClosePositionView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SelectionView.xaml.cs">
       <DependentUpon>SelectionView.xaml</DependentUpon>
     </Compile>
@@ -162,10 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\CloseAllView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\OpenClosePositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

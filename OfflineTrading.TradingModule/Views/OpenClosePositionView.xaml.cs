@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.Views
+namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
 {
     /// <summary>
     /// Interaction logic for OpenClosePositionView.xaml

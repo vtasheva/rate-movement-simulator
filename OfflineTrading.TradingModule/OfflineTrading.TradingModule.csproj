@@ -122,6 +122,9 @@
     <Compile Include="TradingModule.cs" />
     <Compile Include="UnityContainerConfigurator.cs" />
     <Compile Include="ViewModels\OpenedPositionsViewModel.cs" />
+    <Compile Include="Views\OpenClosePositionView.xaml.cs">
+      <DependentUpon>OpenClosePositionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OpenedPositionsView.xaml.cs">
       <DependentUpon>OpenedPositionsView.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\OpenClosePositionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\OpenedPositionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +161,10 @@
     <ProjectReference Include="..\OfflineTrading.Common\OfflineTrading.Common.csproj">
       <Project>{305452e6-5db6-4d77-8860-a62d2e0da830}</Project>
       <Name>OfflineTrading.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfflineTrading.SymbolsModule\OfflineTrading.SymbolsModule.csproj">
+      <Project>{f995f98a-f071-41f7-849a-13dd2d4fe292}</Project>
+      <Name>OfflineTrading.SymbolsModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
