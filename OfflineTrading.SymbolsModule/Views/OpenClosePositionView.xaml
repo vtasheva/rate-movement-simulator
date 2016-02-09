@@ -10,8 +10,8 @@
         <StackPanel Width="200">
             <Label Content="Amount to buy:"></Label>
             <TextBox></TextBox>
-            <Button Content="Buy" Command="{Binding OpenPosition}"></Button>
-            <Button Content="Sell" Command="{Binding ClosePosition}"></Button>
+            <Button Content="Buy" Command="{Binding SelectedSymbolViewModel.OpenPosition}"></Button>
+            <Button Content="Sell" Command="{Binding SelectedSymbolViewModel.ClosePosition}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>
