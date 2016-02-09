@@ -61,11 +61,11 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
             _container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             _container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
             
-            _container.RegisterType<IWaveFunc>(WaveNames.Sine, new InjectionFactory(c => c.Resolve<SineWaveFuncFactory>().Create()));
-            _container.RegisterType<IWaveFunc>(WaveNames.Triangle, new InjectionFactory(c => c.Resolve<TriangleWaveFuncFactory>().Create()));
-            _container.RegisterType<IWaveFunc>(WaveNames.Block, new InjectionFactory(c => c.Resolve<BlockWaveFuncFactory>().Create()));
-            _container.RegisterType<IWaveFunc>(WaveNames.DoubleTriangle, new InjectionFactory(c => c.Resolve<DoubleTriangleWaveFuncFactory>().Create()));
-            _container.RegisterType<IWaveFunc>(WaveNames.Random, new InjectionFactory(c => c.Resolve<RandomWaveFuncFactory>().Create()));
+            //_container.RegisterType<IWaveFunc>(WaveNames.Sine, new InjectionFactory(c => c.Resolve<SineWaveFuncFactory>().Create()));
+            //_container.RegisterType<IWaveFunc>(WaveNames.Triangle, new InjectionFactory(c => c.Resolve<TriangleWaveFuncFactory>().Create()));
+            //_container.RegisterType<IWaveFunc>(WaveNames.Block, new InjectionFactory(c => c.Resolve<BlockWaveFuncFactory>().Create()));
+            //_container.RegisterType<IWaveFunc>(WaveNames.DoubleTriangle, new InjectionFactory(c => c.Resolve<DoubleTriangleWaveFuncFactory>().Create()));
+            //_container.RegisterType<IWaveFunc>(WaveNames.Random, new InjectionFactory(c => c.Resolve<RandomWaveFuncFactory>().Create()));
             
             _container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
             _container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));

@@ -10,24 +10,15 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
 {
     public class DoubleTriangleWaveFuncFactory : IWaveFuncFactory
     {
-        private readonly ISymbolConfiguration _symbolConfiguration;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DoubleTriangleWaveFuncFactory"/> class.
-        /// </summary>
-        /// <param name="symbolConfiguration">The application arguments.</param>
-        public DoubleTriangleWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
-        {
-             _symbolConfiguration = symbolConfiguration;
-        }
+        public string WaveType => WaveNames.DoubleTriangle;
 
         /// <summary>
         /// Creates new double triangle function.
         /// </summary>
         /// <returns></returns>
-        public IWaveFunc Create()
+        public IWaveFunc Create(ISymbolConfiguration symbolConfiguration)
         {
-            return new DoubleTriangleWaveFunc(_symbolConfiguration.Name, _symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
+            return new DoubleTriangleWaveFunc(symbolConfiguration.InitialRate, symbolConfiguration.Amplitude, symbolConfiguration.PeriodInMilliseconds);
         }
     }
 }

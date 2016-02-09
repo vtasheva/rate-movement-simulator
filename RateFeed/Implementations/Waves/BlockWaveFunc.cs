@@ -11,18 +11,14 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations.Waves
         private readonly decimal _amplitude;
         private readonly int _periodInMilliseconds;
 
-        public string SymbolName { get; private set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="BlockWaveFunc"/> class.
         /// </summary>
         /// <param name="initialRate">The initial rate.</param>
         /// <param name="amplitude">The amplitude.</param>
         /// <param name="periodInMilliseconds">The period in milliseconds.</param>
-        public BlockWaveFunc(string symbolName, decimal initialRate, decimal amplitude, int periodInMilliseconds)
+        public BlockWaveFunc(decimal initialRate, decimal amplitude, int periodInMilliseconds)
         {
-            SymbolName = symbolName;
-
             _initialRate = initialRate;
             _amplitude = amplitude;
             _periodInMilliseconds = periodInMilliseconds;

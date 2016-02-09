@@ -5,29 +5,21 @@ using Internovus.Wpf.Training.RateFeed.Implementations.Waves;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Internovus.Wpf.Training.RateFeed.Factories
 {
     public class BlockWaveFuncFactory : IWaveFuncFactory
     {
-        private readonly ISymbolConfiguration _symbolConfiguration;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlockWaveFuncFactory"/> class.
-        /// </summary>
-        /// <param name="symbolConfiguration">The application arguments.</param>
-        public BlockWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
-        {
-            _symbolConfiguration = symbolConfiguration;
-        }
+        public string WaveType => WaveNames.Block;
 
         /// <summary>
         /// Creates new block wave function.
         /// </summary>
         /// <returns></returns>
-        public IWaveFunc Create()
+        public IWaveFunc Create(ISymbolConfiguration symbolConfiguration)
         {
-            return new BlockWaveFunc(_symbolConfiguration.Name, _symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
+            return new BlockWaveFunc(symbolConfiguration.InitialRate, symbolConfiguration.Amplitude, symbolConfiguration.PeriodInMilliseconds);
         }
     }
 }

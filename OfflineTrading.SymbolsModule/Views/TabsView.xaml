@@ -25,7 +25,7 @@
                         <Setter.Value>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding SymbolConfiguration.Name}"/>
+                                    <TextBlock Text="{Binding SymbolName}"/>
                                     <Button Content="x" Command="{Binding HideSymbolCommand}" Margin="5,0,0,0" Padding="3,0,3,2"/>
                                 </StackPanel>
                             </DataTemplate>

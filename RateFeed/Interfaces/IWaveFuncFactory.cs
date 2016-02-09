@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Internovus.Wpf.Training.RateFeed.Interfaces
 {
     public interface IWaveFuncFactory
     {
-        IWaveFunc Create();
+        string WaveType { get; }
+
+        IWaveFunc Create(ISymbolConfiguration symbolConfiguration);
     }
 }

@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateFeed.Factories
 {
-    public class WaveFuncFactoryProvider
+    public class WaveFuncFactoryProvider : IWaveFuncFactoryProvider
     {
-        public IWaveFuncFactory GetWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
+        private IEnumerable<IWaveFuncFactory> _waveFuncFactories;
+
+        public WaveFuncFactoryProvider(IWaveFuncFactory[] waveFuncFactories)
         {
-            switch (symbolConfiguration.WaveType)
+            _waveFuncFactories = waveFuncFactories;
+        }
+
+        public IWaveFuncFactory GetWaveFuncFactory(string waveType)
+        {
+            var waveFuncFactory = _waveFuncFactories.FirstOrDefault(f => f.WaveType == waveType);
+
+            if (waveFuncFactory == null)
             {
-                case WaveNames.Sine:
-                    return new SineWaveFuncFactory(symbolConfiguration);
-                case WaveNames.Triangle:
-                    return new TriangleWaveFuncFactory(symbolConfiguration);
-                case WaveNames.DoubleTriangle:
-                    return new DoubleTriangleWaveFuncFactory(symbolConfiguration);
-                case WaveNames.Block:
-                    return new BlockWaveFuncFactory(symbolConfiguration);
-                case WaveNames.Random:
-                    return new RandomWaveFuncFactory(symbolConfiguration);
-                default:
-                    throw new Exception($"No WaveFuncFactory for { symbolConfiguration.WaveType } wave type exists.");
+                throw new ArgumentException($"No wave with name \"{ waveType }\" found.");
             }
+
+            return waveFuncFactory;
         }
     }
 }

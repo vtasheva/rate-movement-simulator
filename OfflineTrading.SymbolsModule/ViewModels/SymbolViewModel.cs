@@ -21,7 +21,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// <value>
         /// The symbol configuration.
         /// </value>
-        public ISymbolConfiguration SymbolConfiguration { get; private set; }
+        public string SymbolName { get; private set; }
 
         public IRateMovementViewModel RateMovementViewModel { get; private set; }
         public decimal CurrentRate
@@ -91,9 +91,9 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// Initializes a new instance of the <see cref="SymbolViewModel"/> class.
         /// </summary>
         /// <param name="symbolConfiguration">The symbol configuration.</param>
-        public SymbolViewModel(ISymbolConfiguration symbolConfiguration, IRateMovementViewModel rateMovementViewModel)
+        public SymbolViewModel(string symbolName, IRateMovementViewModel rateMovementViewModel)
         {
-            SymbolConfiguration = symbolConfiguration;
+            SymbolName = symbolName;
             RateMovementViewModel = rateMovementViewModel;
         }
 

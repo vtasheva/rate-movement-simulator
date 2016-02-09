@@ -7,19 +7,19 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
 {
     public class RateGeneratorProvider : IRateGeneratorProvider
     {
-        private readonly IWaveFuncProvider _waveFuncProvider;
+        private readonly IWaveFuncFactoryProvider _waveFuncFactoryProvider;
         private readonly ISymbolConfiguration _symbolConfiguration;
         private readonly Timer _timer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RateGeneratorProvider"/> class.
         /// </summary>
-        /// <param name="waveFuncProvider">The wave function provider.</param>
+        /// <param name="waveFuncFactoryProvider">The wave function provider.</param>
         /// <param name="symbolConfiguration">The application arguments.</param>
         /// <param name="timer">The timer.</param>
-        public RateGeneratorProvider(IWaveFuncProvider waveFuncProvider, ISymbolConfiguration symbolConfiguration, Timer timer)
+        public RateGeneratorProvider(IWaveFuncFactoryProvider waveFuncFactoryProvider, ISymbolConfiguration symbolConfiguration, Timer timer)
         {
-            _waveFuncProvider = waveFuncProvider;
+            _waveFuncFactoryProvider = waveFuncFactoryProvider;
             _symbolConfiguration = symbolConfiguration;
             _timer = timer;
         }
@@ -30,7 +30,7 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations
         /// <returns></returns>
         public IRateGenerator GetRateGenerator()
         {
-            var waveFunc = _waveFuncProvider.GetWaveFunc(_symbolConfiguration.Name);
+            var waveFunc = _waveFuncFactoryProvider.GetWaveFuncFactory(_symbolConfiguration.WaveType).Create(_symbolConfiguration);
 
             _timer.Interval = _symbolConfiguration.StepInMilliseconds;
 

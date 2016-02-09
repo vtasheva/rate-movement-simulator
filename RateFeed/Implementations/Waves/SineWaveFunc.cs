@@ -12,23 +12,13 @@ namespace Internovus.Wpf.Training.RateFeed.Implementations.Waves
         private readonly int _periodInMilliseconds;
 
         /// <summary>
-        /// Gets the name of the wave.
-        /// </summary>
-        /// <value>
-        /// The name of the wave.
-        /// </value>
-        public string SymbolName { get; private set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="SineWaveFunc"/> class.
         /// </summary>
         /// <param name="initialRate">The initial rate.</param>
         /// <param name="amplitude">The amplitude.</param>
         /// <param name="periodInMilliseconds">The period in milliseconds.</param>
-        public SineWaveFunc(string symbolName, decimal initialRate, decimal amplitude, int periodInMilliseconds)
+        public SineWaveFunc(decimal initialRate, decimal amplitude, int periodInMilliseconds)
         {
-            SymbolName = symbolName;
-
             _initialRate = initialRate;
             _amplitude = amplitude;
             _periodInMilliseconds = periodInMilliseconds;

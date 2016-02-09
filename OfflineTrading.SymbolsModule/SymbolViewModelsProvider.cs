@@ -33,7 +33,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
             {
                 var childContainer = _container.CreateChildContainer();
                 childContainer.RegisterInstance(s);
-                return childContainer.Resolve<SymbolViewModel>();
+                return new SymbolViewModel(s.Name, childContainer.Resolve<IRateMovementViewModel>());
             });
             return result.ToList();
         }

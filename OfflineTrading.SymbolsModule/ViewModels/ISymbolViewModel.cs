@@ -14,7 +14,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// <value>
         /// The symbol configuration.
         /// </value>
-        ISymbolConfiguration SymbolConfiguration { get; }
+        string SymbolName { get; }
 
         IRateMovementViewModel RateMovementViewModel { get; }
 

@@ -10,24 +10,15 @@ namespace Internovus.Wpf.Training.RateFeed.Factories
 {
     public class SineWaveFuncFactory : IWaveFuncFactory
     {
-        private readonly ISymbolConfiguration _symbolConfiguration;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SineWaveFuncFactory"/> class.
-        /// </summary>
-        /// <param name="symbolConfiguration">The application arguments.</param>
-        public SineWaveFuncFactory(ISymbolConfiguration symbolConfiguration)
-        {
-            _symbolConfiguration = symbolConfiguration;
-        }
+        public string WaveType => WaveNames.Sine;
 
         /// <summary>
         /// Creates new sine wave function.
         /// </summary>
         /// <returns></returns>
-        public IWaveFunc Create()
+        public IWaveFunc Create(ISymbolConfiguration symbolConfiguration)
         {
-            return new SineWaveFunc(_symbolConfiguration.Name, _symbolConfiguration.InitialRate, _symbolConfiguration.Amplitude, _symbolConfiguration.PeriodInMilliseconds);
+            return new SineWaveFunc(symbolConfiguration.InitialRate, symbolConfiguration.Amplitude, symbolConfiguration.PeriodInMilliseconds);
         }
     }
 }
