@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Timers;
 using System.Windows;
 using System.Windows.Threading;
+using Abmes.UnityExtensions;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer
 {
@@ -45,17 +46,23 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
 
         private void RegisterTypes(IEnumerable<string> args)
         {
+            Container.RegisterIEnumerable();
+
             Container.RegisterType<Timer>(new InjectionConstructor());
             Container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
-            //Container.RegisterType<IWaveFuncProvider, WaveFuncProvider>();
             Container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
 
-            //Container.RegisterType<IRateGenerator>(new InjectionFactory(c => c.Resolve<IRateGeneratorProvider>().GetRateGenerator()));
             Container.RegisterType<ISymbolConfiguration>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
 
-            //var configuration = Container.Resolve<ISymbolConfiguration>();
-            //Container.RegisterType<IWaveFunc>(configuration.Name, new InjectionFactory(c => c.Resolve<WaveFuncFactoryProvider>().GetWaveFuncFactory(configuration).Create()));
+            Container.RegisterType<IWaveFuncFactory, SineWaveFuncFactory>(WaveNames.Sine);
+            Container.RegisterType<IWaveFuncFactory, TriangleWaveFuncFactory>(WaveNames.Triangle);
+            Container.RegisterType<IWaveFuncFactory, DoubleTriangleWaveFuncFactory>(WaveNames.DoubleTriangle);
+            Container.RegisterType<IWaveFuncFactory, BlockWaveFuncFactory>(WaveNames.Block);
+            Container.RegisterType<IWaveFuncFactory, RandomWaveFuncFactory>(WaveNames.Random);
+            Container.RegisterType<IWaveFuncFactoryProvider, WaveFuncFactoryProvider>();
+
+            Container.RegisterTypeByFactoryFunc<IRateGenerator, IRateGeneratorProvider, ISymbolConfiguration>((p, sc) => p.GetRateGenerator(sc));
         }
     }
 }
