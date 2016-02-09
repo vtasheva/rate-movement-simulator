@@ -46,7 +46,7 @@
     <Compile Include="Factories\RandomWaveFuncFactory.cs" />
     <Compile Include="Factories\SineWaveFuncFactory.cs" />
     <Compile Include="Factories\TriangleWaveFuncFactory.cs" />
-    <Compile Include="Factories\WaveFuncFactory.cs" />
+    <Compile Include="Factories\WaveFuncFactoryProvider.cs" />
     <Compile Include="Implementations\WaveFuncProvider.cs" />
     <Compile Include="Implementations\Waves\BlockWaveFunc.cs" />
     <Compile Include="Implementations\Waves\DoubleTriangleWaveFunc.cs" />
