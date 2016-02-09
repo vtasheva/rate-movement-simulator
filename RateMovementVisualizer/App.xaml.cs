@@ -13,6 +13,7 @@ using System.Timers;
 using System.Windows;
 using System.Windows.Threading;
 using Abmes.UnityExtensions;
+using Internovus.Wpf.Training.OfflineTrading.Common.Extensions;
 
 namespace Internovus.Wpf.Training.RateMovementVisualizer
 {
@@ -49,20 +50,13 @@ namespace Internovus.Wpf.Training.RateMovementVisualizer
             Container.RegisterIEnumerable();
 
             Container.RegisterType<Timer>(new InjectionConstructor());
-            Container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
-            Container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             Container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
 
-            Container.RegisterType<ISymbolConfiguration>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
-
-            Container.RegisterType<IWaveFuncFactory, SineWaveFuncFactory>(WaveNames.Sine);
-            Container.RegisterType<IWaveFuncFactory, TriangleWaveFuncFactory>(WaveNames.Triangle);
-            Container.RegisterType<IWaveFuncFactory, DoubleTriangleWaveFuncFactory>(WaveNames.DoubleTriangle);
-            Container.RegisterType<IWaveFuncFactory, BlockWaveFuncFactory>(WaveNames.Block);
-            Container.RegisterType<IWaveFuncFactory, RandomWaveFuncFactory>(WaveNames.Random);
-            Container.RegisterType<IWaveFuncFactoryProvider, WaveFuncFactoryProvider>();
+            Container.RegisterTypeByFactoryFunc<ISymbolConfiguration, IApplicationArgsParser>(p => p.GetApplicationArgs(args));
 
             Container.RegisterTypeByFactoryFunc<IRateGenerator, IRateGeneratorProvider, ISymbolConfiguration>((p, sc) => p.GetRateGenerator(sc));
+
+            Container.RegisterAllContainerConfigurators();
         }
     }
 }

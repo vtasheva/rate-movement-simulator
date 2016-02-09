@@ -32,16 +32,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
             container.RegisterTypeSingleton<ISymbolsViewModel>(new InjectionFactory(c => c.Resolve<SymbolsViewModel>()));
 
             container.RegisterType<Timer>(new InjectionConstructor());
-            container.RegisterType<IRateMovementViewModel, RateMovementViewModel>();
-            container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
-            container.RegisterType<IRateMovementViewModelFactory, RateMovementViewModelFactory>();
-
-            container.RegisterType<IWaveFuncFactory, SineWaveFuncFactory>(WaveNames.Sine);
-            container.RegisterType<IWaveFuncFactory, TriangleWaveFuncFactory>(WaveNames.Triangle);
-            container.RegisterType<IWaveFuncFactory, DoubleTriangleWaveFuncFactory>(WaveNames.DoubleTriangle);
-            container.RegisterType<IWaveFuncFactory, BlockWaveFuncFactory>(WaveNames.Block);
-            container.RegisterType<IWaveFuncFactory, RandomWaveFuncFactory>(WaveNames.Random);
-            container.RegisterType<IWaveFuncFactoryProvider, WaveFuncFactoryProvider>();
         }
     }
 }

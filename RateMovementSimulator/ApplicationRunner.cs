@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Timers;
 using Abmes.UnityExtensions;
+using Internovus.Wpf.Training.OfflineTrading.Common.Extensions;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator
 {
@@ -60,17 +61,10 @@ namespace Internovus.Wpf.Training.RateMovementSimulator
             _container.RegisterIEnumerable();
 
             _container.RegisterType<Timer>(new InjectionConstructor());
-            _container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
             _container.RegisterType<IApplicationArgsParser, ApplicationArgsParser>();
+            _container.RegisterTypeByFactoryFunc<ApplicationArgs, IApplicationArgsParser>(p => p.GetApplicationArgs(args));
 
-            _container.RegisterType<IWaveFuncFactory, SineWaveFuncFactory>(WaveNames.Sine);
-            _container.RegisterType<IWaveFuncFactory, TriangleWaveFuncFactory>(WaveNames.Triangle);
-            _container.RegisterType<IWaveFuncFactory, DoubleTriangleWaveFuncFactory>(WaveNames.DoubleTriangle);
-            _container.RegisterType<IWaveFuncFactory, BlockWaveFuncFactory>(WaveNames.Block);
-            _container.RegisterType<IWaveFuncFactory, RandomWaveFuncFactory>(WaveNames.Random);
-            _container.RegisterType<IWaveFuncFactoryProvider, WaveFuncFactoryProvider>();
-
-            _container.RegisterType<ApplicationArgs>(new InjectionFactory(c => c.Resolve<IApplicationArgsParser>().GetApplicationArgs(args)));
+            _container.RegisterAllContainerConfigurators();
         }
     }
 }
