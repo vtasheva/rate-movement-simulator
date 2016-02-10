@@ -1,5 +1,6 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.App;
 using Internovus.Wpf.Training.OfflineTrading.App.RegionAdapters;
+using Internovus.Wpf.Training.OfflineTrading.Common.Extensions;
 using Internovus.Wpf.Training.OfflineTrading.SymbolsModule;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule;
 using Microsoft.Practices.Prism.Modularity;
@@ -8,14 +9,6 @@ using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
 using System.Windows;
 using System.Windows.Controls;
-using Internovus.Wpf.Training.OfflineTrading.Common.Extensions;
-using Internovus.Wpf.Training.RateFeed.Constants;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.RateFeed.Factories;
-using Internovus.Wpf.Training.RateFeed.Implementations;
-using Internovus.Wpf.Training.OfflineTrading.Common;
-using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using System.Timers;
 
 namespace OfflineTrading.App
 {

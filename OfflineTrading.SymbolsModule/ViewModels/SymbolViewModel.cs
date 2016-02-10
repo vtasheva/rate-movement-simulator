@@ -1,15 +1,7 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
 using Microsoft.Practices.Prism.Commands;
 using System.ComponentModel;
 using System.Windows.Input;
-using Internovus.Wpf.Training.OfflineTrading.Common.Charting;
-using System;
-using Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels;
-using Internovus.Wpf.Training.RateFeed.Implementations;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
-using Microsoft.Practices.Unity;
-using System.Windows;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {

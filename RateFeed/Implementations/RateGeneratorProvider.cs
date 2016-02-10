@@ -1,5 +1,4 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System.Timers;
 

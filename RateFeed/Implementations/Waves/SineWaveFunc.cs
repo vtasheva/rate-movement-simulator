@@ -1,5 +1,4 @@
-﻿using Internovus.Wpf.Training.RateFeed.Constants;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
+﻿using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
 using static System.Math;
 

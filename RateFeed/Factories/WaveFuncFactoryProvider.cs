@@ -1,11 +1,7 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using Internovus.Wpf.Training.RateFeed.Constants;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
+﻿using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateFeed.Factories
 {

@@ -1,11 +1,6 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting

@@ -2,7 +2,6 @@
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using System.Collections.ObjectModel;
-using System;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
 {

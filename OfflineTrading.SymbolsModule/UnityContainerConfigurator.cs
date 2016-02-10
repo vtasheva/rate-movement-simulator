@@ -1,18 +1,10 @@
 ﻿using Abmes.UnityExtensions;
 using Internovus.Wpf.Training.OfflineTrading.Common;
-using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
-using Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
-using Internovus.Wpf.Training.RateFeed.Constants;
-using Internovus.Wpf.Training.RateFeed.Factories;
-using Internovus.Wpf.Training.RateFeed.Implementations;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
 using Microsoft.Practices.Unity;
 using System.Collections.Generic;
 using System.Timers;
-using Internovus.Wpf.Training.OfflineTrading.Configuration;
-using Internovus.Wpf.Training.OfflineTrading.Common.Charting;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule
 {

@@ -1,14 +1,11 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common;
-using Internovus.Wpf.Training.RateFeed.Constants;
-using Internovus.Wpf.Training.RateFeed.Factories;
-using Internovus.Wpf.Training.RateFeed.Implementations;
+﻿using Abmes.UnityExtensions;
+using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Common.Extensions;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Timers;
-using Abmes.UnityExtensions;
-using Internovus.Wpf.Training.OfflineTrading.Common.Extensions;
 
 namespace Internovus.Wpf.Training.RateMovementSimulator
 {

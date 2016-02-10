@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels

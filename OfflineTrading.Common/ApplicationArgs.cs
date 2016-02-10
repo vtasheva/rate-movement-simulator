@@ -1,5 +1,4 @@
-﻿using System;
-using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Common
 {

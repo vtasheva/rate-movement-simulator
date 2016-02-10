@@ -4,11 +4,6 @@ using Internovus.Wpf.Training.RateFeed.Factories;
 using Internovus.Wpf.Training.RateFeed.Implementations;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
 using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Internovus.Wpf.Training.RateFeed
 {

@@ -1,8 +1,6 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels;
-using Internovus.Wpf.Training.RateFeed.Interfaces;
-using Microsoft.Practices.Unity;
 using System.Collections.Generic;
 using System.Linq;
 
