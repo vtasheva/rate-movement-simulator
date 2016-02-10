@@ -8,9 +8,9 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
     class PositionItemProvider : IPositionItemProvider
     {
-        public PositionItem Create(string symbolName, decimal amount)
+        public PositionItem Create(string symbolName, decimal amount, decimal openPositionRate)
         {
-            return new PositionItem(symbolName, amount);
+            return new PositionItem(symbolName, amount, openPositionRate);
         }
     }
 }

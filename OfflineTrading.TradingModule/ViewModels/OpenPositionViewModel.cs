@@ -52,7 +52,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             {
                 if (_openPosition == null)
                 {
-                    _openPosition = new DelegateCommand(() => { _tradingEventsManager.Buy(_selectedSymbolName, Amount); Amount = 0; });
+                    var openPositionRate = 5;
+                    _openPosition = new DelegateCommand(() => { _tradingEventsManager.Buy(_selectedSymbolName, Amount, openPositionRate); Amount = 0; });
                 }
 
                 return _openPosition;

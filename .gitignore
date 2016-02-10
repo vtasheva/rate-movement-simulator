@@ -36,3 +36,4 @@ Release
 *.pri
 *.pdb
 *.txt
+*.user

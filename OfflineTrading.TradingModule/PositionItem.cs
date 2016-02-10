@@ -29,6 +29,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         public DateTime CurrentTime { get; private set; }
 
         /// <summary>
+        /// Gets or sets the open position rate.
+        /// </summary>
+        /// <value>
+        /// The open position rate.
+        /// </value>
+        public decimal OpenPositionRate { get; private set; }
+
+        /// <summary>
         /// Gets or sets the current rate.
         /// </summary>
         /// <value>
@@ -36,11 +44,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// </value>
         public decimal Profit { get; set; }
 
-        public PositionItem(string symbolName, decimal amount)
+        public PositionItem(string symbolName, decimal amount, decimal openPositionRate)
         {
             SymbolName = symbolName;
             Amount = amount;
             CurrentTime = DateTime.Now;
+            OpenPositionRate = openPositionRate;
         }
     }
 }

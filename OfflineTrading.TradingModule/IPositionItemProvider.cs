@@ -8,6 +8,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
     public interface IPositionItemProvider
     {
-        PositionItem Create(string symbolName, decimal amount);
+        PositionItem Create(string symbolName, decimal amount, decimal openPositionRate);
     }
 }

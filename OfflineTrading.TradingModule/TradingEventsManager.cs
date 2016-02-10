@@ -19,9 +19,9 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
             _positionItemProvider = positionItemProvider;
         }
 
-        public void Buy(string symbolName, decimal amount)
+        public void Buy(string symbolName, decimal amount, decimal openPositionRate)
         {
-            var positionItem = _positionItemProvider.Create(symbolName, amount);
+            var positionItem = _positionItemProvider.Create(symbolName, amount, openPositionRate);
             _eventAggregator.GetEvent<OpenPosition>().Publish(positionItem);
         }
 

@@ -8,7 +8,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
     public interface ITradingEventsManager
     {
-        void Buy(string symbolName, decimal amount);
+        void Buy(string symbolName, decimal amount, decimal openPositionRate);
 
         void Sell(PositionItem positionItem);
     }
