@@ -4,9 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Internovus.Wpf.Training.OfflineTrading.TradingModule.Views"
+             xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
 
-    </Grid>
+    <telerik:RadGridView ItemsSource="{Binding OpenedPositions}" SelectedItem="{Binding SelectedPositionItem}" AutoGenerateColumns="False">
+        <telerik:RadGridView.Columns>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding SymbolName}" Header="Id"/>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding SymbolName}" Header="Item"/>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding Amount}" Header="Amount"/>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding CurrentTime}" Header="Time opened"/>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding Profit}" Header="Profit"/>
+        </telerik:RadGridView.Columns>
+    </telerik:RadGridView>
 </UserControl>

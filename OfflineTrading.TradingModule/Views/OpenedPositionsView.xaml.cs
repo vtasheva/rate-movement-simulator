@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
+using System.Windows.Controls;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
 {
@@ -7,9 +8,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
     /// </summary>
     public partial class OpenedPositionsView : UserControl
     {
-        public OpenedPositionsView()
+        public OpenedPositionsView(IOpenedPositionsViewModel openedPositionsViewModel)
         {
             InitializeComponent();
+
+            DataContext = openedPositionsViewModel;
         }
     }
 }

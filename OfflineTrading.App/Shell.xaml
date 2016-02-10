@@ -20,6 +20,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -31,14 +32,17 @@
         <Border Style="{StaticResource GridBorder}" Grid.Column="0" Grid.RowSpan="3">
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.SelectionRegion}"></ContentControl>
         </Border>
-        <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="0">
+        <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" prism:RegionManager.RegionName="{x:Static rn:RegionNames.ControlsRegion}"></StackPanel>
         </Border>
-        <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="1">
+        <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.TabsRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="2">
-            <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.PortfolioRegion}"></StackPanel>
+            <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.OpenedPositionsRegion}"></StackPanel>
+        </Border>
+        <Border Style="{StaticResource GridBorder}" Grid.Column="2" Grid.Row="2">
+            <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.BuySellRegion}"></StackPanel>
         </Border>
     </Grid>
 

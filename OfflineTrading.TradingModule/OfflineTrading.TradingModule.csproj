@@ -87,6 +87,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -95,6 +97,22 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RateMovementVisualizer\ExternalDlls\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RateMovementVisualizer\ExternalDlls\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RateMovementVisualizer\ExternalDlls\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2011.1.419.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RateMovementVisualizer\ExternalDlls\Telerik.Windows.Data.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TypedFactories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c13295e2103ff99, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.TypedFactories.1.0.55\lib\net40\Unity.TypedFactories.dll</HintPath>
@@ -105,7 +123,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenPosition.cs" />
+    <Compile Include="Events\ClosePosition.cs" />
+    <Compile Include="Events\OpenPosition.cs" />
+    <Compile Include="Events\SelectedPositionChanged.cs" />
+    <Compile Include="IPositionItemProvider.cs" />
+    <Compile Include="ITradingEventsManager.cs" />
+    <Compile Include="PositionItem.cs" />
+    <Compile Include="PositionItemProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -119,14 +143,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TradingEventsManager.cs" />
     <Compile Include="TradingModule.cs" />
     <Compile Include="UnityContainerConfigurator.cs" />
+    <Compile Include="ViewModels\ClosePositionViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IClosePositionViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IOpenedPositionsViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IOpenPositionViewModel.cs" />
     <Compile Include="ViewModels\OpenedPositionsViewModel.cs" />
-    <Compile Include="Views\OpenClosePositionView.xaml.cs">
-      <DependentUpon>OpenClosePositionView.xaml</DependentUpon>
+    <Compile Include="ViewModels\OpenPositionViewModel.cs" />
+    <Compile Include="Views\ClosePositionView.xaml.cs">
+      <DependentUpon>ClosePositionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OpenedPositionsView.xaml.cs">
       <DependentUpon>OpenedPositionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpenPositionView.xaml.cs">
+      <DependentUpon>OpenPositionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserAmountView.xaml.cs">
       <DependentUpon>UserAmountView.xaml</DependentUpon>
@@ -144,11 +177,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\OpenClosePositionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\ClosePositionView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OpenedPositionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OpenPositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
