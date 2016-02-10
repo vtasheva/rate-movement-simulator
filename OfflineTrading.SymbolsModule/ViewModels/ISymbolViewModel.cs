@@ -13,6 +13,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// </value>
         string SymbolName { get; }
 
+        /// <summary>
+        /// Gets the rate movement view model.
+        /// </summary>
+        /// <value>
+        /// The rate movement view model.
+        /// </value>
         IRateMovementViewModel RateMovementViewModel { get; }
 
         /// <summary>

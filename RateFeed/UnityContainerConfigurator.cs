@@ -9,6 +9,10 @@ namespace Internovus.Wpf.Training.RateFeed
 {
     public class UnityContainerConfigurator : IUnityContainerConfigurator
     {
+        /// <summary>
+        /// Registers the types.
+        /// </summary>
+        /// <param name="container">The container.</param>
         public void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<IRateGeneratorProvider, RateGeneratorProvider>();
