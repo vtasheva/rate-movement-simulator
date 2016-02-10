@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Events;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.PubSubEvents;
@@ -16,8 +17,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
     {
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
-
         private string _selectedSymbolName;
+        private decimal _openPositionRate;
 
         private decimal _amount;
         public decimal Amount
@@ -52,8 +53,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             {
                 if (_openPosition == null)
                 {
-                    var openPositionRate = 5;
-                    _openPosition = new DelegateCommand(() => { _tradingEventsManager.Buy(_selectedSymbolName, Amount, openPositionRate); Amount = 0; });
+                    _openPosition = new DelegateCommand(() =>
+                    {
+                        _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openPositionRate);
+                        Amount = 0;
+                    });
                 }
 
                 return _openPosition;
@@ -62,6 +66,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 
         private void SubscribeToEvents()
         {
+            _eventAggregator.GetEvent<RateChanged>().Subscribe(args =>
+            {
+                if (args.SymbolName == _selectedSymbolName)
+                {
+                    _openPositionRate = args.Rate;
+                }
+            });
+
             _eventAggregator.GetEvent<SelectedSymbolNameChanged>().Subscribe(name =>
             {
                 _selectedSymbolName = name;

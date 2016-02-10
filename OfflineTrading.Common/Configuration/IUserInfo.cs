@@ -17,5 +17,9 @@
         /// The current amount.
         /// </value>
         decimal CurrentAmount { get; }
+
+        void SubstractAmount(decimal amount);
+
+        void AddAmount(decimal amount);
     }
 }

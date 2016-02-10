@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Microsoft.Practices.Prism.PubSubEvents;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
+namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
 {
     class TradingEventsManager : ITradingEventsManager
     {

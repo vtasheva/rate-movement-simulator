@@ -126,10 +126,12 @@
     <Compile Include="Events\ClosePosition.cs" />
     <Compile Include="Events\OpenPosition.cs" />
     <Compile Include="Events\SelectedPositionChanged.cs" />
-    <Compile Include="IPositionItemProvider.cs" />
-    <Compile Include="ITradingEventsManager.cs" />
+    <Compile Include="Implementations\UserInfoViewModel.cs" />
+    <Compile Include="Interfaces\IPositionItemProvider.cs" />
+    <Compile Include="Interfaces\ITradingEventsManager.cs" />
+    <Compile Include="Interfaces\IUserInfoViewModel.cs" />
     <Compile Include="PositionItem.cs" />
-    <Compile Include="PositionItemProvider.cs" />
+    <Compile Include="Implementations\PositionItemProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -143,7 +145,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TradingEventsManager.cs" />
+    <Compile Include="Implementations\TradingEventsManager.cs" />
     <Compile Include="TradingModule.cs" />
     <Compile Include="UnityContainerConfigurator.cs" />
     <Compile Include="ViewModels\ClosePositionViewModel.cs" />

@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using System.Windows.Controls;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
@@ -8,11 +9,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
     /// </summary>
     public partial class UserAmountView : UserControl
     {
-        public UserAmountView(IUserInfo userInfo)
+        public UserAmountView(IUserInfoViewModel userInfoViewModel)
         {
             InitializeComponent();
 
-            DataContext = userInfo;
+            DataContext = userInfoViewModel;
         }
     }
 }

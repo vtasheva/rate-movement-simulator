@@ -1,6 +1,9 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.Common.Events;
+using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
 using Internovus.Wpf.Training.RateFeed.Interfaces;
+using Microsoft.Practices.Prism.PubSubEvents;
 using System.Collections.ObjectModel;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
@@ -8,6 +11,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
     public class RateMovementViewModel : IRateMovementViewModel
     {
         private ISymbolConfiguration _symbolConfiguration;
+        private IEventAggregator _eventAggregator;
 
         /// <summary>
         /// Gets the rate points.
@@ -47,9 +51,10 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
         /// </summary>
         /// <param name="rateGenerator">The rate generator.</param>
         /// <param name="applicationArgs">The application arguments.</param>
-        public RateMovementViewModel(IRateGenerator rateGenerator, ISymbolConfiguration symbolConfiguration)
+        public RateMovementViewModel(IRateGenerator rateGenerator, ISymbolConfiguration symbolConfiguration, IEventAggregator eventAggregator)
         {
             _symbolConfiguration = symbolConfiguration;
+            _eventAggregator = eventAggregator;
 
             RatePoints = new ObservableCollection<RatePoint>();
 
@@ -59,7 +64,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
 
         private void RateGenerator_OnTick(object sender, RatePoint ratePoint)
         {
-            System.Windows.Application.Current.Dispatcher.Invoke(() => { RatePoints.Add(ratePoint); });
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+            {
+                RatePoints.Add(ratePoint);
+                var rateChangedEventArgs = new RateChangedEventArgs(_symbolConfiguration.Name, ratePoint.Rate);
+                _eventAggregator.GetEvent<RateChanged>().Publish(rateChangedEventArgs);
+            });
         }
     }
 }

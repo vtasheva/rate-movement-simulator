@@ -1,6 +1,8 @@
 ﻿using Abmes.UnityExtensions;
 using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
 using Microsoft.Practices.Unity;
@@ -21,6 +23,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
             container.RegisterType<IClosePositionViewModel, ClosePositionViewModel>();
             container.RegisterType<ITradingEventsManager, TradingEventsManager>();
             container.RegisterType<IPositionItemProvider, PositionItemProvider>();
+            container.RegisterType<IUserInfoViewModel, UserInfoViewModel>();
         }
     }
 }

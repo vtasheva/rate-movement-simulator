@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.PubSubEvents;
@@ -16,7 +17,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
 
-        private PositionItem _currentPostionItem;
+        public PositionItem CurrentPostionItem { get; private set; }
 
         public ClosePositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator)
         {
@@ -26,24 +27,28 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             SubscribeToEvents();
         }
 
-
         private ICommand _closePosition;
         public ICommand ClosePosition
         {
             get
             {
-                if (_closePosition != null)
+                if (_closePosition == null)
                 {
-                    _closePosition = new DelegateCommand(() => _tradingEventsManager.Sell(_currentPostionItem));
+                    _closePosition = new DelegateCommand(() =>
+                    {
+                        _tradingEventsManager.Sell(CurrentPostionItem);
+                    });
                 }
 
                 return _closePosition;
             }
         }
 
+        public bool CanClosePositoin => CurrentPostionItem != null;
+
         private void SubscribeToEvents()
         {
-            _eventAggregator.GetEvent<SelectedPositionChanged>().Subscribe(pi => _currentPostionItem = pi);
+            _eventAggregator.GetEvent<SelectedPositionChanged>().Subscribe(pi => CurrentPostionItem = pi);
         }
     }
 }

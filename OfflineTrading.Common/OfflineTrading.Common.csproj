@@ -69,6 +69,8 @@
     <Compile Include="Configuration\IUserInfoProvider.cs" />
     <Compile Include="Constants\ParameterName.cs" />
     <Compile Include="Constants\RegionNames.cs" />
+    <Compile Include="Events\Arguments\RateChangedEventArgs.cs" />
+    <Compile Include="Events\RateChanged.cs" />
     <Compile Include="Events\SelectedSymbolChanged.cs" />
     <Compile Include="Extensions\UnityContainerExtensions.cs" />
     <Compile Include="IApplicationArgsParser.cs" />

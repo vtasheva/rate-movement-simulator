@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
+namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces
 {
     public interface ITradingEventsManager
     {
