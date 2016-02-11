@@ -13,7 +13,7 @@
             <telerik:GridViewDataColumn DataMemberBinding="{Binding Id}" Header="Id"/>
             <telerik:GridViewDataColumn DataMemberBinding="{Binding SymbolName}" Header="Item"/>
             <telerik:GridViewDataColumn DataMemberBinding="{Binding Amount}" Header="Amount"/>
-            <telerik:GridViewDataColumn DataMemberBinding="{Binding CurrentTime}" Header="Time opened"/>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding OpenTime}" Header="Time opened"/>
             <telerik:GridViewDataColumn DataMemberBinding="{Binding Profit, StringFormat=N}" Header="Profit"/>
         </telerik:RadGridView.Columns>
     </telerik:RadGridView>

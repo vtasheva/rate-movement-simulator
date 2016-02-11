@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
+using System;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
 {
@@ -16,7 +17,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         public PositionItem Create(string symbolName, decimal amount, decimal openPositionRate)
         {
             nextId++;
-            return new PositionItem(nextId, symbolName, amount, openPositionRate);
+            return new PositionItem(nextId, symbolName, amount, DateTime.Now, openPositionRate);
         }
     }
 }

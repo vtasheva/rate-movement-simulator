@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
-    public class PositionItem : NotifyPropertyChangedBase, INotifyPropertyChanged
+    public class PositionItem : NotifyPropertyChangedBase
     {
         /// <summary>
         /// Gets the identifier.
@@ -36,7 +36,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// <value>
         /// The current time.
         /// </value>
-        public DateTime CurrentTime { get; private set; }
+        public DateTime OpenTime { get; private set; }
 
         /// <summary>
         /// Gets or sets the open position rate.
@@ -78,12 +78,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// <param name="symbolName">Name of the symbol.</param>
         /// <param name="amount">The amount.</param>
         /// <param name="openPositionRate">The open position rate.</param>
-        public PositionItem(int id, string symbolName, decimal amount, decimal openPositionRate)
+        public PositionItem(int id, string symbolName, decimal amount, DateTime openTime, decimal openPositionRate)
         {
             Id = id;
             SymbolName = symbolName;
             Amount = amount;
-            CurrentTime = DateTime.Now;
+            OpenTime = openTime;
             OpenPositionRate = openPositionRate;
         }
     }
