@@ -2,6 +2,7 @@
 using System.Configuration;
 using System;
 using System.ComponentModel;
+using static System.Math;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
@@ -69,7 +70,15 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 
         public void SubstractAmount(decimal amount)
         {
-            CurrentAmount -= amount;
+            var newAmount = CurrentAmount - amount;
+            if (newAmount > 0)
+            {
+                CurrentAmount = newAmount;
+            }
+            else
+            {
+                throw new Exception("The user doesn't have enough money.");
+            }
         }
 
         public void AddAmount(decimal amount)

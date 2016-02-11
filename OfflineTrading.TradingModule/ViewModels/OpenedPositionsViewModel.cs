@@ -50,17 +50,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 
             OpenedPositions = new ObservableCollection<PositionItem>();
 
-            SubscriptToEvents();
+            SubscribeToEvents();
         }
 
-        private void SubscriptToEvents()
+        private void SubscribeToEvents()
         {
             _eventAggregator.GetEvent<OpenPosition>().Subscribe(p => OpenedPositions.Add(p));
 
-            _eventAggregator.GetEvent<ClosePosition>().Subscribe(p =>
-            {
-                OpenedPositions.Remove(p);
-            });
+            _eventAggregator.GetEvent<ClosePosition>().Subscribe(p =>  OpenedPositions.Remove(p));
 
             _eventAggregator.GetEvent<RateChanged>().Subscribe(args =>
             {
@@ -72,6 +69,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                     }
                 }
             });
+
+            _eventAggregator.GetEvent<CancelPosition>().Subscribe(p => OpenedPositions.Remove(p));
         }
 
         /// <summary>

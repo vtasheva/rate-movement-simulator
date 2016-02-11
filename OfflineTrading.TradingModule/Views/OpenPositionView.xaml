@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel>
             <Label Content="Amount to buy:"></Label>
-            <TextBox Text="{Binding Amount}"></TextBox>
+            <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Button Content="Buy" Command="{Binding OpenPosition}" IsEnabled="{Binding CanOpenPosition}"></Button>
         </StackPanel>
     </Grid>

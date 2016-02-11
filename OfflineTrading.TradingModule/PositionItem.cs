@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using static System.Math;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
@@ -60,7 +61,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// <value>
         /// The current rate.
         /// </value>
-        public decimal Profit { get { return Math.Round((CurrentRate / OpenPositionRate - 1) * Amount, 2); } }
+        public decimal Profit { get { return (CurrentRate - OpenPositionRate) * Amount; } }
 
         public PositionItem(string symbolName, decimal amount, decimal openPositionRate)
         {

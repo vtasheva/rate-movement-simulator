@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
@@ -32,11 +33,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                 {
                     _amount = value;
                     NotifyPropertyChanged(nameof(Amount));
+                    NotifyPropertyChanged(nameof(CanOpenPosition));
                 }
             }
         }
 
-        public bool CanOpenPosition => !string.IsNullOrEmpty(_selectedSymbolName);
+        public bool CanOpenPosition => !string.IsNullOrEmpty(_selectedSymbolName) && Amount > 0;
 
         public OpenPositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator)
         {
@@ -55,7 +57,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                 {
                     _openPosition = new DelegateCommand(() =>
                     {
-                        _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openPositionRate);
+                        try
+                        {
+                            _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openPositionRate);
+                        }
+                        catch
+                        {
+                            MessageBox.Show($"You don't have enough amount to buy {_selectedSymbolName}");
+                        }
                         Amount = 0;
                     });
                 }

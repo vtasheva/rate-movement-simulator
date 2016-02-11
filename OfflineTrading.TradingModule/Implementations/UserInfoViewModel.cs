@@ -26,11 +26,20 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
 
         private void SubscribeToEvents()
         {
-            _eventAggregator.GetEvent<OpenPosition>().Subscribe(pi => UserInfo.SubstractAmount(pi.Amount));
-            _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi =>
+            _eventAggregator.GetEvent<OpenPosition>().Subscribe(pi =>
             {
-                UserInfo.AddAmount(pi.Profit);
+                try
+                {
+                    UserInfo.SubstractAmount(pi.OpenPositionRate * pi.Amount);
+                }
+                catch
+                {
+                    _eventAggregator.GetEvent<CancelPosition>().Publish(pi);
+                    throw;
+                }
             });
+
+            _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi => UserInfo.AddAmount(pi.OpenPositionRate * pi.Amount + pi.Profit));
         }
     }
 }
