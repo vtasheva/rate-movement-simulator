@@ -19,7 +19,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Charting.ViewModels
         /// <value>
         /// The rate points.
         /// </value>
-        public ObservableCollection<RatePoint> RatePoints { get; private set; }
+        public ObservableCollection<RatePoint> RatePoints { get; }
 
         /// <summary>
         /// Gets the axis x step.

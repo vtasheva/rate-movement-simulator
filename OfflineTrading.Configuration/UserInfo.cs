@@ -57,7 +57,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 
                 return _currentAmount;
             }
-            private set
+            set
             {
                 if (_currentAmount != value)
                 {
@@ -77,32 +77,5 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
         private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        /// <summary>
-        /// Subtracts the amount.
-        /// </summary>
-        /// <param name="amount">The amount.</param>
-        /// <exception cref="System.Exception">The user doesn't have enough money.</exception>
-        public void SubtractAmount(decimal amount)
-        {
-            var newAmount = CurrentAmount - amount;
-            if (newAmount > 0)
-            {
-                CurrentAmount = newAmount;
-            }
-            else
-            {
-                throw new Exception("The user doesn't have enough money.");
-            }
-        }
-
-        /// <summary>
-        /// Adds the amount.
-        /// </summary>
-        /// <param name="amount">The amount.</param>
-        public void AddAmount(decimal amount)
-        {
-            CurrentAmount += amount;
-        }
     }
 }

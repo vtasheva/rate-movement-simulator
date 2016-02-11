@@ -13,7 +13,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// <value>
         /// The identifier.
         /// </value>
-        public int Id { get; private set; }
+        public int Id { get; }
 
         /// <summary>
         /// Gets or sets the name of the symbol.
@@ -21,7 +21,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// <value>
         /// The name of the symbol.
         /// </value>
-        public string SymbolName { get; private set; }
+        public string SymbolName { get; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -29,7 +29,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// <value>
         /// The amount.
         /// </value>
-        public decimal Amount { get; private set; }
+        public decimal Amount { get; }
 
         /// <summary>
         /// Gets or sets the current time.
@@ -37,7 +37,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// <value>
         /// The current time.
         /// </value>
-        public DateTime OpenTime { get; private set; }
+        public DateTime OpenTime { get; }
 
         /// <summary>
         /// Gets or sets the open position rate.
@@ -45,7 +45,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// <value>
         /// The open position rate.
         /// </value>
-        public decimal OpenRate { get; private set; }
+        public decimal OpenRate { get; }
 
         private decimal _currentRate;
         public decimal CurrentRate

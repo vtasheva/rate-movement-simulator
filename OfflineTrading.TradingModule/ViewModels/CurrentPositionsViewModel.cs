@@ -63,7 +63,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             _eventAggregator.GetEvent<OpenPosition>().Subscribe(p => CurrentPositions.Add(p));
             _eventAggregator.GetEvent<ClosePosition>().Subscribe(p => CurrentPositions.Remove(p));
             _eventAggregator.GetEvent<RateChanged>().Subscribe(RateChangedHandler);
-            _eventAggregator.GetEvent<CancelPosition>().Subscribe(p => CurrentPositions.Remove(p));
         }
 
         private void RateChangedHandler(RateChangedEventArgs eventArgs)

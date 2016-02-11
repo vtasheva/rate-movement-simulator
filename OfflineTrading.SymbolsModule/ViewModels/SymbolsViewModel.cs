@@ -16,7 +16,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
         /// <value>
         /// The symbol view models.
         /// </value>
-        public IEnumerable<ISymbolViewModel> SymbolViewModels { get; private set; }
+        public IEnumerable<ISymbolViewModel> SymbolViewModels { get; }
 
         /// <summary>
         /// Gets the selected symbol view model.

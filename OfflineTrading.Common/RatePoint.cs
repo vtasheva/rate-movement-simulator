@@ -8,7 +8,7 @@
         /// <value>
         /// The time in milliseconds.
         /// </value>
-        public double TimeInMilliseconds { get; private set; }
+        public double TimeInMilliseconds { get; }
 
         /// <summary>
         /// Gets the rate.
@@ -16,7 +16,7 @@
         /// <value>
         /// The rate.
         /// </value>
-        public decimal Rate { get; private set; }
+        public decimal Rate { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RatePoint"/> class.

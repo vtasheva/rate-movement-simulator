@@ -9,7 +9,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
     {
         private readonly IEventAggregator _eventAggregator;
 
-        public IUserInfo UserInfo { get; private set; }
+        public IUserInfo UserInfo { get; }
 
         public UserInfoViewModel(IUserInfo userInfo, IEventAggregator eventAggregator)
         {
@@ -21,21 +21,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
 
         private void SubscribeToEvents()
         {
-            _eventAggregator.GetEvent<OpenPosition>().Subscribe(OpenPositionHandler);
-            _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi => UserInfo.AddAmount(pi.OpenRate * pi.Amount + pi.Profit));
-        }
-
-        private void OpenPositionHandler(IPositionItem positionItem)
-        {
-            try
-            {
-                UserInfo.SubtractAmount(positionItem.OpenRate * positionItem.Amount);
-            }
-            catch
-            {
-                _eventAggregator.GetEvent<CancelPosition>().Publish(positionItem);
-                throw;
-            }
+            _eventAggregator.GetEvent<OpenPosition>().Subscribe(pi => UserInfo.CurrentAmount -= pi.OpenRate * pi.Amount);
+            _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi => UserInfo.CurrentAmount += pi.OpenRate * pi.Amount + pi.Profit);
         }
     }
 }

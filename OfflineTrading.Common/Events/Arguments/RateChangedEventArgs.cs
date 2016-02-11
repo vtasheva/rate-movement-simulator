@@ -10,7 +10,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments
         /// <value>
         /// The name of the symbol.
         /// </value>
-        public string SymbolName { get; private set; }
+        public string SymbolName { get; }
 
         /// <summary>
         /// Gets the rate.
@@ -18,7 +18,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments
         /// <value>
         /// The rate.
         /// </value>
-        public decimal Rate { get; private set; }
+        public decimal Rate { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RateChangedEventArgs"/> class.
