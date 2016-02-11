@@ -6,6 +6,8 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
     public class PositionItem : INotifyPropertyChanged
     {
+        public int Id { get; private set; }
+
         /// <summary>
         /// Gets or sets the name of the symbol.
         /// </summary>
@@ -63,8 +65,9 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// </value>
         public decimal Profit { get { return (CurrentRate - OpenPositionRate) * Amount; } }
 
-        public PositionItem(string symbolName, decimal amount, decimal openPositionRate)
+        public PositionItem(int id, string symbolName, decimal amount, decimal openPositionRate)
         {
+            Id = id;
             SymbolName = symbolName;
             Amount = amount;
             CurrentTime = DateTime.Now;

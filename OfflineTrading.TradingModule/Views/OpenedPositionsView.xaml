@@ -10,7 +10,7 @@
 
     <telerik:RadGridView ItemsSource="{Binding OpenedPositions}" SelectedItem="{Binding SelectedPositionItem}" AutoGenerateColumns="False">
         <telerik:RadGridView.Columns>
-            <telerik:GridViewDataColumn DataMemberBinding="{Binding SymbolName}" Header="Id"/>
+            <telerik:GridViewDataColumn DataMemberBinding="{Binding Id}" Header="Id"/>
             <telerik:GridViewDataColumn DataMemberBinding="{Binding SymbolName}" Header="Item"/>
             <telerik:GridViewDataColumn DataMemberBinding="{Binding Amount}" Header="Amount"/>
             <telerik:GridViewDataColumn DataMemberBinding="{Binding CurrentTime}" Header="Time opened"/>
