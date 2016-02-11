@@ -33,12 +33,10 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                 {
                     _amount = value;
                     NotifyPropertyChanged(nameof(Amount));
-                    NotifyPropertyChanged(nameof(CanOpenPosition));
+                    (OpenPosition as DelegateCommand).RaiseCanExecuteChanged();
                 }
             }
         }
-
-        public bool CanOpenPosition => !string.IsNullOrEmpty(_selectedSymbolName) && Amount > 0;
 
         public OpenPositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator)
         {
@@ -55,23 +53,27 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             {
                 if (_openPosition == null)
                 {
-                    _openPosition = new DelegateCommand(() =>
-                    {
-                        try
-                        {
-                            _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openPositionRate);
-                        }
-                        catch
-                        {
-                            MessageBox.Show($"You don't have enough amount to buy {_selectedSymbolName}");
-                        }
-                        Amount = 0;
-                    });
+                    _openPosition = new DelegateCommand(OpenPositionHandler, CanOpenPosition);
                 }
 
                 return _openPosition;
             }
         }
+
+        private void OpenPositionHandler()
+        {
+            try
+            {
+                _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openPositionRate);
+            }
+            catch
+            {
+                MessageBox.Show($"You don't have enough amount to buy {_selectedSymbolName}");
+            }
+            Amount = 0;
+        }
+
+        private bool CanOpenPosition() => !string.IsNullOrEmpty(_selectedSymbolName) && Amount > 0;
 
         private void SubscribeToEvents()
         {
@@ -87,6 +89,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             {
                 _selectedSymbolName = name;
                 NotifyPropertyChanged(nameof(CanOpenPosition));
+                (OpenPosition as DelegateCommand).RaiseCanExecuteChanged();
             });
         }
 

@@ -12,7 +12,5 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interf
         decimal Amount { get; }
 
         ICommand OpenPosition { get; }
-
-        bool CanOpenPosition { get; }
     }
 }

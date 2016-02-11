@@ -31,6 +31,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                 {
                     _currentPositionItem = value;
                     NotifyPropertyChanged(nameof(CanClosePosition));
+                    (ClosePosition as DelegateCommand).RaiseCanExecuteChanged();
                 }
             }
         }
@@ -50,17 +51,16 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             {
                 if (_closePosition == null)
                 {
-                    _closePosition = new DelegateCommand(() =>
-                    {
-                        _tradingEventsManager.Sell(CurrentPostionItem);
-                    });
+                    _closePosition = new DelegateCommand(ClosePositionHandler, CanClosePosition);
                 }
 
                 return _closePosition;
             }
         }
 
-        public bool CanClosePosition => CurrentPostionItem != null;
+        private void ClosePositionHandler() => _tradingEventsManager.Sell(CurrentPostionItem);
+
+        private bool CanClosePosition() => CurrentPostionItem != null;
 
         private void SubscribeToEvents()
         {

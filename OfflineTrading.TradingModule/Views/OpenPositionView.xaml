@@ -10,7 +10,7 @@
         <StackPanel>
             <Label Content="Amount to buy:"></Label>
             <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            <Button Content="Buy" Command="{Binding OpenPosition}" IsEnabled="{Binding CanOpenPosition}"></Button>
+            <Button Content="Buy" Command="{Binding OpenPosition}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>
