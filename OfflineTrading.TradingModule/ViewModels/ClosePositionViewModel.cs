@@ -4,12 +4,6 @@ using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.PubSubEvents;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels

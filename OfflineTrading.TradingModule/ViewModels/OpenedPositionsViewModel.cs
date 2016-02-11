@@ -1,14 +1,10 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
-using System.Collections.Generic;
-using System;
-using Microsoft.Practices.Prism.PubSubEvents;
-using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
-using System.Collections.ObjectModel;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events;
-using System.ComponentModel;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
-using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
+using Microsoft.Practices.Prism.PubSubEvents;
+using System.Collections.ObjectModel;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {

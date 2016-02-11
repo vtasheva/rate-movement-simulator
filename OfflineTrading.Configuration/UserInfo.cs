@@ -1,9 +1,7 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using System.Configuration;
 using System;
 using System.ComponentModel;
-using static System.Math;
-using Internovus.Wpf.Training.OfflineTrading.Common;
+using System.Configuration;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {

@@ -1,7 +1,6 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using System;
 using System.ComponentModel;
-using static System.Math;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {

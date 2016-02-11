@@ -1,7 +1,6 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
 using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
 using Microsoft.Practices.Prism.Commands;
-using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels

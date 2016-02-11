@@ -1,5 +1,4 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
+﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using System.Windows.Controls;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
