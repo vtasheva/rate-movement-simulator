@@ -128,10 +128,11 @@
     <Compile Include="Events\OpenPosition.cs" />
     <Compile Include="Events\SelectedPositionChanged.cs" />
     <Compile Include="Implementations\UserInfoViewModel.cs" />
+    <Compile Include="Interfaces\IPositionItem.cs" />
     <Compile Include="Interfaces\IPositionItemProvider.cs" />
     <Compile Include="Interfaces\ITradingEventsManager.cs" />
     <Compile Include="Interfaces\IUserInfoViewModel.cs" />
-    <Compile Include="PositionItem.cs" />
+    <Compile Include="Implementations\PositionItem.cs" />
     <Compile Include="Implementations\PositionItemProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

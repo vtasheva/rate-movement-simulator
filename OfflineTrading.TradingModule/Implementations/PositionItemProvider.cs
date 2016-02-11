@@ -14,7 +14,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// <param name="amount">The amount.</param>
         /// <param name="openRate">The open position rate.</param>
         /// <returns></returns>
-        public PositionItem Create(string symbolName, decimal amount, decimal openRate)
+        public IPositionItem Create(string symbolName, decimal amount, decimal openRate)
         {
             nextId++;
             return new PositionItem(nextId, symbolName, amount, DateTime.Now, openRate);

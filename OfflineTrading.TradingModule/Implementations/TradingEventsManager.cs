@@ -36,7 +36,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// Sells the specified position item.
         /// </summary>
         /// <param name="positionItem">The position item.</param>
-        public void Sell(PositionItem positionItem)
+        public void Sell(IPositionItem positionItem)
         {
             _eventAggregator.GetEvent<ClosePosition>().Publish(positionItem);
         }

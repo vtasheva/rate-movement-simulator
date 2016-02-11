@@ -1,10 +1,11 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using System;
 using System.ComponentModel;
 
-namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
+namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
 {
-    public class PositionItem : NotifyPropertyChangedBase
+    public class PositionItem : NotifyPropertyChangedBase, IPositionItem
     {
         /// <summary>
         /// Gets the identifier.

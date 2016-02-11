@@ -2,6 +2,7 @@
 using Internovus.Wpf.Training.OfflineTrading.Common.Events;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
 using Microsoft.Practices.Prism.PubSubEvents;
 using System.Collections.ObjectModel;
@@ -18,16 +19,16 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         /// <value>
         /// The current positions.
         /// </value>
-        public ObservableCollection<PositionItem> CurrentPositions { get; set; }
+        public ObservableCollection<IPositionItem> CurrentPositions { get; set; }
 
-        private PositionItem _selectedPositionItem;
+        private IPositionItem _selectedPositionItem;
         /// <summary>
         /// Gets or sets the selected position item.
         /// </summary>
         /// <value>
         /// The selected position item.
         /// </value>
-        public PositionItem SelectedPositionItem
+        public IPositionItem SelectedPositionItem
         {
             get
             {
@@ -52,7 +53,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         {
             _eventAggregator = eventAggregator;
 
-            CurrentPositions = new ObservableCollection<PositionItem>();
+            CurrentPositions = new ObservableCollection<IPositionItem>();
 
             SubscribeToEvents();
         }

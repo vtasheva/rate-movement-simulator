@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces
 {
@@ -10,7 +11,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interf
         /// <value>
         /// The current positions.
         /// </value>
-        ObservableCollection<PositionItem> CurrentPositions { get; }
+        ObservableCollection<IPositionItem> CurrentPositions { get; }
 
         /// <summary>
         /// Gets or sets the selected position item.
@@ -18,6 +19,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interf
         /// <value>
         /// The selected position item.
         /// </value>
-        PositionItem SelectedPositionItem { get; set; }
+        IPositionItem SelectedPositionItem { get; set; }
     }
 }

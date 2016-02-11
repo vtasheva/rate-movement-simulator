@@ -25,7 +25,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
             _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi => UserInfo.AddAmount(pi.OpenRate * pi.Amount + pi.Profit));
         }
 
-        private void OpenPositionHandler(PositionItem positionItem)
+        private void OpenPositionHandler(IPositionItem positionItem)
         {
             try
             {

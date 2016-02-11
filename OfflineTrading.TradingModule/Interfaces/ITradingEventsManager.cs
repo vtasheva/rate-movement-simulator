@@ -14,6 +14,6 @@
         /// Sells the specified position item.
         /// </summary>
         /// <param name="positionItem">The position item.</param>
-        void Sell(PositionItem positionItem);
+        void Sell(IPositionItem positionItem);
     }
 }

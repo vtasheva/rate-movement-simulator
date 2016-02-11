@@ -13,14 +13,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
 
-        private PositionItem _currentPositionItem;
+        private IPositionItem _currentPositionItem;
         /// <summary>
         /// Gets the current position item.
         /// </summary>
         /// <value>
         /// The current position item.
         /// </value>
-        public PositionItem CurrentPositionItem
+        public IPositionItem CurrentPositionItem
         {
             get
             {

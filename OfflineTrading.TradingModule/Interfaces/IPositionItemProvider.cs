@@ -9,6 +9,6 @@
         /// <param name="amount">The amount.</param>
         /// <param name="openRate">The open position rate.</param>
         /// <returns></returns>
-        PositionItem Create(string symbolName, decimal amount, decimal openRate);
+        IPositionItem Create(string symbolName, decimal amount, decimal openRate);
     }
 }
