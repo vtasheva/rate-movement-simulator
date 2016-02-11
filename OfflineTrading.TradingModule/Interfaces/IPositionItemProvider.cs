@@ -7,8 +7,8 @@
         /// </summary>
         /// <param name="symbolName">Name of the symbol.</param>
         /// <param name="amount">The amount.</param>
-        /// <param name="openPositionRate">The open position rate.</param>
+        /// <param name="openRate">The open position rate.</param>
         /// <returns></returns>
-        PositionItem Create(string symbolName, decimal amount, decimal openPositionRate);
+        PositionItem Create(string symbolName, decimal amount, decimal openRate);
     }
 }

@@ -22,14 +22,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         private void SubscribeToEvents()
         {
             _eventAggregator.GetEvent<OpenPosition>().Subscribe(OpenPositionHandler);
-            _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi => UserInfo.AddAmount(pi.OpenPositionRate * pi.Amount + pi.Profit));
+            _eventAggregator.GetEvent<ClosePosition>().Subscribe(pi => UserInfo.AddAmount(pi.OpenRate * pi.Amount + pi.Profit));
         }
 
         private void OpenPositionHandler(PositionItem positionItem)
         {
             try
             {
-                UserInfo.SubtractAmount(positionItem.OpenPositionRate * positionItem.Amount);
+                UserInfo.SubtractAmount(positionItem.OpenRate * positionItem.Amount);
             }
             catch
             {

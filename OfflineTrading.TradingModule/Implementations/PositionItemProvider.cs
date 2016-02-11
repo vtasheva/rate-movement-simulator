@@ -12,12 +12,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// </summary>
         /// <param name="symbolName">Name of the symbol.</param>
         /// <param name="amount">The amount.</param>
-        /// <param name="openPositionRate">The open position rate.</param>
+        /// <param name="openRate">The open position rate.</param>
         /// <returns></returns>
-        public PositionItem Create(string symbolName, decimal amount, decimal openPositionRate)
+        public PositionItem Create(string symbolName, decimal amount, decimal openRate)
         {
             nextId++;
-            return new PositionItem(nextId, symbolName, amount, DateTime.Now, openPositionRate);
+            return new PositionItem(nextId, symbolName, amount, DateTime.Now, openRate);
         }
     }
 }

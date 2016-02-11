@@ -25,10 +25,10 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         /// </summary>
         /// <param name="symbolName">Name of the symbol.</param>
         /// <param name="amount">The amount.</param>
-        /// <param name="openPositionRate">The open position rate.</param>
-        public void Buy(string symbolName, decimal amount, decimal openPositionRate)
+        /// <param name="openRate">The open position rate.</param>
+        public void Buy(string symbolName, decimal amount, decimal openRate)
         {
-            var positionItem = _positionItemProvider.Create(symbolName, amount, openPositionRate);
+            var positionItem = _positionItemProvider.Create(symbolName, amount, openRate);
             _eventAggregator.GetEvent<OpenPosition>().Publish(positionItem);
         }
 

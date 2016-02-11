@@ -7,8 +7,8 @@
         /// </summary>
         /// <param name="symbolName">Name of the symbol.</param>
         /// <param name="amount">The amount.</param>
-        /// <param name="openPositionRate">The open position rate.</param>
-        void Buy(string symbolName, decimal amount, decimal openPositionRate);
+        /// <param name="openRate">The open position rate.</param>
+        void Buy(string symbolName, decimal amount, decimal openRate);
 
         /// <summary>
         /// Sells the specified position item.

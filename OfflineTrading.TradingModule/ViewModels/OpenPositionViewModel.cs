@@ -15,7 +15,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
         private string _selectedSymbolName;
-        private decimal _openPositionRate;
+        private decimal _openRate;
 
         private decimal _amount;
         /// <summary>
@@ -77,7 +77,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         {
             try
             {
-                _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openPositionRate);
+                _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openRate);
             }
             catch
             {
@@ -105,7 +105,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         {
             if (eventArgs.SymbolName == _selectedSymbolName)
             {
-                _openPositionRate = eventArgs.Rate;
+                _openRate = eventArgs.Rate;
             }
         }
 

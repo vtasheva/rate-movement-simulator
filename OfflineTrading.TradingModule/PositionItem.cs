@@ -44,7 +44,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// <value>
         /// The open position rate.
         /// </value>
-        public decimal OpenPositionRate { get; private set; }
+        public decimal OpenRate { get; private set; }
 
         private decimal _currentRate;
         public decimal CurrentRate
@@ -69,7 +69,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// <value>
         /// The current rate.
         /// </value>
-        public decimal Profit { get { return (CurrentRate - OpenPositionRate) * Amount; } }
+        public decimal Profit { get { return (CurrentRate - OpenRate) * Amount; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PositionItem"/> class.
@@ -77,14 +77,14 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// <param name="id">The identifier.</param>
         /// <param name="symbolName">Name of the symbol.</param>
         /// <param name="amount">The amount.</param>
-        /// <param name="openPositionRate">The open position rate.</param>
-        public PositionItem(int id, string symbolName, decimal amount, DateTime openTime, decimal openPositionRate)
+        /// <param name="openRate">The open position rate.</param>
+        public PositionItem(int id, string symbolName, decimal amount, DateTime openTime, decimal openRate)
         {
             Id = id;
             SymbolName = symbolName;
             Amount = amount;
             OpenTime = openTime;
-            OpenPositionRate = openPositionRate;
+            OpenRate = openRate;
         }
     }
 }
