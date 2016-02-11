@@ -31,7 +31,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                 if (_currentPositionItem != value)
                 {
                     _currentPositionItem = value;
-                    NotifyPropertyChanged(nameof(CanClosePosition));
                     (ClosePosition as DelegateCommand).RaiseCanExecuteChanged();
                 }
             }

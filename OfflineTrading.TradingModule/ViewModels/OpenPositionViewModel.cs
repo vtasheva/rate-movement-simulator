@@ -97,7 +97,6 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         private void SelectedSymbolNameChangedHandler(string name)
         {
             _selectedSymbolName = name;
-            NotifyPropertyChanged(nameof(CanOpenPosition));
             (OpenPosition as DelegateCommand).RaiseCanExecuteChanged();
         }
 
