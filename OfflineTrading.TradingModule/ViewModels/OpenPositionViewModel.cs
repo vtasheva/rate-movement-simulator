@@ -12,10 +12,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
+using Internovus.Wpf.Training.OfflineTrading.Common;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {
-    class OpenPositionViewModel : IOpenPositionViewModel, INotifyPropertyChanged
+    class OpenPositionViewModel : NotifyPropertyChangedBase, IOpenPositionViewModel
     {
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
@@ -23,6 +24,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         private decimal _openPositionRate;
 
         private decimal _amount;
+        /// <summary>
+        /// Gets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public decimal Amount
         {
             get
@@ -39,6 +46,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OpenPositionViewModel"/> class.
+        /// </summary>
+        /// <param name="tradingEventsManager">The trading events manager.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
         public OpenPositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator)
         {
             _tradingEventsManager = tradingEventsManager;
@@ -48,6 +60,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         }
 
         private ICommand _openPosition;
+        /// <summary>
+        /// Gets the open position.
+        /// </summary>
+        /// <value>
+        /// The open position.
+        /// </value>
         public ICommand OpenPosition
         {
             get
@@ -97,15 +115,5 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             }
         }
 
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies the property changed.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

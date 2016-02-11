@@ -1,4 +1,5 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces;
 using Microsoft.Practices.Prism.Commands;
@@ -13,13 +14,19 @@ using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {
-    class ClosePositionViewModel : IClosePositionViewModel, INotifyPropertyChanged
+    class ClosePositionViewModel : NotifyPropertyChangedBase, IClosePositionViewModel
     {
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
 
         private PositionItem _currentPositionItem;
-        public PositionItem CurrentPostionItem
+        /// <summary>
+        /// Gets the current position item.
+        /// </summary>
+        /// <value>
+        /// The current position item.
+        /// </value>
+        public PositionItem CurrentPositionItem
         {
             get
             {
@@ -36,6 +43,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClosePositionViewModel"/> class.
+        /// </summary>
+        /// <param name="tradingEventsManager">The trading events manager.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
         public ClosePositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator)
         {
             _tradingEventsManager = tradingEventsManager;
@@ -45,6 +57,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         }
 
         private ICommand _closePosition;
+        /// <summary>
+        /// Gets the close position.
+        /// </summary>
+        /// <value>
+        /// The close position.
+        /// </value>
         public ICommand ClosePosition
         {
             get
@@ -58,24 +76,13 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
             }
         }
 
-        private void ClosePositionHandler() => _tradingEventsManager.Sell(CurrentPostionItem);
+        private void ClosePositionHandler() => _tradingEventsManager.Sell(CurrentPositionItem);
 
-        private bool CanClosePosition() => CurrentPostionItem != null;
+        private bool CanClosePosition() => CurrentPositionItem != null;
 
         private void SubscribeToEvents()
         {
-            _eventAggregator.GetEvent<SelectedPositionChanged>().Subscribe(pi => CurrentPostionItem = pi);
+            _eventAggregator.GetEvent<SelectedPositionChanged>().Subscribe(pi => CurrentPositionItem = pi);
         }
-
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies the property changed.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

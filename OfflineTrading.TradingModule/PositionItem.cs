@@ -1,11 +1,18 @@
-﻿using System;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using System;
 using System.ComponentModel;
 using static System.Math;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
 {
-    public class PositionItem : INotifyPropertyChanged
+    public class PositionItem : NotifyPropertyChangedBase, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int Id { get; private set; }
 
         /// <summary>
@@ -65,6 +72,13 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         /// </value>
         public decimal Profit { get { return (CurrentRate - OpenPositionRate) * Amount; } }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PositionItem"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="symbolName">Name of the symbol.</param>
+        /// <param name="amount">The amount.</param>
+        /// <param name="openPositionRate">The open position rate.</param>
         public PositionItem(int id, string symbolName, decimal amount, decimal openPositionRate)
         {
             Id = id;
@@ -73,16 +87,5 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
             CurrentTime = DateTime.Now;
             OpenPositionRate = openPositionRate;
         }
-
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies the property changed.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

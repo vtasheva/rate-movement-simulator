@@ -18,8 +18,16 @@
         /// </value>
         decimal CurrentAmount { get; }
 
-        void SubstractAmount(decimal amount);
+        /// <summary>
+        /// Subtract the amount.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
+        void SubtractAmount(decimal amount);
 
+        /// <summary>
+        /// Adds the amount.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         void AddAmount(decimal amount);
     }
 }

@@ -3,10 +3,11 @@ using System.Configuration;
 using System;
 using System.ComponentModel;
 using static System.Math;
+using Internovus.Wpf.Training.OfflineTrading.Common;
 
 namespace Internovus.Wpf.Training.OfflineTrading.Configuration
 {
-    class UserInfo : ConfigurationSection, IUserInfo, INotifyPropertyChanged
+    class UserInfo : ConfigurationSection, INotifyPropertyChanged, IUserInfo
     {
         /// <summary>
         /// Gets the name of the user.
@@ -68,7 +69,23 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
-        public void SubstractAmount(decimal amount)
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies the property changed.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        /// <summary>
+        /// Subtracts the amount.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
+        /// <exception cref="System.Exception">The user doesn't have enough money.</exception>
+        public void SubtractAmount(decimal amount)
         {
             var newAmount = CurrentAmount - amount;
             if (newAmount > 0)
@@ -81,20 +98,13 @@ namespace Internovus.Wpf.Training.OfflineTrading.Configuration
             }
         }
 
+        /// <summary>
+        /// Adds the amount.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         public void AddAmount(decimal amount)
         {
             CurrentAmount += amount;
         }
-
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies the property changed.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

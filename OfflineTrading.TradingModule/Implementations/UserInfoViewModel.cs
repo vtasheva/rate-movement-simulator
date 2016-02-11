@@ -34,7 +34,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Implementations
         {
             try
             {
-                UserInfo.SubstractAmount(positionItem.OpenPositionRate * positionItem.Amount);
+                UserInfo.SubtractAmount(positionItem.OpenPositionRate * positionItem.Amount);
             }
             catch
             {

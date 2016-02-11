@@ -1,11 +1,12 @@
-﻿using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
+﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Common.Charting.Interfaces;
 using Microsoft.Practices.Prism.Commands;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
 {
-    class SymbolViewModel : ISymbolViewModel, INotifyPropertyChanged
+    class SymbolViewModel : NotifyPropertyChangedBase, ISymbolViewModel
     {
         /// <summary>
         /// Gets the symbol configuration.
@@ -72,16 +73,5 @@ namespace Internovus.Wpf.Training.OfflineTrading.SymbolsModule.ViewModels
             SymbolName = symbolName;
             RateMovementViewModel = rateMovementViewModel;
         }
-
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies the property changed.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

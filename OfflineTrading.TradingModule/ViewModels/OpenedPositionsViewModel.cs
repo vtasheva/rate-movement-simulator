@@ -8,10 +8,11 @@ using System.Collections.ObjectModel;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events;
 using System.ComponentModel;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
+using Internovus.Wpf.Training.OfflineTrading.Common;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {
-    public class OpenedPositionsViewModel : IOpenedPositionsViewModel, INotifyPropertyChanged
+    public class OpenedPositionsViewModel : NotifyPropertyChangedBase, IOpenedPositionsViewModel
     {
         private IEventAggregator _eventAggregator;
 
@@ -24,6 +25,12 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         public ObservableCollection<PositionItem> OpenedPositions { get; set; }
 
         private PositionItem _selectedPositionItem;
+        /// <summary>
+        /// Gets or sets the selected position item.
+        /// </summary>
+        /// <value>
+        /// The selected position item.
+        /// </value>
         public PositionItem SelectedPositionItem
         {
             get
@@ -42,9 +49,9 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenedPositionsViewModel"/> class.
+        /// Initializes a new instance of the <see cref="OpenedPositionsViewModel" /> class.
         /// </summary>
-        /// <param name="userInfo">The user information.</param>
+        /// <param name="eventAggregator">The event aggregator.</param>
         public OpenedPositionsViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
@@ -72,16 +79,5 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
                 }
             }
         }
-
-        /// <summary>
-        /// Occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies the property changed.
-        /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void NotifyPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

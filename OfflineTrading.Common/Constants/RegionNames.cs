@@ -22,6 +22,9 @@
         /// </summary>
         public static string OpenedPositionsRegion = "OpenedPositionsRegion";
 
+        /// <summary>
+        /// The buy sell region
+        /// </summary>
         public static string BuySellRegion = "BuySellRegion";
     }
 }

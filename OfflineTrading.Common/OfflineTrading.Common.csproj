@@ -75,6 +75,7 @@
     <Compile Include="Extensions\UnityContainerExtensions.cs" />
     <Compile Include="IApplicationArgsParser.cs" />
     <Compile Include="IUnityContainerConfigurator.cs" />
+    <Compile Include="NotifyPropertyChangedBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatePoint.cs" />
   </ItemGroup>
