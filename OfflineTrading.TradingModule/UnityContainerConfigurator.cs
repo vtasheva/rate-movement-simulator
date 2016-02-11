@@ -23,7 +23,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
             container.RegisterType<IClosePositionViewModel, ClosePositionViewModel>();
             container.RegisterType<ITradingEventsManager, TradingEventsManager>();
             container.RegisterType<IPositionItemProvider, PositionItemProvider>();
-            container.RegisterType<IUserInfoViewModel, UserInfoViewModel>();
+            container.RegisterTypeSingleton<IUserInfoViewModel, UserInfoViewModel>();
         }
     }
 }

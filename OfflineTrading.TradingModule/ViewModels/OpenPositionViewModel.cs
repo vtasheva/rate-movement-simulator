@@ -1,4 +1,5 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common;
+using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
 using Internovus.Wpf.Training.OfflineTrading.TradingModule.Interfaces;
@@ -14,6 +15,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
     {
         private readonly ITradingEventsManager _tradingEventsManager;
         private readonly IEventAggregator _eventAggregator;
+        private readonly IUserInfo _userInfo;
         private string _selectedSymbolName;
         private decimal _openRate;
 
@@ -45,10 +47,11 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         /// </summary>
         /// <param name="tradingEventsManager">The trading events manager.</param>
         /// <param name="eventAggregator">The event aggregator.</param>
-        public OpenPositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator)
+        public OpenPositionViewModel(ITradingEventsManager tradingEventsManager, IEventAggregator eventAggregator, IUserInfo userInfo)
         {
             _tradingEventsManager = tradingEventsManager;
             _eventAggregator = eventAggregator;
+            _userInfo = userInfo;
 
             SubscribeToEvents();
         }
@@ -75,14 +78,13 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 
         private void OpenPositionHandler()
         {
-            try
-            {
-                _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openRate);
-            }
-            catch
+            if (Amount * _openRate > _userInfo.CurrentAmount)
             {
                 MessageBox.Show($"You don't have enough amount to buy {_selectedSymbolName}");
+                return;
             }
+
+            _tradingEventsManager.Buy(_selectedSymbolName, Amount, _openRate);
             Amount = 0;
         }
 
