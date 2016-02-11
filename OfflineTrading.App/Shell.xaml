@@ -39,7 +39,7 @@
             <ContentControl prism:RegionManager.RegionName="{x:Static rn:RegionNames.TabsRegion}"></ContentControl>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="1" Grid.Row="2">
-            <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.OpenedPositionsRegion}"></StackPanel>
+            <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.CurrentPositionsRegion}"></StackPanel>
         </Border>
         <Border Style="{StaticResource GridBorder}" Grid.Column="2" Grid.Row="2">
             <StackPanel prism:RegionManager.RegionName="{x:Static rn:RegionNames.BuySellRegion}"></StackPanel>

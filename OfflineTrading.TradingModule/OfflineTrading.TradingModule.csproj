@@ -151,15 +151,15 @@
     <Compile Include="UnityContainerConfigurator.cs" />
     <Compile Include="ViewModels\ClosePositionViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IClosePositionViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IOpenedPositionsViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ICurrentPositionsViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IOpenPositionViewModel.cs" />
-    <Compile Include="ViewModels\OpenedPositionsViewModel.cs" />
+    <Compile Include="ViewModels\CurrentPositionsViewModel.cs" />
     <Compile Include="ViewModels\OpenPositionViewModel.cs" />
     <Compile Include="Views\ClosePositionView.xaml.cs">
       <DependentUpon>ClosePositionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OpenedPositionsView.xaml.cs">
-      <DependentUpon>OpenedPositionsView.xaml</DependentUpon>
+    <Compile Include="Views\CurrentPositionsView.xaml.cs">
+      <DependentUpon>CurrentPositionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OpenPositionView.xaml.cs">
       <DependentUpon>OpenPositionView.xaml</DependentUpon>
@@ -184,7 +184,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\OpenedPositionsView.xaml">
+    <Page Include="Views\CurrentPositionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

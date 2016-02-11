@@ -18,7 +18,7 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule
         public void RegisterTypes(IUnityContainer container)
         {
             container.RegisterTypeByFactoryFunc<IUserInfo, IUserInfoProvider>(p => p.GetUserInfo());
-            container.RegisterType<IOpenedPositionsViewModel, OpenedPositionsViewModel>();
+            container.RegisterType<ICurrentPositionsViewModel, CurrentPositionsViewModel>();
             container.RegisterType<IOpenPositionViewModel, OpenPositionViewModel>();
             container.RegisterType<IClosePositionViewModel, ClosePositionViewModel>();
             container.RegisterType<ITradingEventsManager, TradingEventsManager>();

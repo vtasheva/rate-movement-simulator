@@ -4,15 +4,15 @@ using System.Windows.Controls;
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.Views
 {
     /// <summary>
-    /// Interaction logic for OpenedPositions.xaml
+    /// Interaction logic for CurrentPositions.xaml
     /// </summary>
-    public partial class OpenedPositionsView : UserControl
+    public partial class CurrentPositionsView : UserControl
     {
-        public OpenedPositionsView(IOpenedPositionsViewModel openedPositionsViewModel)
+        public CurrentPositionsView(ICurrentPositionsViewModel currentPositionsViewModel)
         {
             InitializeComponent();
 
-            DataContext = openedPositionsViewModel;
+            DataContext = currentPositionsViewModel;
         }
     }
 }

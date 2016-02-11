@@ -20,7 +20,7 @@
         /// <summary>
         /// The portfolio region name
         /// </summary>
-        public static string OpenedPositionsRegion = "OpenedPositionsRegion";
+        public static string CurrentPositionsRegion = "CurrentPositionsRegion";
 
         /// <summary>
         /// The buy sell region

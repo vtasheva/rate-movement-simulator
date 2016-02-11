@@ -2,15 +2,15 @@
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels.Interfaces
 {
-    public interface IOpenedPositionsViewModel
+    public interface ICurrentPositionsViewModel
     {
         /// <summary>
-        /// Gets the opened positions.
+        /// Gets the current positions.
         /// </summary>
         /// <value>
-        /// The opened positions.
+        /// The current positions.
         /// </value>
-        ObservableCollection<PositionItem> OpenedPositions { get; }
+        ObservableCollection<PositionItem> CurrentPositions { get; }
 
         /// <summary>
         /// Gets or sets the selected position item.

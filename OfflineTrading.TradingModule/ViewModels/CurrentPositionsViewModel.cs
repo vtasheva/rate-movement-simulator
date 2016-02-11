@@ -8,17 +8,17 @@ using System.Collections.ObjectModel;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {
-    public class OpenedPositionsViewModel : NotifyPropertyChangedBase, IOpenedPositionsViewModel
+    public class CurrentPositionsViewModel : NotifyPropertyChangedBase, ICurrentPositionsViewModel
     {
         private IEventAggregator _eventAggregator;
 
         /// <summary>
-        /// Gets or sets the opened positions.
+        /// Gets or sets the current positions.
         /// </summary>
         /// <value>
-        /// The opened positions.
+        /// The current positions.
         /// </value>
-        public ObservableCollection<PositionItem> OpenedPositions { get; set; }
+        public ObservableCollection<PositionItem> CurrentPositions { get; set; }
 
         private PositionItem _selectedPositionItem;
         /// <summary>
@@ -45,29 +45,29 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenedPositionsViewModel" /> class.
+        /// Initializes a new instance of the <see cref="CurrentPositionsViewModel" /> class.
         /// </summary>
         /// <param name="eventAggregator">The event aggregator.</param>
-        public OpenedPositionsViewModel(IEventAggregator eventAggregator)
+        public CurrentPositionsViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
 
-            OpenedPositions = new ObservableCollection<PositionItem>();
+            CurrentPositions = new ObservableCollection<PositionItem>();
 
             SubscribeToEvents();
         }
 
         private void SubscribeToEvents()
         {
-            _eventAggregator.GetEvent<OpenPosition>().Subscribe(p => OpenedPositions.Add(p));
-            _eventAggregator.GetEvent<ClosePosition>().Subscribe(p => OpenedPositions.Remove(p));
+            _eventAggregator.GetEvent<OpenPosition>().Subscribe(p => CurrentPositions.Add(p));
+            _eventAggregator.GetEvent<ClosePosition>().Subscribe(p => CurrentPositions.Remove(p));
             _eventAggregator.GetEvent<RateChanged>().Subscribe(RateChangedHandler);
-            _eventAggregator.GetEvent<CancelPosition>().Subscribe(p => OpenedPositions.Remove(p));
+            _eventAggregator.GetEvent<CancelPosition>().Subscribe(p => CurrentPositions.Remove(p));
         }
 
         private void RateChangedHandler(RateChangedEventArgs eventArgs)
         {
-            foreach (var item in OpenedPositions)
+            foreach (var item in CurrentPositions)
             {
                 if (item.SymbolName == eventArgs.SymbolName)
                 {
