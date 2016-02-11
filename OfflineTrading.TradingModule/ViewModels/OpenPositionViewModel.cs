@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {
@@ -77,20 +78,23 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 
         private void SubscribeToEvents()
         {
-            _eventAggregator.GetEvent<RateChanged>().Subscribe(args =>
-            {
-                if (args.SymbolName == _selectedSymbolName)
-                {
-                    _openPositionRate = args.Rate;
-                }
-            });
+            _eventAggregator.GetEvent<RateChanged>().Subscribe(RateChangedHandler);
+            _eventAggregator.GetEvent<SelectedSymbolNameChanged>().Subscribe(SelectedSymbolNameChangedHandler);
+        }
 
-            _eventAggregator.GetEvent<SelectedSymbolNameChanged>().Subscribe(name =>
+        private void SelectedSymbolNameChangedHandler(string name)
+        {
+            _selectedSymbolName = name;
+            NotifyPropertyChanged(nameof(CanOpenPosition));
+            (OpenPosition as DelegateCommand).RaiseCanExecuteChanged();
+        }
+
+        private void RateChangedHandler(RateChangedEventArgs eventArgs)
+        {
+            if (eventArgs.SymbolName == _selectedSymbolName)
             {
-                _selectedSymbolName = name;
-                NotifyPropertyChanged(nameof(CanOpenPosition));
-                (OpenPosition as DelegateCommand).RaiseCanExecuteChanged();
-            });
+                _openPositionRate = eventArgs.Rate;
+            }
         }
 
         /// <summary>

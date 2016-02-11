@@ -7,6 +7,7 @@ using Internovus.Wpf.Training.OfflineTrading.TradingModule.Events;
 using System.Collections.ObjectModel;
 using Internovus.Wpf.Training.OfflineTrading.Common.Events;
 using System.ComponentModel;
+using Internovus.Wpf.Training.OfflineTrading.Common.Events.Arguments;
 
 namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
 {
@@ -56,21 +57,20 @@ namespace Internovus.Wpf.Training.OfflineTrading.TradingModule.ViewModels
         private void SubscribeToEvents()
         {
             _eventAggregator.GetEvent<OpenPosition>().Subscribe(p => OpenedPositions.Add(p));
-
-            _eventAggregator.GetEvent<ClosePosition>().Subscribe(p =>  OpenedPositions.Remove(p));
-
-            _eventAggregator.GetEvent<RateChanged>().Subscribe(args =>
-            {
-                foreach (var item in OpenedPositions)
-                {
-                    if (item.SymbolName == args.SymbolName)
-                    {
-                        item.CurrentRate = args.Rate;
-                    }
-                }
-            });
-
+            _eventAggregator.GetEvent<ClosePosition>().Subscribe(p => OpenedPositions.Remove(p));
+            _eventAggregator.GetEvent<RateChanged>().Subscribe(RateChangedHandler);
             _eventAggregator.GetEvent<CancelPosition>().Subscribe(p => OpenedPositions.Remove(p));
+        }
+
+        private void RateChangedHandler(RateChangedEventArgs eventArgs)
+        {
+            foreach (var item in OpenedPositions)
+            {
+                if (item.SymbolName == eventArgs.SymbolName)
+                {
+                    item.CurrentRate = eventArgs.Rate;
+                }
+            }
         }
 
         /// <summary>
