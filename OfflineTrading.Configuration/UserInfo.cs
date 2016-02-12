@@ -1,5 +1,4 @@
 ﻿using Internovus.Wpf.Training.OfflineTrading.Common.Configuration;
-using System;
 using System.ComponentModel;
 using System.Configuration;
 
